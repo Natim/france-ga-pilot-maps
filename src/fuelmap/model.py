@@ -75,6 +75,30 @@ FAMILY_LABELS = {
     FAMILY_MOGAS: "SP95 / SP98 (dont UL AERO SUPER+, AKI93)",
 }
 
+#: The price map adds leaded avgas as a third family. Kept separate from
+#: ``FUEL_FAMILIES`` so the unleaded availability map is unchanged.
+FAMILY_100LL = "100ll"
+
+PRICE_MAP_FAMILIES = {
+    FAMILY_UL91: frozenset({UL91}),
+    FAMILY_MOGAS: frozenset({SUPER_PLUS, MOGAS, UL_AERO, AKI93}),
+    FAMILY_100LL: frozenset({AVGAS_100LL}),
+}
+
+PRICE_MAP_FAMILY_LABELS = {
+    FAMILY_UL91: FAMILY_LABELS[FAMILY_UL91],
+    FAMILY_MOGAS: FAMILY_LABELS[FAMILY_MOGAS],
+    FAMILY_100LL: "100LL (AVGAS plombée)",
+}
+
+#: Fuels that qualify an aerodrome for the price map.
+PLOTABLE_FUELS = frozenset().union(*PRICE_MAP_FAMILIES.values())
+
+#: Fuels for which a crowd-reported price may be submitted.
+PRICEABLE_FUELS = frozenset(
+    {UL91, UL_AERO, AKI93, SUPER_PLUS, AVGAS_100LL}
+)
+
 #: Everything an unleaded-certified piston engine can burn. Membership is what
 #: puts an aerodrome in the published subset.
 UNLEADED_FUELS = frozenset().union(*FUEL_FAMILIES.values())
@@ -185,6 +209,27 @@ class Aerodrome:
     def family_fuels(self, family: str) -> frozenset[str]:
         """The fuels this aerodrome carries within ``family``."""
         return self.fuels & FUEL_FAMILIES[family]
+
+    def price_map_family_fuels(self, family: str) -> frozenset[str]:
+        """The fuels this aerodrome carries within a price-map family."""
+        return self.fuels & PRICE_MAP_FAMILIES[family]
+
+    def price_map_families(self) -> list[str]:
+        """Which price-map families are available, in legend order."""
+        return [f for f in PRICE_MAP_FAMILIES if self.price_map_family_fuels(f)]
+
+    def price_map_family_availability(self, family: str) -> str:
+        """Best availability across the fuels of a price-map family."""
+        return best_availability(
+            {
+                self.availability_of(fuel)
+                for fuel in self.price_map_family_fuels(family)
+            }
+        )
+
+    @property
+    def is_plottable_for_prices(self) -> bool:
+        return bool(self.fuels & PLOTABLE_FUELS)
 
     def families(self) -> list[str]:
         """Which unleaded families are available, in legend order.

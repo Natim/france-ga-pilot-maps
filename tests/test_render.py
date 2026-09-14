@@ -5,7 +5,7 @@ from pathlib import Path
 import pytest
 
 from fuelmap import model
-from fuelmap.render import csv_export, markdown, web
+from fuelmap.render import csv_export, locations, markdown, web
 
 AIRAC = "2026-05-14"
 TODAY = date(2026, 8, 11)
@@ -303,3 +303,38 @@ class TestMapData:
         """A 100LL-only field has no family and must not vanish silently."""
         with pytest.raises(ValueError):
             web.build_payload([aerodrome("LFAT", {model.AVGAS_100LL})], AIRAC)
+
+
+class TestLocationsData:
+    def test_includes_100ll_only_fields(self):
+        payload = locations.build_payload(
+            [aerodrome("LFAT", {model.AVGAS_100LL}, name="LE TOUQUET")],
+            AIRAC,
+            today=TODAY,
+        )
+        assert payload["aerodromeCount"] == 1
+        assert payload["markers"][0]["family"] == model.FAMILY_100LL
+
+    def test_emits_one_marker_per_price_map_family(self, aerodromes):
+        payload = locations.build_payload(aerodromes, AIRAC, today=TODAY)
+        pairs = [(marker["icao"], marker["family"]) for marker in payload["markers"]]
+        assert ("LFCU", model.FAMILY_MOGAS) in pairs
+        assert ("LFCU", model.FAMILY_100LL) in pairs
+        assert ("LFMW", model.FAMILY_UL91) in pairs
+        assert ("LFMW", model.FAMILY_MOGAS) in pairs
+
+    def test_records_schema_and_cycle(self, aerodromes):
+        payload = locations.build_payload(aerodromes, AIRAC, today=TODAY)
+        assert payload["schema"] == locations.LOCATIONS_SCHEMA_VERSION
+        assert payload["airac"] == AIRAC
+
+    def test_the_price_page_reads_the_schema_it_is_sent(self):
+        page = Path("docs/prix.html").read_text(encoding="utf-8")
+        assert f"const SUPPORTED_SCHEMA = {locations.LOCATIONS_SCHEMA_VERSION};" in page
+        assert "locations.families" in page
+
+    def test_writes_valid_utf8_json(self, tmp_path, aerodromes):
+        path = tmp_path / "docs" / "locations.json"
+        plotted = locations.write_locations_data(path, aerodromes, AIRAC, today=TODAY)
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        assert plotted == payload["aerodromeCount"] == 3

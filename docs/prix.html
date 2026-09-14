@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Prix carburants aviation — 100LL et sans plomb en France</title>
+<meta name="description" content="Carte des prix 100LL, UL91 et essence sans plomb sur les aérodromes français. Données de localisation extraites de l'eAIP SIA, prix communautaires datés." />
+<link rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin="" />
+<style>
+  :root {
+    --self-service: #2ecc71;
+    --restricted: #f39c12;
+    --unknown: #9aa0a6;
+    --fresh: #2c7bb6;
+    --stale: #c0392b;
+    --no-price: #9aa0a6;
+    --ink: #202124;
+    --muted: #5f6368;
+  }
+  html, body { margin: 0; padding: 0; height: 100%; font-family: system-ui, sans-serif; color: var(--ink); }
+  #map { position: absolute; inset: 0; }
+
+  .panel {
+    position: absolute; top: 12px; right: 12px; z-index: 1000;
+    background: rgba(255, 255, 255, 0.97); padding: 14px 16px;
+    border-radius: 10px; box-shadow: 0 2px 12px rgba(0, 0, 0, 0.22);
+    font-size: 13px; width: 310px; max-height: calc(100% - 24px);
+    overflow-y: auto;
+  }
+  .panel h1 { margin: 0 0 6px; font-size: 15px; }
+  .panel h2 {
+    margin: 14px 0 6px; font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--muted);
+  }
+  .meta { color: var(--muted); font-size: 11px; line-height: 1.5; }
+  a { color: #2c7bb6; }
+
+  .search {
+    width: 100%; box-sizing: border-box; margin-top: 10px; padding: 7px 9px;
+    border: 1px solid #ccc; border-radius: 6px; font-size: 13px;
+  }
+
+  .filters label {
+    display: flex; align-items: center; gap: 8px;
+    cursor: pointer; user-select: none; line-height: 1.9;
+  }
+  .filters .count { color: var(--muted); font-size: 11px; margin-left: auto; }
+  .filters input { flex: none; }
+
+  .key {
+    display: inline-block; width: 15px; height: 15px; flex: none;
+    border: 2px solid white; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
+    background: var(--muted);
+  }
+  .key-ul91 { border-radius: 50%; }
+  .key-mogas { border-radius: 3px; }
+  .key-100ll {
+    width: 0; height: 0; border: none; box-shadow: none; background: none;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 14px solid var(--muted);
+  }
+  .key-self_service { background: var(--self-service); }
+  .key-restricted { background: var(--restricted); }
+  .key-unknown { background: var(--unknown); }
+  .key-100ll.key-self_service { border-bottom-color: var(--self-service); background: none; }
+  .key-100ll.key-restricted { border-bottom-color: var(--restricted); background: none; }
+  .key-100ll.key-unknown { border-bottom-color: var(--unknown); background: none; }
+
+  .key-freshness-fresh { background: var(--fresh); border-radius: 50%; }
+  .key-freshness-stale { background: var(--stale); border-radius: 50%; }
+  .key-freshness-unknown { background: var(--no-price); border-radius: 50%; }
+
+  .marker {
+    width: 15px; height: 15px; box-sizing: border-box;
+    border: 2px solid white; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
+  }
+  .marker-ul91 { border-radius: 50%; }
+  .marker-mogas { border-radius: 3px; }
+  .marker-100ll {
+    width: 0; height: 0; border: none; box-shadow: none; background: none;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 14px solid var(--unknown);
+    filter: drop-shadow(0 0 1px rgba(0, 0, 0, 0.35));
+  }
+  .marker-self_service { background: var(--self-service); }
+  .marker-restricted { background: var(--restricted); }
+  .marker-unknown { background: var(--unknown); }
+  .marker-100ll.marker-self_service { border-bottom-color: var(--self-service); background: none; }
+  .marker-100ll.marker-restricted { border-bottom-color: var(--restricted); background: none; }
+  .marker-100ll.marker-unknown { border-bottom-color: var(--unknown); background: none; }
+
+  .note { margin-top: 12px; font-size: 11px; color: var(--muted); line-height: 1.45; }
+  .status { margin-top: 10px; font-size: 12px; color: #c0392b; }
+  .status:empty { display: none; }
+
+  .popup-icao { font-weight: 700; font-size: 14px; }
+  .popup-name { margin: 2px 0 8px; }
+  .popup-row { display: flex; align-items: center; gap: 7px; margin: 3px 0; }
+  .popup-all { margin-top: 8px; font-size: 12px; color: var(--muted); }
+  .popup-prices { margin-top: 8px; font-size: 12px; line-height: 1.5; }
+  .popup-price-row { margin: 4px 0; }
+  .popup-price-stale { color: var(--stale); }
+  .popup-price-fresh { color: var(--ink); font-weight: 600; }
+  .popup-no-price { color: var(--muted); font-style: italic; }
+  .popup-note {
+    margin-top: 7px; padding: 5px 7px; font-size: 11px; line-height: 1.45;
+    background: #fdf5e3; border-left: 3px solid var(--restricted); color: #7a5c1e;
+  }
+  .popup-source { margin-top: 6px; font-size: 10px; color: var(--muted); }
+  .badge {
+    display: inline-block; vertical-align: 2px; margin-left: 4px;
+    padding: 1px 5px; border-radius: 8px; font-size: 10px; font-weight: 600;
+    background: #fdf5e3; color: #7a5c1e; border: 1px solid #e8d9b0;
+  }
+  .popup-section {
+    margin-top: 8px; padding-top: 8px; border-top: 1px solid #e4e4e4;
+    font-size: 11px; color: var(--muted); line-height: 1.45;
+    max-height: 108px; overflow-y: auto;
+  }
+  .leaflet-popup-content { margin: 12px 14px; min-width: 250px; }
+
+  @media (max-width: 640px) {
+    .panel { left: 12px; right: 12px; width: auto; }
+  }
+</style>
+</head>
+<body>
+<div id="map"></div>
+
+<div class="panel">
+  <h1>Prix carburants aviation</h1>
+  <div class="meta" id="meta">Chargement…</div>
+
+  <input type="search" class="search" id="search"
+         placeholder="Filtrer par code OACI ou nom…" autocomplete="off" />
+
+  <h2>Carburant</h2>
+  <div class="filters" id="family-filters"></div>
+
+  <h2>Conditions d'accès</h2>
+  <div class="filters" id="availability-filters"></div>
+
+  <h2>Actualité du prix</h2>
+  <div class="filters" id="freshness-filters"></div>
+
+  <div class="note" id="note"></div>
+  <div class="status" id="status"></div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""></script>
+<script>
+const LOCATIONS_URL = "locations.json";
+const PRICES_URL = "prices.csv";
+const SUPPORTED_SCHEMA = 1;
+const STALE_DAYS = 90;
+const SOURCE_URL = "https://www.sia.aviation-civile.gouv.fr/";
+const REPO_URL = "https://github.com/Natim/france-ul91-mogas-map";
+const AVAILABILITY_MAP_URL = "index.html";
+
+const PAYMENT_LABELS = {
+  cash: "espèces",
+  total: "carte Total",
+  bp: "carte BP",
+  other: "autre",
+};
+
+const FUEL_LABELS = {
+  UL91: "UL91",
+  UL_AERO: "UL AERO SUPER+",
+  AKI93: "AKI93",
+  SUPER_PLUS: "Super Plus",
+  MOGAS: "MOGAS",
+  "100LL": "100LL",
+};
+
+const FRESHNESS_OPTIONS = [
+  { key: "fresh", label: "À jour (≤ 90 jours)" },
+  { key: "stale", label: "Périmé (> 90 jours)" },
+  { key: "unknown", label: "Prix inconnu" },
+];
+
+const FRANCE_CENTER = [46.7, 2.3];
+const FRANCE_ZOOM = 6;
+const MARKER_SIZE = 15;
+const SPLIT_OFFSET_PX = 9;
+
+const map = L.map("map").setView(FRANCE_CENTER, FRANCE_ZOOM);
+L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  maxZoom: 18,
+  attribution:
+    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+}).addTo(map);
+
+const entries = [];
+
+function escapeHtml(value) {
+  const div = document.createElement("div");
+  div.textContent = value;
+  return div.innerHTML;
+}
+
+function parseCsv(text) {
+  const rows = [];
+  let row = [];
+  let field = "";
+  let inQuotes = false;
+
+  for (let index = 0; index < text.length; index += 1) {
+    const char = text[index];
+    const next = text[index + 1];
+    if (inQuotes) {
+      if (char === '"' && next === '"') {
+        field += '"';
+        index += 1;
+      } else if (char === '"') {
+        inQuotes = false;
+      } else {
+        field += char;
+      }
+      continue;
+    }
+    if (char === '"') {
+      inQuotes = true;
+    } else if (char === ",") {
+      row.push(field);
+      field = "";
+    } else if (char === "\n") {
+      row.push(field);
+      field = "";
+      if (row.some((cell) => cell.trim() !== "")) rows.push(row);
+      row = [];
+    } else if (char !== "\r") {
+      field += char;
+    }
+  }
+  if (field.length || row.length) {
+    row.push(field);
+    if (row.some((cell) => cell.trim() !== "")) rows.push(row);
+  }
+  return rows;
+}
+
+function loadPrices(text) {
+  const rows = parseCsv(text.trim());
+  if (!rows.length) return [];
+  const header = rows[0];
+  const prices = [];
+  for (const cells of rows.slice(1)) {
+    if (cells.every((cell) => cell.trim() === "")) continue;
+    const record = Object.fromEntries(header.map((key, index) => [key, cells[index] || ""]));
+    prices.push({
+      icao: record.icao.trim().toUpperCase(),
+      fuel: record.fuel.trim(),
+      priceEur: Number(record.price_eur.replace(",", ".")),
+      observedOn: record.observed_on.trim(),
+      payment: record.payment.trim().toLowerCase(),
+      note: record.note.trim(),
+    });
+  }
+  return prices;
+}
+
+function indexPrices(prices) {
+  const byKey = {};
+  for (const price of prices) {
+    const key = `${price.icao}|${price.fuel}`;
+    (byKey[key] ||= []).push(price);
+  }
+  for (const key of Object.keys(byKey)) {
+    byKey[key].sort((left, right) => right.observedOn.localeCompare(left.observedOn));
+  }
+  return byKey;
+}
+
+function daysSince(isoDate, today) {
+  const observed = new Date(`${isoDate}T00:00:00Z`);
+  const now = new Date(`${today}T00:00:00Z`);
+  return Math.floor((now - observed) / 86400000);
+}
+
+function markerPrices(marker, priceIndex) {
+  const rows = [];
+  for (const fuel of marker.fuels) {
+    const key = `${marker.icao}|${fuel}`;
+    rows.push(...(priceIndex[key] || []));
+  }
+  return rows.sort((left, right) => right.observedOn.localeCompare(left.observedOn));
+}
+
+function freshnessForMarker(marker, priceIndex, today) {
+  const rows = markerPrices(marker, priceIndex);
+  if (!rows.length) return "unknown";
+  const youngest = Math.min(...rows.map((row) => daysSince(row.observedOn, today)));
+  return youngest <= STALE_DAYS ? "fresh" : "stale";
+}
+
+function formatPriceRow(row, today) {
+  const age = daysSince(row.observedOn, today);
+  const stale = age > STALE_DAYS;
+  const label = FUEL_LABELS[row.fuel] || row.fuel;
+  const payment = PAYMENT_LABELS[row.payment] || row.payment;
+  const note = row.note ? ` — ${escapeHtml(row.note)}` : "";
+  const className = stale ? "popup-price-stale" : "popup-price-fresh";
+  const staleHint = stale ? ` · périmé (${age} j)` : "";
+  return (
+    `<div class="popup-price-row ${className}">` +
+    `${escapeHtml(label)} : ${row.priceEur.toFixed(2)} €/L TTC` +
+    ` (${escapeHtml(row.observedOn)}, ${escapeHtml(payment)})${staleHint}${note}` +
+    `</div>`
+  );
+}
+
+function popupHtml(marker, priceIndex, today) {
+  const name = marker.name || marker.icao;
+  const section = marker.section
+    ? `<div class="popup-section">${escapeHtml(marker.section)}</div>`
+    : "";
+  const note = marker.note
+    ? `<div class="popup-note">${marker.source ? "Hors AIP" : "Hors VAC"} : ` +
+      `${escapeHtml(marker.note)}</div>`
+    : "";
+  const source = marker.source
+    ? `<div class="popup-source">Source : ${escapeHtml(marker.source)}</div>`
+    : "";
+  const rows = markerPrices(marker, priceIndex);
+  const pricesHtml = rows.length
+    ? `<div class="popup-prices">${rows.map((row) => formatPriceRow(row, today)).join("")}</div>`
+    : `<div class="popup-prices popup-no-price">Aucun prix signalé pour ce carburant.</div>`;
+
+  return (
+    `<div class="popup-icao">${marker.icao}` +
+    (marker.source ? ` <span class="badge">hors AIP</span>` : "") +
+    `</div>` +
+    `<div class="popup-name">${escapeHtml(name)}</div>` +
+    `<div class="popup-row">` +
+      `<span class="key key-${marker.family} key-${marker.availability}"></span>` +
+      `<span><strong>${escapeHtml(marker.fuelsLabel)}</strong> — ` +
+      `${escapeHtml(marker.availabilityLabel)}</span>` +
+    `</div>` +
+    pricesHtml +
+    note +
+    `<div class="popup-all">Carburants recensés : ${escapeHtml(marker.allFuelsLabel)}</div>` +
+    section +
+    source
+  );
+}
+
+function createMarker(data, offsetX, priceIndex, today) {
+  const icon = L.divIcon({
+    className: "",
+    html: `<div class="marker marker-${data.family} marker-${data.availability}"></div>`,
+    iconSize: [MARKER_SIZE, MARKER_SIZE],
+    iconAnchor: [MARKER_SIZE / 2 - offsetX, MARKER_SIZE / 2],
+  });
+  const marker = L.marker([data.lat, data.lon], { icon });
+  marker.bindPopup(() => popupHtml(data, priceIndex, today));
+  marker.bindTooltip(
+    `${data.icao} — ${data.name || ""} · ${data.fuelsLabel}`,
+    { direction: "top" }
+  );
+  return marker;
+}
+
+function renderFilters(container, options, counts, group, swatchFor) {
+  container.innerHTML = "";
+  for (const option of options) {
+    const label = document.createElement("label");
+    const swatch = swatchFor(option.key, group);
+    label.innerHTML =
+      `<input type="checkbox" data-group="${group}" data-key="${option.key}" checked>` +
+      swatch + option.label +
+      `<span class="count">${counts[option.key] || 0}</span>`;
+    container.appendChild(label);
+  }
+  container.addEventListener("change", applyFilters);
+}
+
+function checkedKeys(group) {
+  return new Set(
+    Array.from(
+      document.querySelectorAll(`input[data-group="${group}"]:checked`)
+    ).map((input) => input.dataset.key)
+  );
+}
+
+function applyFilters() {
+  const families = checkedKeys("family");
+  const availability = checkedKeys("availability");
+  const freshness = checkedKeys("freshness");
+  const query = document.getElementById("search").value.trim().toLowerCase();
+  let shown = 0;
+
+  for (const entry of entries) {
+    const visible =
+      families.has(entry.data.family) &&
+      availability.has(entry.data.availability) &&
+      freshness.has(entry.freshness) &&
+      (!query || entry.haystack.includes(query));
+    if (visible) {
+      shown += 1;
+      if (!map.hasLayer(entry.marker)) entry.marker.addTo(map);
+    } else if (map.hasLayer(entry.marker)) {
+      map.removeLayer(entry.marker);
+    }
+  }
+
+  document.getElementById("note").textContent =
+    `${shown} marqueur${shown > 1 ? "s" : ""} affiché${shown > 1 ? "s" : ""}. ` +
+    "Prix communautaires indicatifs : vérifiez à la pompe ou par téléphone.";
+}
+
+function fail(message) {
+  document.getElementById("meta").textContent = "";
+  document.getElementById("status").textContent = message;
+}
+
+async function load() {
+  let locations;
+  let priceText;
+  try {
+    const [locationsResponse, pricesResponse] = await Promise.all([
+      fetch(LOCATIONS_URL, { cache: "no-cache" }),
+      fetch(PRICES_URL, { cache: "no-cache" }),
+    ]);
+    if (!locationsResponse.ok) throw new Error(`locations HTTP ${locationsResponse.status}`);
+    if (!pricesResponse.ok) throw new Error(`prices HTTP ${pricesResponse.status}`);
+    locations = await locationsResponse.json();
+    priceText = await pricesResponse.text();
+  } catch (error) {
+    fail(
+      `Impossible de charger les données (${error.message}). ` +
+      "En local, servir le dossier via un serveur HTTP."
+    );
+    return;
+  }
+
+  if (locations.schema !== SUPPORTED_SCHEMA) {
+    fail(`Format de localisation inattendu (schéma ${locations.schema}).`);
+    return;
+  }
+
+  const prices = loadPrices(priceText);
+  const priceIndex = indexPrices(prices);
+  const today = locations.generated;
+
+  const perAerodrome = {};
+  for (const marker of locations.markers) {
+    (perAerodrome[marker.icao] ||= []).push(marker);
+  }
+
+  const familyCounts = {};
+  const availabilityCounts = {};
+  const freshnessCounts = { fresh: 0, stale: 0, unknown: 0 };
+
+  for (const marker of locations.markers) {
+    familyCounts[marker.family] = (familyCounts[marker.family] || 0) + 1;
+    availabilityCounts[marker.availability] =
+      (availabilityCounts[marker.availability] || 0) + 1;
+
+    const freshness = freshnessForMarker(marker, priceIndex, today);
+    freshnessCounts[freshness] += 1;
+
+    const siblings = perAerodrome[marker.icao];
+    const index = siblings.indexOf(marker);
+    const offsetX =
+      siblings.length > 1
+        ? (index - (siblings.length - 1) / 2) * SPLIT_OFFSET_PX * 2
+        : 0;
+
+    entries.push({
+      marker: createMarker(marker, offsetX, priceIndex, today),
+      data: marker,
+      freshness,
+      haystack: `${marker.icao} ${marker.name}`.toLowerCase(),
+    });
+  }
+
+  document.getElementById("meta").innerHTML =
+    `${locations.aerodromeCount} terrains · AIRAC ${locations.airac} · ` +
+    `localisations ${locations.generated}<br>` +
+    `${prices.length} prix signalé${prices.length > 1 ? "s" : ""} · ` +
+    `<a href="${AVAILABILITY_MAP_URL}">Carte disponibilité sans plomb</a><br>` +
+    `Source : <a href="${SOURCE_URL}" target="_blank" rel="noopener">eAIP SIA</a> · ` +
+    `<a href="${REPO_URL}" target="_blank" rel="noopener">Proposer un prix</a>`;
+
+  renderFilters(
+    document.getElementById("family-filters"), locations.families, familyCounts, "family",
+    (key) => `<span class="key key-${key} key-unknown"></span>`
+  );
+  renderFilters(
+    document.getElementById("availability-filters"),
+    locations.availability, availabilityCounts, "availability",
+    (key) => `<span class="key key-ul91 key-${key}"></span>`
+  );
+  renderFilters(
+    document.getElementById("freshness-filters"),
+    FRESHNESS_OPTIONS, freshnessCounts, "freshness",
+    (key) => `<span class="key key-freshness-${key}"></span>`
+  );
+  document.getElementById("search").addEventListener("input", applyFilters);
+  applyFilters();
+}
+
+load();
+</script>
+</body>
+</html>

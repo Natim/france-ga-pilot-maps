@@ -4,7 +4,7 @@ from datetime import date
 import pytest
 
 from fuelmap import cli, model
-from fuelmap.render import csv_export, web
+from fuelmap.render import csv_export, locations, web
 
 AIRAC = "2026-05-14"
 EXTRACTED_ON = date(2026, 5, 18)
@@ -35,6 +35,12 @@ def project(tmp_path):
     web.write_map_data(
         tmp_path / "docs" / "aerodromes.json", aerodromes[:1], AIRAC, EXTRACTED_ON
     )
+    locations.write_locations_data(
+        tmp_path / "docs" / "locations.json", aerodromes, AIRAC, EXTRACTED_ON
+    )
+    (tmp_path / "docs" / "prices.csv").write_text(
+        "icao,fuel,price_eur,observed_on,payment,note\n", encoding="utf-8"
+    )
     return tmp_path
 
 
@@ -46,6 +52,7 @@ def rebuild(project, *extra):
             "--unleaded-csv", str(project / "data" / "aerodromes-unleaded.csv"),
             "--markdown", str(project / "AERODROMES.md"),
             "--map-data", str(project / "docs" / "aerodromes.json"),
+            "--locations-data", str(project / "docs" / "locations.json"),
             *extra,
         ]
     )
@@ -89,6 +96,26 @@ class TestRebuild:
         exit_code = rebuild(tmp_path)
         assert exit_code == 1
         assert "introuvable" in capsys.readouterr().err
+
+    def test_writes_price_map_locations(self, project):
+        rebuild(project)
+        payload = json.loads((project / "docs" / "locations.json").read_text())
+        # LFDA (UL91), LFAT (100LL), plus the off-AIP addition LF4724 (UL91).
+        assert payload["aerodromeCount"] == 3
+        families = {marker["family"] for marker in payload["markers"]}
+        assert families == {model.FAMILY_UL91, model.FAMILY_100LL}
+
+
+class TestValidatePrices:
+    def test_accepts_an_empty_price_file(self, project):
+        exit_code = cli.main(
+            [
+                "validate-prices",
+                "--prices-csv", str(project / "docs" / "prices.csv"),
+                "--all-csv", str(project / "data" / "aerodromes-all.csv"),
+            ]
+        )
+        assert exit_code == 0
 
 
 class TestPreviousMetadata:

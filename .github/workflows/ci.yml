@@ -35,10 +35,33 @@ jobs:
           python-version: "3.13"
       - run: pip install -e .
       - run: fuelmap rebuild
+      - run: fuelmap validate-prices
       - name: Fail if the derived files are stale
         run: |
-          if ! git diff --quiet -- AERODROMES.md docs/aerodromes.json data/; then
+          if ! git diff --quiet -- AERODROMES.md docs/aerodromes.json docs/locations.json data/; then
             echo "::error::Les fichiers dérivés ne correspondent plus au CSV. Lancez 'fuelmap rebuild'."
-            git diff --stat -- AERODROMES.md docs/aerodromes.json data/
+            git diff --stat -- AERODROMES.md docs/aerodromes.json docs/locations.json data/
             exit 1
           fi
+
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: [test, outputs-are-current]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: docs
+      - id: deployment
+        uses: actions/deploy-pages@v4

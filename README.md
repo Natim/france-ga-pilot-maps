@@ -6,7 +6,8 @@ aérodromes distribuant de l'**AVGAS UL91** ou de l'essence **SP95 / SP98**
 l'[eAIP du SIA](https://www.sia.aviation-civile.gouv.fr/) (cartes VAC,
 Atlas-VAC).
 
-**➡️ [Carte interactive](https://natim.github.io/france-ul91-mogas-map/)** ·
+**➡️ [Carte sans plomb](https://natim.github.io/france-ul91-mogas-map/)** ·
+**[Carte des prix 100LL / sans plomb](./docs/prix.html)** ·
 **[Liste complète](./AERODROMES.md)**
 
 ## Pourquoi
@@ -83,12 +84,58 @@ Montceau-les-Mines publie le 100LL sur automate H24 mais l'UL91 seulement de
 > coup de téléphone reste la seule certitude. Le texte brut de la section
 > « 10 - AVT » est affiché dans chaque popup pour que vous puissiez vérifier.
 
+## Carte des prix
+
+Une **deuxième carte** recense les terrains qui vendent du **100LL** et/ou de
+l'essence sans plomb, avec les **prix communautaires** signalés par les pilotes.
+
+**➡️ [Carte des prix](./docs/prix.html)**
+
+- **Localisations** : extraites de l'eAIP comme la carte sans plomb
+  ([`docs/locations.json`](./docs/locations.json), **généré**).
+- **Prix** : [`docs/prices.csv`](./docs/prices.csv), **édité à la main** via
+  pull request. Chaque ligne porte un prix TTC €/L, une date d'observation et
+  le mode de paiement (`cash`, `total`, `bp`, `other`).
+
+### Pas d'API Total / BP / Shell
+
+TotalEnergies, Air BP et Shell publient des **cartes de stations**, pas des
+tarifs ouverts. Les prix affichés sur leurs sites ou dans leurs applications
+(APIFLY, myAirBP…) sont réservés aux titulaires de carte. L'eAIP du SIA ne
+mentionne jamais de €/L. Il n'existe donc **aucune source officielle publique**
+pour alimenter automatiquement cette carte : les prix viennent de signalements
+datés, comme sur une carte communautaire.
+
+### Proposer une mise à jour de prix
+
+1. Éditez une ligne dans [`docs/prices.csv`](./docs/prices.csv) :
+
+```csv
+icao,fuel,price_eur,observed_on,payment,note
+LFCL,100LL,2.45,2026-09-10,total,Automate H24
+LFCL,UL91,2.10,2026-09-10,total,
+```
+
+2. Ouvrez une pull request. La CI lance `fuelmap validate-prices` (code OACI
+   connu, carburant pris en charge, date valide, pas de doublon).
+3. Une fois mergée sur `main`, GitHub Pages sert le CSV mis à jour : **aucune
+   régénération Python n'est nécessaire** pour qu'un nouveau prix apparaisse.
+
+Les prix de plus de 90 jours restent visibles mais sont signalés comme
+**périmés** sur la carte. Un prix absent vaut mieux qu'un prix sans date.
+
+> **Indicatif.** Vérifiez à la pompe ou par téléphone avant de compter sur un
+> tarif affiché ici.
+
 ## Fichiers produits
 
 | Fichier | Contenu |
 |---|---|
-| [`docs/index.html`](./docs/index.html) | Carte Leaflet/OSM, déployée sur GitHub Pages. Page statique, éditable à la main. |
-| [`docs/aerodromes.json`](./docs/aerodromes.json) | Données consommées par la carte. **Généré.** |
+| [`docs/index.html`](./docs/index.html) | Carte disponibilité sans plomb. Page statique. |
+| [`docs/prix.html`](./docs/prix.html) | Carte des prix 100LL / sans plomb. Page statique. |
+| [`docs/aerodromes.json`](./docs/aerodromes.json) | Données de la carte sans plomb. **Généré.** |
+| [`docs/locations.json`](./docs/locations.json) | Terrains 100LL / sans plomb pour la carte prix. **Généré.** |
+| [`docs/prices.csv`](./docs/prices.csv) | Prix communautaires datés. **Source éditée à la main.** |
 | [`AERODROMES.md`](./AERODROMES.md) | Liste Markdown lisible. **Généré.** |
 | [`data/aerodromes-unleaded.csv`](./data/aerodromes-unleaded.csv) | Terrains avec essence sans plomb. **Généré.** |
 | [`data/aerodromes-all.csv`](./data/aerodromes-all.csv) | Les 420 terrains français et leur section avitaillement brute. **Généré.** |
@@ -167,8 +214,9 @@ Le code vit dans `src/fuelmap/` :
 | `overrides.py` | Données manuelles : corrections d'accès et terrains hors AIP |
 | `vac.py` | Appel à `pdftotext`, détection du cycle AIRAC |
 | `pipeline.py` | Parcours parallèle du dossier VAC |
-| `render/` | Sorties CSV, Markdown et données de la carte |
-| `cli.py` | Sous-commandes `extract` et `rebuild` |
+| `render/` | Sorties CSV, Markdown et données des cartes |
+| `prices.py` | Lecture et validation de `docs/prices.csv` |
+| `cli.py` | Sous-commandes `extract`, `rebuild` et `validate-prices` |
 
 Les tests tournent sur des extraits de texte VAC stockés dans
 [`tests/fixtures/`](./tests/fixtures/), donc sans le paquet eAIP.
@@ -285,9 +333,11 @@ Puis `fuelmap rebuild`. Trois règles :
 
 ## Déploiement
 
-GitHub Pages, servi depuis `/docs` sur `main` (**Settings → Pages → Deploy from
-a branch**). Page entièrement statique : Leaflet via CDN, tuiles OpenStreetMap,
-aucune étape de build.
+GitHub Pages, servi depuis `/docs` sur `main`. Chaque push sur `main` déclenche
+le workflow CI, qui publie ensuite le dossier `docs/` (cartes sans plomb et
+prix, JSON et CSV). **Settings → Pages → Source : GitHub Actions**. Pages
+entièrement statiques : Leaflet via CDN, tuiles OpenStreetMap, aucune étape de
+build côté Pages.
 
 ## Licence
 

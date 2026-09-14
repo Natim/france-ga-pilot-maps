@@ -191,6 +191,11 @@ def curated_aerodromes() -> list[Aerodrome]:
     return [addition.to_aerodrome() for addition in ADDITIONS]
 
 
+def addition_icaos() -> tuple[str, ...]:
+    """ICAO codes of hand-entered fields absent from the eAIP."""
+    return tuple(addition.code for addition in ADDITIONS)
+
+
 def apply(aerodrome: Aerodrome) -> Aerodrome:
     """Return ``aerodrome`` with its curated fuels and levels, if it has any."""
     override = OVERRIDES.get(aerodrome.icao)

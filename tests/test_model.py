@@ -52,6 +52,25 @@ class TestFuelFamilies:
         assert covered == set(model.UNLEADED_FUELS)
 
 
+class TestPriceMapFamilies:
+    @pytest.mark.parametrize(
+        ("fuels", "expected"),
+        [
+            ({model.AVGAS_100LL}, [model.FAMILY_100LL]),
+            ({model.UL91, model.AVGAS_100LL}, [model.FAMILY_UL91, model.FAMILY_100LL]),
+            ({model.SUPER_PLUS}, [model.FAMILY_MOGAS]),
+            ({model.JET_A1}, []),
+        ],
+    )
+    def test_splits_fuels_into_price_map_families(self, fuels, expected):
+        aerodrome = _aerodrome(fuels=frozenset(fuels))
+        assert aerodrome.price_map_families() == expected
+
+    def test_plottable_for_prices_excludes_jet_only_fields(self):
+        aerodrome = _aerodrome(fuels=frozenset({model.JET_A1}))
+        assert not aerodrome.is_plottable_for_prices
+
+
 class TestFamilyAvailability:
     def test_uses_the_best_level_within_a_family(self):
         """Either SP98 grade being on an automat opens the family."""

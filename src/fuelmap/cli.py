@@ -21,14 +21,16 @@ import sys
 from datetime import date
 from pathlib import Path
 
-from . import overrides, pipeline, vac
+from . import overrides, pipeline, prices, vac
 from .model import Aerodrome
-from .render import csv_export, markdown, web
+from .render import csv_export, locations, markdown, web
 
 DEFAULT_ALL_CSV = Path("data/aerodromes-all.csv")
 DEFAULT_UNLEADED_CSV = Path("data/aerodromes-unleaded.csv")
 DEFAULT_MARKDOWN = Path("AERODROMES.md")
 DEFAULT_MAP_DATA = Path("docs/aerodromes.json")
+DEFAULT_LOCATIONS_DATA = Path("docs/locations.json")
+DEFAULT_PRICES_CSV = Path("docs/prices.csv")
 
 PREVIEW_ROWS = 10
 
@@ -56,7 +58,13 @@ def _add_output_arguments(parser: argparse.ArgumentParser) -> None:
         "--map-data",
         type=Path,
         default=DEFAULT_MAP_DATA,
-        help="Données JSON de la carte (défaut : %(default)s).",
+        help="Données JSON de la carte sans plomb (défaut : %(default)s).",
+    )
+    parser.add_argument(
+        "--locations-data",
+        type=Path,
+        default=DEFAULT_LOCATIONS_DATA,
+        help="Données JSON des terrains pour la carte prix (défaut : %(default)s).",
     )
     parser.add_argument(
         "--airac",
@@ -94,6 +102,23 @@ def build_parser() -> argparse.ArgumentParser:
     )
     _add_output_arguments(rebuild)
 
+    validate_prices = subcommands.add_parser(
+        "validate-prices",
+        help="Vérifier docs/prices.csv contre les terrains connus.",
+    )
+    validate_prices.add_argument(
+        "--prices-csv",
+        type=Path,
+        default=DEFAULT_PRICES_CSV,
+        help="CSV des prix (défaut : %(default)s).",
+    )
+    validate_prices.add_argument(
+        "--all-csv",
+        type=Path,
+        default=DEFAULT_ALL_CSV,
+        help="CSV de tous les aérodromes (défaut : %(default)s).",
+    )
+
     return parser
 
 
@@ -127,16 +152,22 @@ def _write_outputs(
 
     # Overrides run before the unleaded filter, not after: an entry may add a
     # fuel, which is the whole reason a field selling only 100LL can qualify.
-    curated = pipeline.unleaded_only(overrides.apply_all(aerodromes))
+    curated_all = overrides.apply_all(aerodromes)
+    curated = pipeline.unleaded_only(curated_all)
     args.markdown.write_text(
         markdown.render_markdown(curated, airac, today=extracted_on), encoding="utf-8"
     )
     plotted = web.write_map_data(args.map_data, curated, airac, today=extracted_on)
+    price_plottable = pipeline.plottable_for_prices(curated_all)
+    price_plotted = locations.write_locations_data(
+        args.locations_data, price_plottable, airac, today=extracted_on
+    )
 
     print(f"\nTous les terrains  : {args.all_csv} ({len(aerodromes)})")
     print(f"Sans plomb (VAC)   : {args.unleaded_csv} ({len(unleaded)})")
     print(f"Markdown           : {args.markdown} ({len(curated)} terrains)")
     print(f"Données carte      : {args.map_data} ({plotted} points)")
+    print(f"Terrains prix      : {args.locations_data} ({price_plotted} terrains)")
 
     unplottable = [a.icao for a in curated if not a.has_position]
     if unplottable:
@@ -144,8 +175,38 @@ def _write_outputs(
     return curated
 
 
+def _run_validate_prices(args: argparse.Namespace) -> int:
+    if not args.prices_csv.exists():
+        print(f"Erreur : {args.prices_csv} introuvable.", file=sys.stderr)
+        return 1
+    if not args.all_csv.exists():
+        print(f"Erreur : {args.all_csv} introuvable.", file=sys.stderr)
+        return 1
+    try:
+        records = prices.read_prices(args.prices_csv)
+    except ValueError as exc:
+        print(f"Erreur : {exc}", file=sys.stderr)
+        return 1
+    aerodromes = csv_export.read_csv(args.all_csv)
+    extra_icaos = frozenset(overrides.addition_icaos())
+    messages = prices.validate_prices(records, aerodromes, extra_icaos)
+    errors = [m for m in messages if m.level == "error"]
+    warnings = [m for m in messages if m.level == "warning"]
+    for message in warnings:
+        print(f"Avertissement : {message.message}", file=sys.stderr)
+    for message in errors:
+        print(f"Erreur : {message.message}", file=sys.stderr)
+    if errors:
+        return 1
+    print(f"{len(records)} prix valides ({len(warnings)} avertissement(s)).")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
+
+    if args.command == "validate-prices":
+        return _run_validate_prices(args)
 
     if args.command == "extract":
         try:

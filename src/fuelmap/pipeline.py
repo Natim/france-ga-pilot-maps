@@ -52,3 +52,8 @@ def extract_all(
 def unleaded_only(aerodromes: list[Aerodrome]) -> list[Aerodrome]:
     """Keep the aerodromes publishing a fuel an unleaded engine can burn."""
     return [a for a in aerodromes if a.has_unleaded]
+
+
+def plottable_for_prices(aerodromes: list[Aerodrome]) -> list[Aerodrome]:
+    """Keep aerodromes selling 100LL and/or unleaded fuel."""
+    return [a for a in aerodromes if a.is_plottable_for_prices]
