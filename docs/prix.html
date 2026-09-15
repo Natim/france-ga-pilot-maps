@@ -94,6 +94,20 @@
   .marker-100ll.marker-restricted { border-bottom-color: var(--restricted); background: none; }
   .marker-100ll.marker-unknown { border-bottom-color: var(--unknown); background: none; }
 
+  .marker-pin {
+    display: flex; flex-direction: column; align-items: center; gap: 2px;
+    pointer-events: none;
+  }
+  .marker-price {
+    font-size: 10px; font-weight: 700; line-height: 1.1;
+    padding: 2px 5px; border-radius: 4px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+    white-space: nowrap; pointer-events: none;
+  }
+  .marker-price-fresh { color: var(--ink); }
+  .marker-price-stale { color: var(--stale); }
+
   .note { margin-top: 12px; font-size: 11px; color: var(--muted); line-height: 1.45; }
   .status { margin-top: 10px; font-size: 12px; color: #c0392b; }
   .status:empty { display: none; }
@@ -219,6 +233,8 @@ L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
 }).addTo(map);
 
 const entries = [];
+let priceIndex = {};
+let priceToday = "";
 
 function escapeHtml(value) {
   const div = document.createElement("div");
@@ -314,11 +330,77 @@ function markerPrices(marker, priceIndex) {
   return rows.sort((left, right) => right.observedOn.localeCompare(left.observedOn));
 }
 
-function freshnessForMarker(marker, priceIndex, today) {
-  const rows = markerPrices(marker, priceIndex);
+function freshnessForMarker(marker, prices, today) {
+  const rows = markerPrices(marker, prices);
   if (!rows.length) return "unknown";
   const youngest = Math.min(...rows.map((row) => daysSince(row.observedOn, today)));
   return youngest <= STALE_DAYS ? "fresh" : "stale";
+}
+
+function formatPriceShort(priceEur) {
+  return (
+    priceEur.toLocaleString("fr-FR", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 3,
+    }) + " €"
+  );
+}
+
+function bestPriceForMarker(marker, prices, today) {
+  const preferred =
+    marker.family === "100ll" ? "100LL" :
+    marker.family === "ul91" ? "UL91" : null;
+  const fuels = preferred
+    ? [preferred, ...marker.fuels.filter((fuel) => fuel !== preferred)]
+    : marker.fuels;
+  for (const fuel of fuels) {
+    const rows = prices[`${marker.icao}|${fuel}`];
+    if (rows?.length) {
+      const row = rows[0];
+      const stale = daysSince(row.observedOn, today) > STALE_DAYS;
+      return { row, stale };
+    }
+  }
+  return null;
+}
+
+// One family selected → its prices on the pin; otherwise default to 100LL.
+function labelFamilyFor(families) {
+  if (families.size === 1) return [...families][0];
+  return families.has("100ll") ? "100ll" : null;
+}
+
+function markerIconHtml(data, priceInfo, showPrice) {
+  const priceHtml =
+    showPrice && priceInfo
+      ? `<div class="marker-price marker-price-${priceInfo.stale ? "stale" : "fresh"}">` +
+        `${formatPriceShort(priceInfo.row.priceEur)}</div>`
+      : "";
+  const shapeHeight = data.family === "100ll" ? 14 : MARKER_SIZE;
+  const labelHeight = priceHtml ? 16 : 0;
+  const height = shapeHeight + labelHeight + (priceHtml ? 2 : 0);
+  return {
+    html:
+      `<div class="marker-pin">` +
+      `<div class="marker marker-${data.family} marker-${data.availability}"></div>` +
+      priceHtml +
+      `</div>`,
+    width: Math.max(MARKER_SIZE, 44),
+    height,
+    anchorY: shapeHeight / 2 + (data.family === "100ll" ? 2 : 0),
+  };
+}
+
+function setMarkerIcon(entry, showPrice) {
+  const { html, width, height, anchorY } = markerIconHtml(
+    entry.data, entry.priceInfo, showPrice
+  );
+  entry.marker.setIcon(L.divIcon({
+    className: "",
+    html,
+    iconSize: [width, height],
+    iconAnchor: [width / 2 - entry.offsetX, anchorY],
+  }));
 }
 
 function formatPriceRow(row, today) {
@@ -372,20 +454,23 @@ function popupHtml(marker, priceIndex, today) {
   );
 }
 
-function createMarker(data, offsetX, priceIndex, today) {
-  const icon = L.divIcon({
-    className: "",
-    html: `<div class="marker marker-${data.family} marker-${data.availability}"></div>`,
-    iconSize: [MARKER_SIZE, MARKER_SIZE],
-    iconAnchor: [MARKER_SIZE / 2 - offsetX, MARKER_SIZE / 2],
+function createMarker(data, offsetX, prices, today) {
+  const priceInfo = bestPriceForMarker(data, prices, today);
+  const { html, width, height, anchorY } = markerIconHtml(data, priceInfo, false);
+  const marker = L.marker([data.lat, data.lon], {
+    icon: L.divIcon({
+      className: "",
+      html,
+      iconSize: [width, height],
+      iconAnchor: [width / 2 - offsetX, anchorY],
+    }),
   });
-  const marker = L.marker([data.lat, data.lon], { icon });
-  marker.bindPopup(() => popupHtml(data, priceIndex, today));
+  marker.bindPopup(() => popupHtml(data, prices, today));
   marker.bindTooltip(
     `${data.icao} — ${data.name || ""} · ${data.fuelsLabel}`,
     { direction: "top" }
   );
-  return marker;
+  return { marker, priceInfo, offsetX };
 }
 
 function renderFilters(container, options, counts, group, swatchFor) {
@@ -415,6 +500,7 @@ function applyFilters() {
   const availability = checkedKeys("availability");
   const freshness = checkedKeys("freshness");
   const query = document.getElementById("search").value.trim().toLowerCase();
+  const priceLabelsFor = labelFamilyFor(families);
   let shown = 0;
 
   for (const entry of entries) {
@@ -423,6 +509,8 @@ function applyFilters() {
       availability.has(entry.data.availability) &&
       freshness.has(entry.freshness) &&
       (!query || entry.haystack.includes(query));
+    const showPrice = visible && entry.data.family === priceLabelsFor;
+    setMarkerIcon(entry, showPrice);
     if (visible) {
       shown += 1;
       if (!map.hasLayer(entry.marker)) entry.marker.addTo(map);
@@ -433,6 +521,9 @@ function applyFilters() {
 
   document.getElementById("note").textContent =
     `${shown} marqueur${shown > 1 ? "s" : ""} affiché${shown > 1 ? "s" : ""}. ` +
+    (priceLabelsFor
+      ? "Étiquette = prix le plus récent du filtre actif. "
+      : "") +
     "Prix communautaires indicatifs : vérifiez à la pompe ou par téléphone.";
 }
 
@@ -467,8 +558,8 @@ async function load() {
   }
 
   const prices = loadPrices(priceText);
-  const priceIndex = indexPrices(prices);
-  const today = locations.generated;
+  priceIndex = indexPrices(prices);
+  priceToday = locations.generated;
 
   const perAerodrome = {};
   for (const marker of locations.markers) {
@@ -484,7 +575,7 @@ async function load() {
     availabilityCounts[marker.availability] =
       (availabilityCounts[marker.availability] || 0) + 1;
 
-    const freshness = freshnessForMarker(marker, priceIndex, today);
+    const freshness = freshnessForMarker(marker, priceIndex, priceToday);
     freshnessCounts[freshness] += 1;
 
     const siblings = perAerodrome[marker.icao];
@@ -494,8 +585,11 @@ async function load() {
         ? (index - (siblings.length - 1) / 2) * SPLIT_OFFSET_PX * 2
         : 0;
 
+    const created = createMarker(marker, offsetX, priceIndex, priceToday);
     entries.push({
-      marker: createMarker(marker, offsetX, priceIndex, today),
+      marker: created.marker,
+      priceInfo: created.priceInfo,
+      offsetX: created.offsetX,
       data: marker,
       freshness,
       haystack: `${marker.icao} ${marker.name}`.toLowerCase(),
