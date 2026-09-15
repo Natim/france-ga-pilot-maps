@@ -42,13 +42,43 @@ class TestParseEdeisLandingFee:
         assert fee == 14.40
         assert label.startswith("min (")
 
+    @pytest.mark.parametrize(
+        ("fixture", "fee", "label_part", "observed_on"),
+        [
+            ("cherbourg-excerpt.txt", 13.20, "0 tonne à 2 t", date(2025, 1, 1)),
+            ("calais-excerpt.txt", 15.47, ">1 t à 2 t", date(2026, 1, 1)),
+            (
+                "reims-excerpt.txt",
+                14.25,
+                "De > 1t à 2t",
+                date(2026, 1, 1),
+            ),
+            ("lorient-excerpt.txt", 114.00, "forfait < 3 t", date(2025, 8, 1)),
+            ("perigueux-excerpt.txt", 12.00, "2t", date(2025, 7, 1)),
+        ],
+    )
+    def test_parses_extended_edeis_layouts(self, fixture, fee, label_part, observed_on):
+        text = (FIXTURES / fixture).read_text(encoding="utf-8")
+        parsed = landing_fee_collect.parse_edeis_landing_fee(
+            text,
+            band=landing_fee_collect.FeeBand.SECOND,
+            effective_on=observed_on if fixture == "reims-excerpt.txt" else None,
+        )
+        result_fee, label, result_on, confidence = parsed
+        assert result_fee == pytest.approx(fee, abs=0.01)
+        assert label_part in label
+        assert result_on == observed_on
+        assert confidence == "high"
+
 
 class TestReadPendingSources:
     def test_reads_pending_rows(self, tmp_path):
         path = tmp_path / "pending.csv"
         path.write_text(
-            "icao,name,operator,pilot_page,pdf_url,parser,parser_arg,effective_on,status,notes\n"
-            "LFRC,Cherbourg,EDEIS,https://example.test/pilot,,edeis,,,needs_url,Phase 1\n",
+            "icao,name,operator,pilot_page,pdf_url,parser,parser_arg,"
+            "effective_on,status,notes\n"
+            "LFRC,Cherbourg,EDEIS,https://example.test/pilot,,edeis,,,"
+            "needs_url,Phase 1\n",
             encoding="utf-8",
         )
         rows = landing_fee_collect.read_pending_sources(path)

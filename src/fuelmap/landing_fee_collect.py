@@ -44,8 +44,24 @@ PENDING_COLUMNS = (
 DEFAULT_VAT_RATE = 0.20
 USER_AGENT = "fuelmap/1.0 (+https://github.com/Natim/france-ul91-mogas-map)"
 
-SECTION_START = re.compile(r"moins de 6 tonn", re.I)
-SECTION_END = re.compile(r"plus de 6 tonn|more than 6 tonn", re.I)
+SECTION_START = re.compile(
+    r"moins de [36] tonn|jusqu['']?\s*à 6 tonn|0 tonne.*?à \d+\s*t",
+    re.I,
+)
+SECTION_END = re.compile(
+    r"plus de [36] tonn|more than [36] tonn|"
+    r"tarifs de base pour aéronefs de plus",
+    re.I,
+)
+FLAT_INLINE_RATE = re.compile(
+    r"0\s*tonne.*?à\s*(\d+(?:[.,]\d+)?)\s*t.*?"
+    r"(\d+[.,]\d+)\s*€?\s*(\d+[.,]\d+)\s*€",
+    re.I,
+)
+FORFAIT_LT3 = re.compile(
+    r"<\s*3t.*?Forfait intégral\s*(\d+(?:[.,]\d+)?)\s*€?\s*H\.?\s*T",
+    re.I | re.S,
+)
 APPLICABLE_ON = re.compile(
     r"Applicable au\s+(\d{1,2})[/.-](\d{1,2})[/.-](\d{4})",
     re.I,
@@ -88,8 +104,15 @@ ROW_BAND_PRICE = re.compile(
 
 def _normalize_band_label(line: str) -> str:
     match = re.match(
-        r"((?:de\s*/?\s*from\s+)?de\s+(?:>\s*)?"
-        r"\d+(?:[.,]\d+)?\s*(?:t\b|à|-).+?\d+(?:[.,]\d+)?\s*t\b)",
+        r"((?:de\s*/?\s*from\s+)?(?:de\s+)?(?:>\s*)?"
+        r"(?:0\s*tonne|\d+(?:[.,]\d+)?)\s*(?:t\b|à|-).+?\d+(?:[.,]\d+)?\s*t\b)",
+        line.strip(),
+        re.I,
+    )
+    if match:
+        return " ".join(match.group(1).split())
+    match = re.match(
+        r"(>\s*\d+(?:[.,]\d+)?\s*t\s*à\s*\d+(?:[.,]\d+)?\s*t)",
         line.strip(),
         re.I,
     )
@@ -104,9 +127,11 @@ def _is_weight_band_line(line: str) -> bool:
     if not stripped:
         return False
     lowered = stripped.lower()
-    if not (lowered.startswith("de ") or lowered.startswith("de / from")):
+    if not (
+        lowered.startswith(("de ", "de / from", ">", "0 tonne"))
+    ):
         return False
-    if "par tonne" in lowered:
+    if "par tonne" in lowered or "mensuel" in lowered or "monthly" in lowered:
         return False
     return bool(re.search(r"\d+(?:[.,]\d+)?\s*t", lowered)) and (
         " à " in lowered or " to " in lowered
@@ -281,6 +306,23 @@ def _band_index(band: FeeBand) -> int | None:
     return None
 
 
+def _resolve_band_index(bands: list[str], band: FeeBand) -> int:
+    index = _band_index(band)
+    assert index is not None
+    if band is FeeBand.SECOND:
+        for row_index, label in enumerate(bands):
+            lowered = label.lower()
+            if "> 1" in lowered or ">1" in lowered:
+                return row_index
+        if bands and re.search(r"0 tonne.*à\s*2\s*t", bands[0], re.I):
+            return 0
+    if index >= len(bands):
+        if len(bands) == 1 and index == 1:
+            return 0
+        raise ValueError(f"tranche {band.value} absente")
+    return index
+
+
 def _to_float(value: str) -> float:
     return float(value.replace(",", "."))
 
@@ -293,6 +335,84 @@ def _extract_section(text: str) -> str | None:
     if end:
         return text[start.start() : end.start()]
     return text[start.start() : start.start() + 5000]
+
+
+def _extract_flat_inline_rate(section: str) -> list[tuple[str, float]]:
+    match = FLAT_INLINE_RATE.search(section)
+    if not match:
+        return []
+    ttc = _to_float(match.group(3))
+    label = f"0 tonne à {match.group(1)} t"
+    return [(label, ttc)]
+
+
+def _extract_forfait_lt3(section: str) -> list[tuple[str, float]]:
+    match = FORFAIT_LT3.search(section)
+    if not match:
+        return []
+    ht = _to_float(match.group(1))
+    return [("forfait < 3 t", round(ht * (1 + DEFAULT_VAT_RATE), 2))]
+
+
+def _extract_vertical_ton_bands(section: str) -> list[tuple[str, float]]:
+    if "MTOW per tons" not in section:
+        return []
+    chunk = section.split("MTOW per tons", 1)[1]
+    lines = [line.strip() for line in chunk.splitlines()]
+    bands: list[tuple[str, float]] = []
+    index = 0
+    inline_row = re.compile(
+        r"^(\d+)t\b.*?(\d+(?:[.,]\d+)?)\s*€.*?(\d+(?:[.,]\d+)?)\s*€",
+        re.I,
+    )
+    while index < len(lines):
+        line = lines[index]
+        inline_match = inline_row.match(line)
+        if inline_match:
+            ton = inline_match.group(1)
+            bands.append((f"{ton}t", _to_float(inline_match.group(3))))
+            index += 1
+            continue
+        ton_match = re.match(r"^(\d+)t$", line, re.I)
+        if not ton_match:
+            index += 1
+            continue
+        amounts: list[float] = []
+        cursor = index + 1
+        while cursor < len(lines) and len(amounts) < 2:
+            if re.match(r"^\d+t$", lines[cursor], re.I):
+                break
+            price_match = re.match(r"^(\d+(?:[.,]\d+)?)\s*€?$", lines[cursor])
+            if price_match:
+                amounts.append(_to_float(price_match.group(1)))
+            cursor += 1
+        if amounts:
+            ttc = (
+                round(amounts[0] * (1 + DEFAULT_VAT_RATE), 2)
+                if len(amounts) == 1
+                else amounts[1]
+            )
+            bands.append((f"{ton_match.group(1)}t", ttc))
+        index = cursor if cursor > index + 1 else index + 1
+    return bands
+
+
+def _extract_band_prices(section: str) -> tuple[list[str], list[float]]:
+    bands = _extract_bands(section)
+    if bands:
+        prices = _extract_prices(section, len(bands), vat_included=False)
+        if len(prices) >= len(bands):
+            return bands, prices
+
+    for extractor in (
+        _extract_flat_inline_rate,
+        _extract_forfait_lt3,
+        _extract_vertical_ton_bands,
+    ):
+        special = extractor(section)
+        if special:
+            return [label for label, _ in special], [price for _, price in special]
+    return [], []
 
 
 def _extract_bands(section: str) -> list[str]:
@@ -321,19 +441,36 @@ def _extract_bands(section: str) -> list[str]:
     return bands
 
 
+def _extract_row_ttc_prices(section: str, count: int) -> list[float]:
+    prices: list[float] = []
+    for line in section.splitlines():
+        if not _is_weight_band_line(line):
+            continue
+        numbers = [_to_float(match.group(1)) for match in PRICE_NUMBER.finditer(line)]
+        if len(numbers) < 2:
+            continue
+        prices.append(numbers[-1])
+        if len(prices) >= count:
+            break
+    return prices
+
+
 def _extract_prices(section: str, count: int, *, vat_included: bool) -> list[float]:
+    row_prices = _extract_row_ttc_prices(section, count)
+    if len(row_prices) >= count:
+        return row_prices
+
+    for match in ROW_BAND_PRICE.finditer(section):
+        row_prices.append(_to_float(match.group(2)))
+        if len(row_prices) >= count:
+            return row_prices
+
     ttc_marker = re.search(r"Tarif.*TTC|VAT incl", section, re.I)
     if ttc_marker:
         chunk = section[ttc_marker.end() :]
         prices = _scan_price_numbers(chunk, count)
         if prices:
             return prices
-
-    row_prices = []
-    for match in ROW_BAND_PRICE.finditer(section):
-        row_prices.append(_to_float(match.group(2)))
-        if len(row_prices) >= count:
-            return row_prices
 
     ht_marker = re.search(r"Tarif.*HT|EX VAT|€ H\.T", section, re.I)
     chunk = section[ht_marker.end() :] if ht_marker else section
@@ -381,11 +518,9 @@ def parse_edeis_landing_fee(
     if not section:
         raise ValueError("section « moins de 6 tonnes » introuvable")
 
-    bands = _extract_bands(section)
+    bands, prices = _extract_band_prices(section)
     if not bands:
         raise ValueError("tranches de masse introuvables")
-
-    prices = _extract_prices(section, len(bands), vat_included=False)
     if len(prices) < len(bands):
         raise ValueError("tarifs TTC/HT introuvables")
 
@@ -394,10 +529,7 @@ def parse_edeis_landing_fee(
         label = f"min ({', '.join(f'{p:.2f} €' for p in prices)})"
         confidence = "medium"
     else:
-        index = _band_index(band)
-        assert index is not None
-        if index >= len(prices):
-            raise ValueError(f"tranche {band.value} absente")
+        index = _resolve_band_index(bands, band)
         fee = prices[index]
         label = bands[index]
         confidence = "high"
@@ -442,7 +574,11 @@ def probe_pdf_url(url: str) -> tuple[str, str]:
         if local.exists() and local.read_bytes()[:4] == b"%PDF":
             return "local", str(local)
         return "missing", f"fichier local introuvable ({local})"
-    request = urllib.request.Request(url, method="HEAD", headers={"User-Agent": USER_AGENT})
+    request = urllib.request.Request(
+        url,
+        method="HEAD",
+        headers={"User-Agent": USER_AGENT},
+    )
     try:
         with urllib.request.urlopen(request, timeout=30) as response:
             status = str(response.status)

@@ -1,0 +1,12 @@
+moins de 6 tonnes
+
+
+  Masse Maximum au Décollage en tonne                                      Tarif € HT                     Tarif € TTC
+              MTOW per tons                                                € EX VAT                       € VAT incl
+ De 0 à 1t                                                                   9,17 €                        11,01 €
+ De > 1t à 2t                                                               11,88 €                        14,25 €
+ De > 2t à 3t                                                               16,96 €                        20,35 €
+
+     Tarif de base pour aéronefs de plus de 6 tonnes
+
+Effective on 01 January 2026

@@ -1,8 +1,13 @@
 icao,fee_eur,observed_on,payment,note
-LFGC,12.66,2026-09-15,other,De > 1t à 2t
-LFJR,14.37,2026-09-15,other,De > 1t à 2t
-LFLA,9.48,2026-05-01,other,De >1 t à 2 t — guide EDEIS 2026
-LFOT,12.00,2026-09-15,other,De 1t à 1.999t
-LFQB,11.45,2026-04-01,other,De > 1t à 2t — guide EDEIS 2026
-LFSD,14.40,2026-09-15,other,De > 1t à 2t
-LFTW,22.91,2026-09-15,other,De > 1t à 2t
+LFAC,15.47,2026-01-01,other,>1 t à 2 t
+LFBX,12.00,2025-07-01,other,2t
+LFGC,12.66,2025-04-11,other,De > 1t à 2t
+LFJR,14.37,2026-01-01,other,De > 1t à 2t
+LFLA,12.48,2026-05-01,other,De >1 t à 2 t
+LFOT,10.00,2024-01-01,other,De 1t à 1.999t
+LFQA,14.25,2026-01-01,other,De > 1t à 2t
+LFQB,11.45,2026-04-01,other,De > 1t à 2t
+LFRC,13.20,2025-01-01,other,0 tonne à 2 t
+LFRH,114.00,2025-08-01,other,forfait < 3 t
+LFSD,14.40,2025-04-10,other,De > 1t à 2t
+LFTW,22.91,2025-01-01,other,De > 1t à 2t

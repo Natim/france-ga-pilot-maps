@@ -225,10 +225,9 @@ def apply(aerodrome: Aerodrome) -> Aerodrome:
         return aerodrome
 
     fuels = (aerodrome.fuels | frozenset(override.availability)) - override.remove_fuels
+    merged_availability = dict(aerodrome.availability) | override.availability
     availability = {
-        fuel: level
-        for fuel, level in (dict(aerodrome.availability) | override.availability).items()
-        if fuel in fuels
+        fuel: level for fuel, level in merged_availability.items() if fuel in fuels
     }
     # Keep any earlier marking: after the first pass the fuel is present, so
     # recomputing the difference alone would forget that we added it.

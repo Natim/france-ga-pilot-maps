@@ -257,9 +257,8 @@ def _write_outputs(
     print(f"Markdown           : {args.markdown} ({len(curated)} terrains)")
     print(f"Données carte      : {args.map_data} ({plotted} points)")
     print(f"Terrains prix      : {args.locations_data} ({price_plotted} terrains)")
-    print(
-        f"Terrains redevances : {args.landing_locations_data} ({landing_plotted} terrains)"
-    )
+    landing_path = args.landing_locations_data
+    print(f"Terrains redevances : {landing_path} ({landing_plotted} terrains)")
 
     unplottable = [a.icao for a in curated if not a.has_position]
     if unplottable:
@@ -321,9 +320,11 @@ def _run_check_landing_sources(args: argparse.Namespace) -> int:
         suffix = f" — {result.message}" if result.message else ""
         parse = f" parse={result.parse_status}" if result.parse_status else ""
         print(f"{result.icao}  http={result.http_status}{parse}{suffix}")
-        if result.http_status not in {"200", "local"}:
-            failures += 1
-        elif args.parse and result.parse_status == "fail":
+        if (
+            result.http_status not in {"200", "local"}
+            or args.parse
+            and result.parse_status == "fail"
+        ):
             failures += 1
     print(f"{len(results)} URL(s) vérifiée(s), {failures} problème(s).")
     return 1 if failures else 0
