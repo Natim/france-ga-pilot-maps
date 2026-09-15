@@ -124,15 +124,35 @@
   }
   .leaflet-popup-content { margin: 12px 14px; min-width: 250px; }
 
+  .panel-toggle {
+    display: none;
+    position: absolute; top: 12px; right: 12px; z-index: 1001;
+    padding: 8px 12px; border: none; border-radius: 8px;
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.22);
+    font: inherit; font-size: 13px; color: var(--ink); cursor: pointer;
+  }
+
   @media (max-width: 640px) {
-    .panel { left: 12px; right: 12px; width: auto; }
+    .panel-toggle { display: block; }
+    .panel {
+      display: none;
+      top: 52px; left: 12px; right: 12px; width: auto;
+      max-height: calc(100% - 64px);
+    }
+    .panel.is-open { display: block; }
   }
 </style>
 </head>
 <body>
 <div id="map"></div>
 
-<div class="panel">
+<button type="button" class="panel-toggle" id="panel-toggle"
+        aria-expanded="false" aria-controls="panel">
+  Filtres
+</button>
+
+<div class="panel" id="panel">
   <h1>Prix carburants aviation</h1>
   <div class="meta" id="meta">Chargement…</div>
 
@@ -509,6 +529,31 @@ async function load() {
 }
 
 load();
+
+(function initMobilePanel() {
+  const panel = document.getElementById("panel");
+  const toggle = document.getElementById("panel-toggle");
+  const mobile = window.matchMedia("(max-width: 640px)");
+
+  function sync() {
+    if (!mobile.matches) {
+      panel.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "true");
+      toggle.textContent = "Filtres";
+    } else {
+      const open = panel.classList.contains("is-open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.textContent = open ? "Fermer" : "Filtres";
+    }
+  }
+
+  toggle.addEventListener("click", () => {
+    panel.classList.toggle("is-open");
+    sync();
+  });
+  mobile.addEventListener("change", sync);
+  sync();
+})();
 </script>
 </body>
 </html>
