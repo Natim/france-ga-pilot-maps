@@ -179,6 +179,14 @@ Vérifier que les URLs PDF répondent encore :
 fuelmap check-landing-sources --parse
 ```
 
+Import en masse depuis la [carte communautaire « taxes d'atterrissage »](https://maps.app.goo.gl/Vzd5apPC4EJ4jJnTA)
+(snapshot **2024-06-02**, avion &lt; 2 t). Les terrains déjà présents dans
+`docs/landing_fees.csv` (PDF vérifiés ou signalements récents) sont **conservés** ;
+
+```bash
+fuelmap import-kml-landing-fees
+```
+
 La CI lance `fuelmap validate-landing-fees`. Une fois mergée sur `main`, GitHub
 Pages sert le CSV mis à jour sans regénération Python.
 

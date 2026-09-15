@@ -1,0 +1,4631 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+  <Document>
+    <name><![CDATA[Carte taxes d'atterrissage]]></name>
+    <description><![CDATA[Dernière mise à jour : 02/06/2024<br><br>Carte réalisée par Cédric Rousseau et complétée grâce à la participation des utilisateurs.<br><br>Vous remarquez une données erronée? Remplissez le formulaire en lien à la fin de la légende et la modification sera apportée.<br><br>-> tarifs (pour < 2T) :<br>blanc = gratuit<br>vert = 1 à 4,99 €<br>jaune = 5 à 9,99 €<br>orange = 10 à 14,99 €<br>rouge = 15 à 29,99 €<br>noir = 30 à ... €<br><br>-> losange = aérodrome restreint<br>-> carré = aérodrome militaire<br>-> étoile bleue = tarif inconnu<br><br>Lien de mise à jour :<br>https://docs.google.com/forms/d/e/1FAIpQLScrir2HgmKcGtYRRZYTxNJx2LTNFwiogU-mwD9E3vDetGY8gA/viewform<br>]]></description>
+    <Style id="icon-959-000000-labelson">
+      <IconStyle>
+        <color>ff000000</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/959-wht-circle-blank.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-959-009D57-normal">
+      <IconStyle>
+        <color>ff579d00</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/959-wht-circle-blank.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>0</scale>
+      </LabelStyle>
+    </Style>
+    <Style id="icon-959-009D57-highlight">
+      <IconStyle>
+        <color>ff579d00</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/959-wht-circle-blank.png</href>
+        </Icon>
+      </IconStyle>
+      <LabelStyle>
+        <scale>1.1</scale>
+      </LabelStyle>
+    </Style>
+    <StyleMap id="icon-959-009D57">
+      <Pair>
+        <key>normal</key>
+        <styleUrl>#icon-959-009D57-normal</styleUrl>
+      </Pair>
+      <Pair>
+        <key>highlight</key>
+        <styleUrl>#icon-959-009D57-highlight</styleUrl>
+      </Pair>
+    </StyleMap>
+    <Style id="icon-959-009D57-labelson">
+      <IconStyle>
+        <color>ff579d00</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/959-wht-circle-blank.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-959-62AF44-labelson">
+      <IconStyle>
+        <color>ff44af62</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/959-wht-circle-blank.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-959-DB4436-labelson">
+      <IconStyle>
+        <color>ff3644db</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/959-wht-circle-blank.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-959-F4B400-labelson">
+      <IconStyle>
+        <color>ff00b4f4</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/959-wht-circle-blank.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-959-F4EB37-labelson">
+      <IconStyle>
+        <color>ff37ebf4</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/959-wht-circle-blank.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-959-F8971B-labelson">
+      <IconStyle>
+        <color>ff1b97f8</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/959-wht-circle-blank.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-959-FFFFFF-labelson">
+      <IconStyle>
+        <color>ffffffff</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/959-wht-circle-blank.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-960-4186F0-labelson">
+      <IconStyle>
+        <color>fff08641</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/960-wht-star-blank.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-960-CCCCCC-labelson">
+      <IconStyle>
+        <color>ffcccccc</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/960-wht-star-blank.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-961-000000-labelson">
+      <IconStyle>
+        <color>ff000000</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/961-wht-square-blank.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-961-CCCCCC-labelson">
+      <IconStyle>
+        <color>ffcccccc</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/961-wht-square-blank.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-961-F4EB37-labelson">
+      <IconStyle>
+        <color>ff37ebf4</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/961-wht-square-blank.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-961-FFFFFF-labelson">
+      <IconStyle>
+        <color>ffffffff</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/961-wht-square-blank.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-962-777777-labelson">
+      <IconStyle>
+        <color>ff777777</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/962-wht-diamond-blank.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-962-F4B400-labelson">
+      <IconStyle>
+        <color>ff00b4f4</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/962-wht-diamond-blank.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-962-F4EB37-labelson">
+      <IconStyle>
+        <color>ff37ebf4</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/962-wht-diamond-blank.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-962-F8971B-labelson">
+      <IconStyle>
+        <color>ff1b97f8</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/962-wht-diamond-blank.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Style id="icon-962-FFFFFF-labelson">
+      <IconStyle>
+        <color>ffffffff</color>
+        <scale>1.1</scale>
+        <Icon>
+          <href>https://www.gstatic.com/mapspro/images/stock/962-wht-diamond-blank.png</href>
+        </Icon>
+      </IconStyle>
+    </Style>
+    <Folder>
+      <name>France</name>
+      <Placemark>
+        <name>LFAB</name>
+        <description>Gratuit - 24/03/2019</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.0820889,49.8849297,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFAC</name>
+        <description>10 à 15 € - décembre 2011</description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.9549227,50.9600216,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFAD</name>
+        <description>gratuit - novembre 2012</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.8030801,49.432915,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFAE</name>
+        <description>Gratuit - 30/06/2022</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.4265275,50.0684478,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFAF</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.632569,49.59679,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFAG</name>
+        <description>Gratuit - 15/02/2017</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.0402732,49.8714201,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFAI</name>
+        <description>Gratuit - 15/08/2020</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.007872,48.595968,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFAJ</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.002586,48.709668,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFAK</name>
+        <description>Gratuit  - 2017</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.55018,51.0398288,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFAL</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.0027895,47.6940428,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFAM</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.5947342,50.4241047,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFAO</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.3875041,48.5461103,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFAP</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.3634337,49.4812547,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFAQ</name>
+        <description>10,00€ - 07/05/2022</description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.6999331,49.9715391,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFAR</name>
+        <description>gratuit - restreint - juillet 2015</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.5675178,49.6721689,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFAS</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.1448393,48.926884,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFAT</name>
+        <description><![CDATA[24,00 € - 03/06/2024<br>"Désormais forfait tous les jours pour atterrissage+parking 24h max (pareil pour 1h, 2h, 6h, etc) pour 24€<br>+20€(=44€) si nuit sur place. Exemple de jeudi 14h à vendredi 14h=44€."]]></description>
+        <styleUrl>#icon-959-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.620303,50.512952,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFAU</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -1.8301678,49.6233819,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFAV</name>
+        <description>6,50 € - 22/05/2022</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.4581828,50.328779,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFAW</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.8895516,49.4107079,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFAX</name>
+        <description>Gratuit - 26/06/2013</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.5327994,48.5391919,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFAY</name>
+        <description>9,00 € - 11/04/2019</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.383969,49.870936,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFBA</name>
+        <description>5.90 € - 09/07/2018</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.5944848,44.1762178,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFBD</name>
+        <description>15 à 20 € + 75€ de Handling - avril 2017</description>
+        <styleUrl>#icon-959-000000-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.710313,44.830583,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFBE</name>
+        <description>5,00€ - 26/06/2021</description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.514469,44.822456,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFBF</name>
+        <description>tarif inconnu</description>
+        <styleUrl>#icon-960-4186F0-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.3658023,43.5459975,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFBG</name>
+        <description>gratuit - militaire - décembre 2011</description>
+        <styleUrl>#icon-961-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.3136683,45.6577877,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFBH</name>
+        <description>13,22 € - 04/08/2017</description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -1.1944628,46.1778098,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFBI</name>
+        <description><![CDATA[11,20 € - 10/06/2017<br>Parking 0,30€/h]]></description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.3113079,46.5858838,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFBJ</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.9191287,45.9025674,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFBK</name>
+        <description>5 à 10 € - décembre 2011</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.362747,46.226136,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFBL</name>
+        <description>5.41€TTC -de 1.5T _ mai 2017</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.180172,45.8608467,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFBN</name>
+        <description><![CDATA[6,40€ - 28/05/2024 //  Nuit 7.40 € TTC - avion privé <2t]]></description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.394456,46.312212,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFBO</name>
+        <description>34,25 € - 03/11/2019</description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.367674,43.629378,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFBP</name>
+        <description><![CDATA[20 € - 30/07/2017<br>(30€ avec stationnement)]]></description>
+        <styleUrl>#icon-959-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.4158068,43.382891,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFBR</name>
+        <description>1 à 5 € - décembre 2011</description>
+        <styleUrl>#icon-959-62AF44-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.262784,43.449788,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFBS</name>
+        <description>Gratuit - 09/07/2019</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -1.13039,44.36749,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFBT</name>
+        <description>5 à 10 € - décembre 2011</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.0026178,43.1856688,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFBU</name>
+        <description>5 à 10 € - décembre 2011</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.217452,45.7265997,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFBX</name>
+        <description>5 à 10 € - décembre 2011</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.812645,45.196313,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFBY</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -1.0671115,43.6898926,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFBZ</name>
+        <description>40 € - 21/07/2022 // PPR 48h (executiveaviation@biarritz-aeroport.fr)</description>
+        <styleUrl>#icon-959-000000-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -1.5313911,43.4719977,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFCA</name>
+        <description>gratuit - Février 2017</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.5504966,46.7822464,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFCB</name>
+        <description>Gratuit - 06/08/2017</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.5994308,42.8009585,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFCC</name>
+        <description>1 à 5 € - décembre 2011</description>
+        <styleUrl>#icon-959-62AF44-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.475269,44.351389,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFCD</name>
+        <description>gratuit - juillet 2015</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -1.064494,44.754764,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFCE</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.9525409,46.1761308,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFCF</name>
+        <description><![CDATA[gratuit - 01/07/2017<br>Très bon restaurant à côté...]]></description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.788561,44.671995,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFCG</name>
+        <description>4,00 € - 11/07/2019</description>
+        <styleUrl>#icon-959-62AF44-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.1035681,43.0072833,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFCH</name>
+        <description>6,62 € - 07/08/2017</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -1.119318,44.593004,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFCI</name>
+        <description>7,50€ - 20/07/2021</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.117121,43.915934,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFCJ</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.4226732,45.4838001,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFCK</name>
+        <description>9,68€ - 28/03/2022</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.2905207,43.5549709,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFCL</name>
+        <description>16,50 € - 08/03/2023 // Stationnement 1€/h. Franchise de 2h.</description>
+        <styleUrl>#icon-959-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.499162,43.586126,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFCM</name>
+        <description>Gratuit - 2017</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.181948,43.989071,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFCN</name>
+        <description>Gratuit - 09/08/2017</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.03385,43.769916,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFCO</name>
+        <description><![CDATA[Gratuit - 20/12/2019<br>Accueil fort sympathique]]></description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.561075,43.163839,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFCP</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.5164003,45.5711091,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFCQ</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.010112,43.769141,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFCR</name>
+        <description>6,00€ - 21/04/2021</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.483237,44.410733,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFCS</name>
+        <description>gratuit - avril 2017</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.5974674,44.6982504,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFCT</name>
+        <description>Gratuit - 05/11/2017</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.156298,46.962938,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFCU</name>
+        <description>3,20 € - 01/07/2018</description>
+        <styleUrl>#icon-959-62AF44-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.4232793,45.5364002,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFCV</name>
+        <description>gratuit - juillet 2015</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.0267522,44.3688549,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFCW</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.759022,44.399234,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFCX</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.1276865,44.0865986,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFCY</name>
+        <description><![CDATA[5,50 € - —/08/2022 //Parking 0.20€/h TTC après les 2 premières heures, balisage vol de nuit 10.60 € TTC - avion privé <2t]]></description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.975831,45.63083,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFDA</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.247622,43.70871,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFDB</name>
+        <description>gratuit - juillet 2015</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.3780439,44.0255478,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFDC</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.4537439,45.2739502,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFDE</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.0681334,45.420436,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFDF</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.177198,44.85234,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFDG</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.8738127,43.8832636,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFDH</name>
+        <description>5,50 € - 02/11/2017</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.602961,43.687488,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFDI</name>
+        <description>5 à 10 € - décembre 2011</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.137222,44.984182,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFDJ</name>
+        <description>10.76 € - 11/03/2017</description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.6958,43.090563,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFDK</name>
+        <description>5 à 10 € - décembre 2011</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -1.083945,45.4939165,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFDL</name>
+        <description><![CDATA[Gratuit - 29/06/2020<br>100 LL avec carte Total]]></description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.100636,47.035956,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFDM</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.198322,44.499322,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFDN</name>
+        <description>5 à 10 € - décembre 2011</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.9833622,45.8886042,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFDP</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -1.315205,45.957728,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFDQ</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.5184817,43.2776271,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFDR</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.0533009,44.5663336,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFDS</name>
+        <description>3,00 € - 12/07/2019</description>
+        <styleUrl>#icon-959-62AF44-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.243628,44.791235,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFDT</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.076389,43.215373,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFDU</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.8845818,45.1966756,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFDV</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.1883769,46.2710968,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFDW</name>
+        <description>Gratuit - 01/11/2017</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.6419411,46.5814728,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFDX</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.0070193,44.4597143,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFDY</name>
+        <description>gratuit - restreint - ?</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.4797721,44.8752519,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFEA</name>
+        <description>10 € - 01/08/2017</description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -3.2001543,47.3259378,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFEB</name>
+        <description>5.00 € - 24/08/2018</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -2.102358,48.44281,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFEC</name>
+        <description>9,00 € - 04/2024 // avec parking 4h et tonnage inferieur à 1.2To</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -5.0624442,48.462265,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFED</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -2.924649,48.056577,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFEF</name>
+        <description>5 à 10 € - décembre 2011</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.943397,47.341331,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFEG</name>
+        <description>Gratuit - 27/07/2020</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.5998197,46.5943259,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFEH</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.392659,47.479958,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFEI</name>
+        <description>Gratuit - 19/04/2016</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.7818155,47.6141628,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFEJ</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.620666,46.840835,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFEK</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.0394444,46.8886918,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFEL</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.088325,46.620497,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFEM</name>
+        <description>Gratuit - 17/05/2015</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.685685,47.959884,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFEN</name>
+        <description>Gratuit - 01/01/2017</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.7019985,47.2674726,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFEP</name>
+        <description>gratuit - restreint - ?</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.5619011,47.2194369,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFEQ</name>
+        <description><![CDATA[10 € - 02/07/2022<br>1 nuit + taxe : 8€ ]]></description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -3.099561,47.480494,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFER</name>
+        <description><![CDATA[Gratuit - 17/04/2024 // "La gestion de l'aérodrome est maintenant faite par l'aéroclub, attero gratuits.<br>Ils ont du SP98 et 100LL en dépannage."]]></description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -2.0375669,47.6974656,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFES</name>
+        <description><![CDATA[4 € - 18/07/2017<br>Stationnement : 9€/jour TTC]]></description>
+        <styleUrl>#icon-959-62AF44-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -3.664734,48.052511,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFET</name>
+        <description>gratuit - 01/01/2023</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.211296,47.548508,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFEU</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.1842594,48.8674602,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFEV</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.6213307,47.432413,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFEW</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.2635536,47.2384525,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFEX</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.2403953,48.5938391,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFEY</name>
+        <description>10,50€ - 17/04/2022.  /// Taxe, parking journée : 8,40€ </description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -2.3896122,46.7172834,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFEZ</name>
+        <description>tarif inconnu</description>
+        <styleUrl>#icon-960-4186F0-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.2088847,48.7203576,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFFB</name>
+        <description><![CDATA[Gratuit - restreint - 19/06/2016<br>Restaurant sur AD]]></description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.4235582,48.3498323,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFFC</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.6882467,49.0782233,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFFD</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.2486,48.896959,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFFE</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.3517394,49.0453931,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFFG</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.2783246,48.7572497,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFFH</name>
+        <description>Gratuit - 27/08/2021</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.3541131,49.065389,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFFI</name>
+        <description>5 à 10 € - décembre 2011</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -1.1775112,47.4080508,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFFJ</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.1433933,48.3850788,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFFK</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.7929683,46.4412283,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFFL</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.6386795,48.5161353,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFFN</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.479847,48.4291151,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFFP</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.1936071,48.1564814,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFFQ</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.3402274,48.4972275,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFFR</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.4095194,48.0676985,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFFT</name>
+        <description>gratuit  - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.7175577,48.3596995,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFFU</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.3744953,46.8698335,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFFV</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.066052,47.1963287,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFFW</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -1.3265991,46.9325136,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFFX</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.9760234,46.5620546,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFFY</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.6348171,49.3054686,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFFZ</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.761262,48.708918,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFGA</name>
+        <description><![CDATA[13.20€ - 15/02/2022<br> Stationnement 0.48€ T/H 2017]]></description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            7.3615694,48.1097523,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFGB</name>
+        <description>7,21€ - 16/07/2017</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            7.4285817,47.7421949,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFGC</name>
+        <description>gratuit - novembre 2015</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            7.7781272,48.5548388,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFGE</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.8988161,47.5022502,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFGF</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.894382,47.009666,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFGG</name>
+        <description><![CDATA[Gratuit - 30/07/2013<br>Restaurant sur AD]]></description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.83105,47.70335,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFGH</name>
+        <description>Gratuit - 26/04/2018</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.9177928,47.3612838,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFGI</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.946948,47.385399,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFGJ</name>
+        <description>26,4€ - 21/02/2019</description>
+        <styleUrl>#icon-959-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.4259586,47.0437501,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFGK</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.3940673,47.9937702,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFGL</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.4712558,46.676282,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFGM</name>
+        <description>gratuit - août 2015</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.330223,46.602288,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFGN</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.1325223,46.4665147,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFGO</name>
+        <description>Gratuit - 10/08/2019</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.245172,48.289247,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFGP</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.775392,47.980956,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFGQ</name>
+        <description>Gratuit - 27/02/2021</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.343215,47.4816,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFGR</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.93163,49.151622,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFGS</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.5730188,49.4833633,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFGT</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            7.0750237,48.7177528,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFGU</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            7.105858,49.128734,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFGW</name>
+        <description>Gratuit - 25/09/2017</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.469046,49.122359,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFGX</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.8198571,46.7647654,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFGY</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            7.008709,48.267419,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFGZ</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.9728799,47.1408182,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFHA</name>
+        <description>gratuit - novembre 2012</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.2646561,45.5098056,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFHC</name>
+        <description>Gratuit - 24/05/2018</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.1849353,45.8712238,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFHD</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.715817,44.397271,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFHE</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.099115,45.063837,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFHF</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.3322879,44.4442898,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFHG</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.5353043,45.4914082,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFHH</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.828223,45.4629601,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFHI</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.4531938,45.6862011,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFHJ</name>
+        <description>Gratuit - 30/07/2017</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.9147725,45.6533632,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFHL</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.8852549,44.7044579,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFHM</name>
+        <description>8,40 € - restreint - 14/08/2019</description>
+        <styleUrl>#icon-962-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.6494429,45.823521,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFHN</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.8050728,46.1230985,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFHO</name>
+        <description>Gratuit - 11/08/2020</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.3690073,44.5398729,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFHP</name>
+        <description>8,15 € - juillet 2015</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.7632895,45.075733,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFHQ</name>
+        <description>4 € - 02/09/2017</description>
+        <styleUrl>#icon-959-62AF44-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.992616,45.074763,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFHR</name>
+        <description>gratuit - novembre 2012</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.3616662,45.3200473,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFHS</name>
+        <description>7,75 € - 05/05/2024</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.291676,46.20333,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFHT</name>
+        <description>2,00 € - novembre 2012</description>
+        <styleUrl>#icon-959-62AF44-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.7455493,45.5169403,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFHU</name>
+        <description>gratuit - restreint - décembre 2016</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.0848486,45.0886114,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFHV</name>
+        <description>15 € - 16/09/2017</description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.6338701,45.9180646,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFHW</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.7136712,46.1410245,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFHX</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.5864782,46.2517221,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFHY</name>
+        <description>10,00 € -20/03/2019</description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.421919,46.534451,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFHZ</name>
+        <description>FERMÉ</description>
+        <styleUrl>#icon-962-777777-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.638875,45.9500009,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFIB</name>
+        <description>gratuit - restreint - 03/07/2017</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.9516263,44.7828098,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFID</name>
+        <description>Gratuit - 07/08/2017</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.3887272,43.9088307,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFIF</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.7459168,43.8237684,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFIG</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.5111699,44.178126,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFIH</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.0179386,45.2679929,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFIK</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.2655065,45.2389902,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFIL</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.9501672,43.9152072,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFIM</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.6168973,43.1067403,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFIP</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.4366314,42.7968059,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFIR</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.9780326,43.4804566,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFIS</name>
+        <description>gratuit - juillet 2016</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.7361403,50.8829606,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFIT</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.723791,43.611316,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFIV</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -1.120466,45.3787012,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFIX</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -1.4198381,43.3360958,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFIY</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.5191469,45.9645154,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFJA</name>
+        <description>5 à 10 € - décembre 2011</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.0500846,48.0918399,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFJB</name>
+        <description>Gratuit - 01/11/2017</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.6977928,46.9027826,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFJC</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.5079002,47.4383639,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFJD</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.494591,46.0403972,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFJE</name>
+        <description>gratuit - restreint - février 2017</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.4023874,44.4953344,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFJF</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.1538861,44.6952723,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFJH</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.0497737,43.2006633,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFJI</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -1.0763651,45.8237565,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFJL</name>
+        <description>5 à 10 € - décembre 2011</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.246629,48.97833,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFJR</name>
+        <description>12.84 € - 18/03/2023</description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.3121126,47.5603541,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFJS</name>
+        <description>Gratuit - 27/08/2021</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.2786357,49.3439916,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFJT</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.7127702,47.150516,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFJU</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.9513097,46.7167023,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFJV</name>
+        <description>tarif inconnu</description>
+        <styleUrl>#icon-960-CCCCCC-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.2868408,43.4261245,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFJY</name>
+        <description>Gratuit - 08/11/2020</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.877686,49.023602,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFKA</name>
+        <description>10€ - 02/07/2017</description>
+        <styleUrl>#icon-962-F4B400-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.32982,45.627484,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFKB</name>
+        <description>15 à 30 € - décembre 2011</description>
+        <styleUrl>#icon-959-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            9.4811583,42.5471366,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFKC</name>
+        <description><![CDATA[78,00 € - 27/06/2020<br>Forfait tarif aéroclub <1.5T.<br> PPR 72h obligatoire.<br>Taxe d'atterrissage : 42€<br>Handling !!obligatoire!! : 36€]]></description>
+        <styleUrl>#icon-959-000000-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            8.7901354,42.5253332,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFKD</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.8012452,45.2538635,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFKE</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.3097224,45.0263249,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFKF</name>
+        <description>30,45 € - 17/08/2017</description>
+        <styleUrl>#icon-959-000000-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            9.098332,41.498903,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFKG</name>
+        <description>tarif inconnu</description>
+        <styleUrl>#icon-960-CCCCCC-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            9.4019043,42.0549808,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFKH</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.6790143,45.515324,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFKJ</name>
+        <description>5 à 10 € - décembre 2011</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            8.7939978,41.9198742,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFKK</name>
+        <description>gratuit - privé - 02/07/2017</description>
+        <styleUrl>#icon-961-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.7643569,44.7938887,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFKL</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.6967947,45.7111989,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFKM</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.3049937,45.6063859,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFKO</name>
+        <description><![CDATA[10€ - 16/07/2017<br>Stationnement 24h : 10€]]></description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            8.8948381,41.6600482,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFKP</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.3858435,45.5563191,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFKR</name>
+        <description>Gratuit - 02/07/2017</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.2774849,45.3750122,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFKT</name>
+        <description><![CDATA[gratuit - juillet 2017<br>Camping sur AD]]></description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            9.1896343,42.2918341,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFKX</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.5784717,45.4066684,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFKY</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.6908751,45.6941902,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFLA</name>
+        <description><![CDATA[6,72 € - 24/02/2019<br>50% de remise le dimanche]]></description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.496925,47.850002,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFLB</name>
+        <description>5 à 10 € - décembre 2011</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.8837366,45.6379273,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFLC</name>
+        <description>18,10 € - 18/08/2019.  Tarif quand l aeroclub est ouvert avec 24h de stationnement compris</description>
+        <styleUrl>#icon-959-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.159771,45.7900456,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFLD</name>
+        <description><![CDATA[5 € - 27/07/2020 <br>taxe att 10 € TTC, réduction 50% si avion d'aéroclub (accord FFA-Edeis) / + 50 cts / heure entamée de stationnement]]></description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.3689055,47.0594373,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFLE</name>
+        <description>gratuit - août 2016</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.975876,45.560503,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFLG</name>
+        <description>12,00€ - 08/2022  // nuit : 9,00€</description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.848546,45.2180824,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFLH</name>
+        <description>12,00 € (-50% pour les clubs FFA) - 17/06/2021. Pour 3 DR400, 6€ / avion</description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.825015,46.827711,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFLI</name>
+        <description>10 à 15 € - décembre 2011</description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.266971,46.193052,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFLJ</name>
+        <description><![CDATA[Restreint - 02/07/2017<br> Afis absent : gratuit <br>Afis présent : Eté : 10€ / Hiver : 90€]]></description>
+        <styleUrl>#icon-962-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.6345137,45.3959789,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFLK</name>
+        <description>gratuit - juillet 2015</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.661049,46.276199,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFLL</name>
+        <description>15 à 30 € - décembre 2011</description>
+        <styleUrl>#icon-959-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.079503,45.720353,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFLM</name>
+        <description><![CDATA[8 € - 12/06/2021<br>TAG gratuits. Taxe offerte si repas au restaurant]]></description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.798601,46.295198,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFLN</name>
+        <description>8,36 € - juillet 2015</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.0141296,46.4130676,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFLO</name>
+        <description>7,00 € - juillet 2015</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.0015125,46.0547391,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFLP</name>
+        <description>8,30 € - 08/08/2019</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.106596,45.9311249,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFLQ</name>
+        <description>gratuit - septembre 2016</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.7381759,44.5805184,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFLR</name>
+        <description><![CDATA[Gratuit - 16/07/2017<br>Restaurant sur AD]]></description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.826195,45.252187,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFLS</name>
+        <description><![CDATA[11,80€ - 04/07/2017<br>2 restaurants à moins de 200 m]]></description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.3320169,45.3601066,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFLT</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.571938,46.3531335,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFLU</name>
+        <description>12,92 € - 27/05/2023</description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.9680519,44.9207527,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFLV</name>
+        <description>6,84 € - 23/05/2017</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.403058,46.168612,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFLW</name>
+        <description><![CDATA[3,50 € - 12/07/2019<br>Restaurant recommandé]]></description>
+        <styleUrl>#icon-959-62AF44-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.420318,44.89969,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFLX</name>
+        <description>Gratuit - 01/11/2017</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.722794,46.858078,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFLY</name>
+        <description>10 à 15 € - décembre 2011</description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.94226,45.728577,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFLZ</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.1954041,45.706464,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFMA</name>
+        <description>9,60 € - 04/05/2019</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.367765,43.505546,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFMC</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.3891506,43.3844349,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFMD</name>
+        <description>30.83€ - mars 2017 (http://www.cannes.aeroport.fr/Aeroport-Cannes-Mandelieu/SERVICES-ASSISTANCES/Tarifs-des-redevances)</description>
+        <styleUrl>#icon-959-000000-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.9540238,43.5471328,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFME</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.4148517,43.8554653,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFMF</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.7016816,43.608053,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFMG</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.9907892,43.4070117,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFMH</name>
+        <description>4,50 € - juillet 2015</description>
+        <styleUrl>#icon-959-62AF44-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.294002,45.531921,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFMI</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.9292564,43.5220411,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFMK</name>
+        <description><![CDATA[5,00 € - 11/07/2019<br>Nuit : 7,35 €]]></description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.3063135,43.2160451,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFML</name>
+        <description>81,26€TTC -Janvier 2017 (http://www.marseille.aeroport.fr/societe/espace-presse/taxes-et-redevances)</description>
+        <styleUrl>#icon-959-000000-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.214429,43.438368,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFMN</name>
+        <description>30 à ... € - décembre 2011</description>
+        <styleUrl>#icon-959-000000-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            7.1952325,43.6834542,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFMP</name>
+        <description>15,84€ - 01/05/2018 Parking : 0,22€/h</description>
+        <styleUrl>#icon-959-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.868633,42.740772,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFMQ</name>
+        <description>15 à 30 €, janvier 2016 (http://www.aeroportducastellet.com/docs/price-list-fr.pdf)</description>
+        <styleUrl>#icon-959-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.7846236,43.2528299,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFMR</name>
+        <description>7 € - 18/07/2016</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.6090381,44.3869522,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFMS</name>
+        <description>gratuit - mars 2017</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.143594,44.069735,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFMT</name>
+        <description>10 à 15 €, janvier 2016 (http://www.montpellier.aeroport.fr/fr/vols-d-entrainement/redevances-aeronautiques)</description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.958833,43.577158,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFMU</name>
+        <description>7,50 € - novembre 2012</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.3531904,43.3206507,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFMV</name>
+        <description><![CDATA[22,80€ - 10/08/2020<br>Pour club (20% de remise) : 18,24 TTC<br>Parking jour suivant : 11,40 TTC]]></description>
+        <styleUrl>#icon-959-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.9019408,43.9066741,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFMW</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.9208479,43.3102216,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFMX</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.9914541,44.058957,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFMZ</name>
+        <description><![CDATA[5 à 10 € - décembre 2011<br>4,94 € en 2016]]></description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.7405095,43.1742777,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFNA</name>
+        <description><![CDATA[7,99 € - —/08/2022<br>Atterrissage et 2 h de stationnement pour avion de 1 t]]></description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.0340906,44.4550277,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFNB</name>
+        <description><![CDATA[Gratuit - 31/07/2017<br>Restaurant sur site]]></description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.533456,44.500133,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFNC</name>
+        <description>7 € - 18/07/2016</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.5995216,44.7015449,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFNE</name>
+        <description>Gratuit - 13/03/2022</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.0189495,43.659241,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFNF</name>
+        <description>gratuit - mars 2017</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.7841301,43.7379878,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFNG</name>
+        <description>gratuit - juillet 2016</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.069962,43.611098,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFNH</name>
+        <description>8,00 € - 09/08/2019</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.0848675,44.0270135,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFNJ</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.737524,44.5176232,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFNL</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.7815285,43.7995665,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFNN</name>
+        <description>gratuit -25/06/2017 </description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.0514258,43.1934716,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFNO</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.4611654,44.2843524,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFNQ</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.1201682,42.5428208,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFNR</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.1799679,43.5359339,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFNS</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.9298277,44.2852126,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFNT</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.7569084,43.9969515,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFNU</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.3935013,44.082622,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFNV</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.907081,44.336235,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFNW</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.0556343,42.909606,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFNX</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.1450081,43.6393518,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFNZ</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.894774,43.7708459,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFOB</name>
+        <description>12,95 € - juillet 2015</description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.1114349,49.4545121,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFOC</name>
+        <description>gratuit - militaire - décembre 2011</description>
+        <styleUrl>#icon-961-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.3764238,48.0572011,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFOD</name>
+        <description>7€TTC Mars 2017 (moins de 2T)</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.1134896,47.2569806,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFOF</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.1066875,48.444974,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFOG</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.590864,48.74972,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFOH</name>
+        <description>10 à 15 € - décembre 2011</description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.092053,49.531434,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFOI</name>
+        <description>9,60 € - 15/08/2019</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.8293953,50.1419809,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFOJ</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.7615891,47.9879973,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFOK</name>
+        <description>28 € - 25/05/2018</description>
+        <styleUrl>#icon-959-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.191284,48.780514,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFOL</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.6573021,48.7590003,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFOM</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -1.5042043,49.2039998,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFON</name>
+        <description>Gratuit - 11/03/2017</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.36165,48.706107,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFOO</name>
+        <description>Gratuit - 24/05/2017</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -1.724682,46.476039,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFOP</name>
+        <description>11,00 € - 21/07/2022 // 2h de parking gratuite : après +0.5€/t/h</description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.1837769,49.3908373,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFOQ</name>
+        <description><![CDATA[8.30 € - 12/05/2019<br>Atterrissage & Touch and go avions de masse < 1,5T]]></description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.2079811,47.6771201,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFOR</name>
+        <description>gratuit - juillet 2015</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.523881,48.458893,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFOS</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.6505108,49.8343841,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFOT</name>
+        <description>12,00€ - 18/03/2023</description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.719838,47.426171,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFOU</name>
+        <description>4.40 € - —/11/203</description>
+        <styleUrl>#icon-959-62AF44-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.8779836,47.0805266,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFOW</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.2062697,49.8166793,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFOV</name>
+        <description>8,44 € - 12/05/2018</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.740279,48.031035,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFOX</name>
+        <description><![CDATA[12,00 € - 05/05/2024 // ULM : 6,00€<br>Stationnement : 1,92€/h]]></description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.077167,48.379193,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFOY</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.3598022,49.5442309,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFOZ</name>
+        <description><![CDATA[7,00 € - 01/06/2022<br>RDG / Touché : gratuit <br>Parking -1.5T = 1.272€TTC/H]]></description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.1630621,47.8966791,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFPA</name>
+        <description><![CDATA[11,33 € - 28/04/2018<br>Stationnement : 1,92€/h]]></description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.3139095,49.1643922,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFPB</name>
+        <description>198,30 € - 28/04/2018</description>
+        <styleUrl>#icon-959-000000-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.437205,48.961469,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFPD</name>
+        <description><![CDATA[Gratuit - 23/11/2015<br>Restaurant sur AD]]></description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.56556,49.102484,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFPE</name>
+        <description><![CDATA[7,10 € - 28/04/2018<br>Stationnement : 1,92€/h]]></description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.833915,48.92694,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFPF</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.8995834,48.8452525,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFPG</name>
+        <description>30 à ... € - décembre 2011</description>
+        <styleUrl>#icon-959-000000-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.5477982,49.0097264,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFPH</name>
+        <description><![CDATA[7,10 € - 28/04/2018<br>Stationnement : 1,92€/h]]></description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.606506,48.89667,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFPK</name>
+        <description><![CDATA[11,33 - 28/04/2018<br>Stationnement : 1,92€/h]]></description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.014417,48.837492,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFPL</name>
+        <description><![CDATA[11,33 € - 28/04/2018<br>Stationnement : 1,92€/h]]></description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.624702,48.822731,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFPM</name>
+        <description>Gratuit - 16/10/2016</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.669513,48.610191,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFPN</name>
+        <description><![CDATA[24 € - 01/01/2020<br>Stationnement : 1,93€/h]]></description>
+        <styleUrl>#icon-959-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.105833,48.747776,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFPO</name>
+        <description>30 à ... € - décembre 2011</description>
+        <styleUrl>#icon-959-000000-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.3649788,48.7264162,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFPP</name>
+        <description>5 à 10 € - décembre 2011</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.7352846,49.1088405,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFPQ</name>
+        <description>5 € - 07/09/2021</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.903116,48.706574,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFPT</name>
+        <description><![CDATA[20 € - 28/04/2018<br>Stationnement : 1,93€/h]]></description>
+        <styleUrl>#icon-959-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.041698,49.101606,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFPU</name>
+        <description>Gratuit - 09/09/2016</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.7988529,48.3433006,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFPV</name>
+        <description>tarif inconnu</description>
+        <styleUrl>#icon-961-CCCCCC-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.1977162,48.7735998,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFPX</name>
+        <description>7,10 € - 28/04/2018</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.9812298,48.842181,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFPZ</name>
+        <description><![CDATA[7,10 € - 28/04/2018<br>Stationnement : 1,92€/h]]></description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.0731759,48.8106224,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFQA</name>
+        <description><![CDATA[6,00 € - 20/02/2024<br>-50% pour un dr400 d'île de France]]></description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.1569304,49.2088784,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFQB</name>
+        <description>6 € - 20/02/2024     +0,50 euros l heure de stationnement</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.0192795,48.3278381,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFQC</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.547208,48.592988,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFQD</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.804132,50.325327,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFQF</name>
+        <description>gratuit - août 2015</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.2602491,46.9657866,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFQG</name>
+        <description>8,72 € - 13/10/2017</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.1144309,47.0011096,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFQH</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.5795822,47.8458115,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFQJ</name>
+        <description>Gratuit - 13/07/2017</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.0334845,50.3122287,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFQK</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.349942,48.904138,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFQL</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.822252,50.468507,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFQM</name>
+        <description>9,50 € - 24/03/2022</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.0791729,47.2065469,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFQN</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.2310507,50.7268665,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFQO</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.076236,50.686331,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFQQ</name>
+        <description>3,00 € - 07/05/2022</description>
+        <styleUrl>#icon-959-62AF44-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.105912,50.571682,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFQS</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.9916286,50.3374902,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFQT</name>
+        <description>5 à 10 € - décembre 2011</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.648928,50.625985,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFQU</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            7.0782423,48.9509437,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFQV</name>
+        <description>6€ - 16/11/2017</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.6440411,49.7839519,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFQW</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.203926,47.638518,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFQX</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.8187494,48.1136492,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFQY</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            7.4258995,48.7523125,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFQZ</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.71314,48.77442,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFRC</name>
+        <description>12€ - 18/05/2018</description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -1.470988,49.650168,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFRD</name>
+        <description><![CDATA[7,00 € - 20/08/2017<br>Forfait jour : 20€]]></description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -2.0762444,48.5898936,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFRE</name>
+        <description><![CDATA[10 € - 09/08/2022<br>1 atterrissage + stationnement 1 nuit : 15€]]></description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -2.3479843,47.2867401,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFRF</name>
+        <description>8.50 € - 02/05/2023</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -1.565294,48.882229,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFRG</name>
+        <description><![CDATA[13,20 € - 03/01/2019 <br>Stationnement : 6h = 2,90€]]></description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.1588726,49.3607718,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFRH</name>
+        <description><![CDATA[95 € - Restreint - 31/05/2017<br>Militaire]]></description>
+        <styleUrl>#icon-961-000000-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -3.437326,47.754112,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFRI</name>
+        <description><![CDATA[7,10€ - 04/09/2019<br>Gratuit si avitaillement]]></description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -1.3823891,46.7016577,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFRK</name>
+        <description>9,64 € - 06/07/2018</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.4590654,49.1824888,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFRM</name>
+        <description><![CDATA[2,74€ - 02/05/2024 // ULM -50%<br>Parking 0,52/h]]></description>
+        <styleUrl>#icon-959-009D57-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.199256,47.94869,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFRN</name>
+        <description>7,00 € - 12/03/2019</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -1.7264843,48.0683867,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFRO</name>
+        <description>10 € - 13/04/2024</description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -3.471036,48.7568112,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFRP</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -2.3787975,48.0015885,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFRQ</name>
+        <description>5 à 10 € - décembre 2011</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -4.1742897,47.9750417,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFRS</name>
+        <description><![CDATA[20€60TTC (-2T handling au club) Mars 2017<br>Balisage inclus]]></description>
+        <styleUrl>#icon-959-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -1.606236,47.157447,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFRT</name>
+        <description>10 € - 04/02/2017</description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -2.854836,48.534724,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFRU</name>
+        <description>7 € - 01/01/2019</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -3.81659,48.599714,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFRV</name>
+        <description><![CDATA[11,00 € - —/12/2023 (W < 1.2T)]]></description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -2.730091,47.721834,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFRW</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -1.405853,48.6609153,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFRZ</name>
+        <description><![CDATA[6.63€TTC (-2T) - Mars 2017<br>PCL incluse]]></description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -2.158556,47.31449,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFSA</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.0821124,47.2747011,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFSB</name>
+        <description>15 à 30 € - décembre 2011</description>
+        <styleUrl>#icon-959-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            7.525549,47.598176,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFSD</name>
+        <description>17.05 € - 23/10/2018</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.0860691,47.2726777,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFSE</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.448953,48.211348,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFSF</name>
+        <description>tarif inconnu</description>
+        <styleUrl>#icon-960-CCCCCC-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.1269379,49.073135,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFSG</name>
+        <description>5 à 10 € - décembre 2011</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.0634232,48.323615,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFSH</name>
+        <description>6,50 € - 04/06/2023</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            7.8169441,48.7944258,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFSJ</name>
+        <description>Gratuit - 13/07/2017</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.037446,49.659308,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFSK</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.6834803,48.7022059,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFSL</name>
+        <description><![CDATA[4,50 € - 11/04/2017<br>Parking 0,19/h]]></description>
+        <styleUrl>#icon-959-62AF44-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.4877462,45.0400067,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFSM</name>
+        <description>5 à 10 € - décembre 2011</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.7899799,47.4888905,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFSN</name>
+        <description>5 à 10 € - décembre 2011</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.23075,48.69164,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFSP</name>
+        <description>Gratuit - 01/08/2013</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.32673,46.909277,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFSS</name>
+        <description>tarif inconnu</description>
+        <styleUrl>#icon-960-CCCCCC-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -1.6393661,47.7915207,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFST</name>
+        <description>30 à ... € - décembre 2011</description>
+        <styleUrl>#icon-959-000000-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            7.6272154,48.544569,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFSU</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.2942944,47.9669106,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFSV</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.0800529,48.5999129,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFSW</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.085648,49.004898,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFTF</name>
+        <description>9,02 € - 16/07/2017</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.1247921,43.2465157,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFTH</name>
+        <description>6,81 € - militaire - janvier 2015</description>
+        <styleUrl>#icon-961-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.158609,43.093548,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFTM</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.7271171,44.4572945,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFTN</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.0111041,44.2430316,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFTP</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.1644244,43.8691108,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFTQ</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -1.1895704,47.7396553,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFTW</name>
+        <description>18,87€ - 19/07/2019</description>
+        <styleUrl>#icon-959-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            4.4216537,43.763036,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFTZ</name>
+        <description>30 à ... € - décembre 2011</description>
+        <styleUrl>#icon-959-000000-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.4802814,43.2048317,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFXA</name>
+        <description>Gratuit - 25/05/2018</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            5.3371024,45.9787428,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFXB</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -0.63652,45.698027,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFXU</name>
+        <description>Gratuit - 23/05/2020</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.941125,48.999578,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFYG</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.2634544,50.1409358,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFYR</name>
+        <description>gratuit - décembre 2011</description>
+        <styleUrl>#icon-959-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            1.692066,47.316279,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFYS</name>
+        <description>gratuit - restreint - décembre 2011</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            2.0098007,42.4466889,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFYV</name>
+        <description>tarif inconnu</description>
+        <styleUrl>#icon-960-CCCCCC-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            0.7296038,49.6383156,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFFO
+</name>
+        <description>Gratuit - restreint - Juin 2016</description>
+        <styleUrl>#icon-962-FFFFFF-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -2.0857716,46.889667,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LSGP</name>
+        <description>13€ - 01/12/2017</description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.258055,46.406388,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFCZ</name>
+        <description>5.00 € - 19/01/2019</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -1.16322,44.148233,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LFRB</name>
+        <description><![CDATA[20,40 € - 31/12/2020<br>(1.1T)<br>Impossible de payer sur place si l'on ne prend pas le handling payant lui même payant...<br>Frais de facturation de 24€ par mouvement en plus de la taxe.]]></description>
+        <styleUrl>#icon-959-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -4.420152,48.443522,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Belgique</name>
+      <Placemark>
+        <name>EBSG</name>
+        <description>10 € - 26/07/2017</description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            3.8192939,50.457989,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Angleterre</name>
+      <Placemark>
+        <name>EGJJ</name>
+        <description>Environ 17€TTC - Mai 2017</description>
+        <styleUrl>#icon-959-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -2.1941757,49.2067196,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>EGJB</name>
+        <description>25,96€ - 18/05/2018</description>
+        <styleUrl>#icon-959-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            -2.5994887,49.434081,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Allemagne</name>
+      <Placemark>
+        <name>EDGS</name>
+        <description>8.09 € - 10/05/2018</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            8.0761931,50.7072535,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>EDKA</name>
+        <description>9.65 € - 10/08/2018</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.186399,50.8239295,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>EDKB</name>
+        <description>8.19 € - 15/05/2018</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            7.1666669,50.766667,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>EDKV</name>
+        <description>6.65 € - 05/05/2018</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.52994,50.40454,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>EDLE</name>
+        <description>8.28 € - 08/05/2018</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.9385064,51.4035411,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>EDPC</name>
+        <description>9.00 € - 18/05/2018</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            12.287646,47.9263549,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>EDRK</name>
+        <description>7.60 € - 15/15/2018</description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            7.5262624,50.3229686,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>EDRT</name>
+        <description>11.00 € - 07/05/2018</description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.7862758,49.8633681,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>EDRY</name>
+        <description>10.00 € - 11/05/2018</description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            8.454297,49.30434,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>EDTL</name>
+        <description><![CDATA[8€ <750KG, 10€  <1T,  P: 11€/day  2017]]></description>
+        <styleUrl>#icon-959-F4EB37-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            7.8466415,48.3489481,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>EDTF</name>
+        <description>12,00€ - 16/09/2021</description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            7.8356474,48.0228886,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>EDTD</name>
+        <description>19,00€ - 12/01/2022</description>
+        <styleUrl>#icon-959-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            8.5153466,47.9753749,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>EDNX</name>
+        <description>35,00€ - 13/01/2022</description>
+        <styleUrl>#icon-959-000000-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            11.5520944,48.2355804,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Suisse</name>
+      <Placemark>
+        <name>LSGP</name>
+        <description>13,00€ - 01/07/2018</description>
+        <styleUrl>#icon-959-F8971B-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.2573308,46.4061192,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LSGY</name>
+        <description>15,00€ - 01/07/2018</description>
+        <styleUrl>#icon-959-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.6187901,46.7670534,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LSGT</name>
+        <description>15,00€ - 01/07/2018</description>
+        <styleUrl>#icon-959-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            7.0942712,46.5947536,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LSGE</name>
+        <description><![CDATA[15,00€ - 01/07/2018 (MTOW<600kg : 13,00€)]]></description>
+        <styleUrl>#icon-959-DB4436-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            7.083334,46.750004,0
+          </coordinates>
+        </Point>
+      </Placemark>
+      <Placemark>
+        <name>LSGL</name>
+        <description>12,00€ - 01:07/2018</description>
+        <styleUrl>#icon-959-F4B400-labelson</styleUrl>
+        <Point>
+          <coordinates>
+            6.6177446,46.5415746,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+    <Folder>
+      <name>Italie</name>
+      <Placemark>
+        <name>LIMW</name>
+        <description><![CDATA[4,00€ - 05/10/2018<br>Depart : 4€ // Handling : 20€]]></description>
+        <styleUrl>#icon-959-009D57</styleUrl>
+        <Point>
+          <coordinates>
+            7.366692,45.7388548,0
+          </coordinates>
+        </Point>
+      </Placemark>
+    </Folder>
+  </Document>
+</kml>

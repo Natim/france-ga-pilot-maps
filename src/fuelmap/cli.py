@@ -21,7 +21,15 @@ import sys
 from datetime import date
 from pathlib import Path
 
-from . import landing_fee_collect, landing_fees, overrides, pipeline, prices, vac
+from . import (
+    landing_fee_collect,
+    landing_fee_kml,
+    landing_fees,
+    overrides,
+    pipeline,
+    prices,
+    vac,
+)
 from .model import Aerodrome
 from .render import csv_export, landing_locations, locations, markdown, web
 
@@ -205,6 +213,45 @@ def build_parser() -> argparse.ArgumentParser:
         help="Tranche MMD pour --parse (défaut : %(default)s).",
     )
 
+    import_kml_cmd = subcommands.add_parser(
+        "import-kml-landing-fees",
+        help="Importer des redevances depuis la carte Google My Maps (KML).",
+    )
+    import_kml_cmd.add_argument(
+        "--kml",
+        type=Path,
+        default=None,
+        help="Fichier KML local (sinon télécharge la carte communautaire).",
+    )
+    import_kml_cmd.add_argument(
+        "--kml-url",
+        default=landing_fee_kml.DEFAULT_KML_URL,
+        help="URL KML si --kml absent (défaut : carte taxes d'atterrissage).",
+    )
+    import_kml_cmd.add_argument(
+        "--landing-fees-csv",
+        type=Path,
+        default=DEFAULT_LANDING_FEES_CSV,
+        help="CSV des redevances à mettre à jour (défaut : %(default)s).",
+    )
+    import_kml_cmd.add_argument(
+        "--all-csv",
+        type=Path,
+        default=DEFAULT_ALL_CSV,
+        help="CSV de tous les aérodromes (défaut : %(default)s).",
+    )
+    import_kml_cmd.add_argument(
+        "--observed-on",
+        type=date.fromisoformat,
+        default=landing_fee_kml.DEFAULT_MAP_OBSERVED_ON,
+        help="Date d'observation pour les imports KML (défaut : 2024-06-02).",
+    )
+    import_kml_cmd.add_argument(
+        "--dry-run",
+        action="store_true",
+        help="Afficher le résumé sans écrire le CSV.",
+    )
+
     return parser
 
 
@@ -362,6 +409,55 @@ def _run_collect_landing_fees(args: argparse.Namespace) -> int:
     return 0
 
 
+def _run_import_kml_landing_fees(args: argparse.Namespace) -> int:
+    if not args.all_csv.exists():
+        print(f"Erreur : {args.all_csv} introuvable.", file=sys.stderr)
+        return 1
+
+    existing: list[landing_fees.LandingFeeRecord] = []
+    if args.landing_fees_csv.exists():
+        existing = landing_fees.read_landing_fees(args.landing_fees_csv)
+
+    kml_path = args.kml
+    temp_kml = None
+    if kml_path is None:
+        temp_kml = Path(".cache") / "landing-fees-map.kml"
+        temp_kml.parent.mkdir(parents=True, exist_ok=True)
+        try:
+            landing_fee_kml.download_kml(args.kml_url, temp_kml)
+        except (OSError, ValueError) as exc:
+            print(f"Erreur : téléchargement KML impossible ({exc})", file=sys.stderr)
+            return 1
+        kml_path = temp_kml
+    elif not kml_path.exists():
+        print(f"Erreur : {kml_path} introuvable.", file=sys.stderr)
+        return 1
+
+    imported = landing_fee_kml.parse_kml_landing_fees(
+        kml_path,
+        observed_on=args.observed_on,
+    )
+    known_icaos = {aerodrome.icao for aerodrome in csv_export.read_csv(args.all_csv)}
+    merged, added, skipped_unknown = landing_fee_kml.merge_kml_into_landing_fees(
+        existing,
+        imported,
+        known_icaos=known_icaos,
+    )
+    kept = len(existing)
+
+    print(
+        f"KML : {len(imported)} terrains LF*, "
+        f"{kept} conservé(s), {added} ajouté(s), "
+        f"{skipped_unknown} ignoré(s) (OACI inconnu)."
+    )
+    if args.dry_run:
+        return 0
+
+    landing_fee_kml.write_landing_fees_csv(args.landing_fees_csv, merged)
+    print(f"Écrit : {args.landing_fees_csv} ({len(merged)} redevance(s))")
+    return 0
+
+
 def _run_validate_landing_fees(args: argparse.Namespace) -> int:
     if not args.landing_fees_csv.exists():
         print(f"Erreur : {args.landing_fees_csv} introuvable.", file=sys.stderr)
@@ -402,6 +498,9 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.command == "check-landing-sources":
         return _run_check_landing_sources(args)
+
+    if args.command == "import-kml-landing-fees":
+        return _run_import_kml_landing_fees(args)
 
     if args.command == "extract":
         try:
