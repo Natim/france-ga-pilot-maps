@@ -178,6 +178,33 @@ def build_parser() -> argparse.ArgumentParser:
         help="Ajouter au CSV de sortie au lieu de l'écraser.",
     )
 
+    check_landing_sources_cmd = subcommands.add_parser(
+        "check-landing-sources",
+        help="Vérifier les URLs PDF des sources de redevances.",
+    )
+    check_landing_sources_cmd.add_argument(
+        "--sources-csv",
+        type=Path,
+        default=DEFAULT_LANDING_FEE_SOURCES,
+        help="Sources actives (défaut : %(default)s).",
+    )
+    check_landing_sources_cmd.add_argument(
+        "--pending-csv",
+        type=Path,
+        default=landing_fee_collect.DEFAULT_PENDING_SOURCES,
+        help="Backlog des sources (défaut : %(default)s).",
+    )
+    check_landing_sources_cmd.add_argument(
+        "--parse",
+        action="store_true",
+        help="Tenter aussi l'extraction EDEIS/ADP sur les PDF accessibles.",
+    )
+    check_landing_sources_cmd.add_argument(
+        "--band",
+        default=landing_fee_collect.DEFAULT_BAND,
+        help="Tranche MMD pour --parse (défaut : %(default)s).",
+    )
+
     return parser
 
 
@@ -267,6 +294,41 @@ def _run_validate_prices(args: argparse.Namespace) -> int:
     return 0
 
 
+def _run_check_landing_sources(args: argparse.Namespace) -> int:
+    if not args.sources_csv.exists():
+        print(f"Erreur : {args.sources_csv} introuvable.", file=sys.stderr)
+        return 1
+    try:
+        sources = landing_fee_collect.read_sources(args.sources_csv)
+        pending = (
+            landing_fee_collect.read_pending_sources(args.pending_csv)
+            if args.pending_csv.exists()
+            else []
+        )
+        band = landing_fee_collect.parse_fee_band(args.band)
+    except ValueError as exc:
+        print(f"Erreur : {exc}", file=sys.stderr)
+        return 1
+
+    results = landing_fee_collect.check_landing_sources(
+        sources,
+        pending,
+        verify_parse=args.parse,
+        band=band,
+    )
+    failures = 0
+    for result in results:
+        suffix = f" — {result.message}" if result.message else ""
+        parse = f" parse={result.parse_status}" if result.parse_status else ""
+        print(f"{result.icao}  http={result.http_status}{parse}{suffix}")
+        if result.http_status not in {"200", "local"}:
+            failures += 1
+        elif args.parse and result.parse_status == "fail":
+            failures += 1
+    print(f"{len(results)} URL(s) vérifiée(s), {failures} problème(s).")
+    return 1 if failures else 0
+
+
 def _run_collect_landing_fees(args: argparse.Namespace) -> int:
     if not args.sources_csv.exists():
         print(f"Erreur : {args.sources_csv} introuvable.", file=sys.stderr)
@@ -336,6 +398,9 @@ def main(argv: list[str] | None = None) -> int:
 
     if args.command == "collect-landing-fees":
         return _run_collect_landing_fees(args)
+
+    if args.command == "check-landing-sources":
+        return _run_check_landing_sources(args)
 
     if args.command == "extract":
         try:

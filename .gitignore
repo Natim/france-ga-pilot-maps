@@ -13,5 +13,8 @@ venv/
 .pytest_cache/
 .ruff_cache/
 
+# Landing-fee collector scratch output
+*.draft.csv
+
 # Misc
 .DS_Store

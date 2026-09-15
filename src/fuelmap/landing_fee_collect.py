@@ -26,7 +26,21 @@ SOURCE_COLUMNS = (
 )
 
 DEFAULT_SOURCES = Path("data/landing_fee_sources.csv")
+DEFAULT_PENDING_SOURCES = Path("data/landing_fee_sources.pending.csv")
 DEFAULT_BAND = "1-2"
+
+PENDING_COLUMNS = (
+    "icao",
+    "name",
+    "operator",
+    "pilot_page",
+    "pdf_url",
+    "parser",
+    "parser_arg",
+    "effective_on",
+    "status",
+    "notes",
+)
 DEFAULT_VAT_RATE = 0.20
 USER_AGENT = "fuelmap/1.0 (+https://github.com/Natim/france-ul91-mogas-map)"
 
@@ -126,6 +140,20 @@ class FeeBand(str, Enum):
 
 
 @dataclass(frozen=True)
+class PendingLandingFeeSource:
+    icao: str
+    name: str
+    operator: str
+    pilot_page: str
+    pdf_url: str
+    parser: str
+    parser_arg: str = ""
+    effective_on: date | None = None
+    status: str = ""
+    notes: str = ""
+
+
+@dataclass(frozen=True)
 class LandingFeeSource:
     icao: str
     url: str
@@ -149,10 +177,53 @@ class CollectedLandingFee:
 
 
 @dataclass(frozen=True)
+class SourceCheckResult:
+    icao: str
+    pdf_url: str
+    http_status: str
+    parse_status: str = ""
+    message: str = ""
+
+
+@dataclass(frozen=True)
 class CollectFailure:
     icao: str
     source_url: str
     message: str
+
+
+def read_pending_sources(path: Path) -> list[PendingLandingFeeSource]:
+    """Load backlog rows from ``data/landing_fee_sources.pending.csv``."""
+    with path.open(encoding="utf-8", newline="") as handle:
+        reader = csv.DictReader(handle)
+        if reader.fieldnames != list(PENDING_COLUMNS):
+            expected = ", ".join(PENDING_COLUMNS)
+            actual = ", ".join(reader.fieldnames or ())
+            raise ValueError(
+                f"en-tête CSV attendue ({expected}), reçue ({actual})"
+            )
+        rows = []
+        for row in reader:
+            if not row["icao"].strip() or row["icao"].strip().startswith("#"):
+                continue
+            effective_on = None
+            if row["effective_on"].strip():
+                effective_on = date.fromisoformat(row["effective_on"].strip())
+            rows.append(
+                PendingLandingFeeSource(
+                    icao=row["icao"].strip().upper(),
+                    name=row["name"].strip(),
+                    operator=row["operator"].strip(),
+                    pilot_page=row["pilot_page"].strip(),
+                    pdf_url=row.get("pdf_url", "").strip(),
+                    parser=row["parser"].strip().lower(),
+                    parser_arg=row.get("parser_arg", "").strip(),
+                    effective_on=effective_on,
+                    status=row.get("status", "").strip(),
+                    notes=row.get("notes", "").strip(),
+                )
+            )
+        return rows
 
 
 def read_sources(path: Path) -> list[LandingFeeSource]:
@@ -360,6 +431,105 @@ def _resolve_pdf_source(url: str) -> Path | None:
     if candidate.exists():
         return candidate
     return None
+
+
+def probe_pdf_url(url: str) -> tuple[str, str]:
+    """Return ``(http_status, message)`` for a PDF URL or local path."""
+    if not url:
+        return "missing", "pdf_url vide"
+    local = _resolve_pdf_source(url)
+    if local is not None:
+        if local.exists() and local.read_bytes()[:4] == b"%PDF":
+            return "local", str(local)
+        return "missing", f"fichier local introuvable ({local})"
+    request = urllib.request.Request(url, method="HEAD", headers={"User-Agent": USER_AGENT})
+    try:
+        with urllib.request.urlopen(request, timeout=30) as response:
+            status = str(response.status)
+            content_type = response.headers.get("Content-Type", "")
+            if "pdf" not in content_type.lower() and not url.lower().endswith(".pdf"):
+                return status, f"type inattendu ({content_type})"
+            return status, ""
+    except urllib.error.HTTPError as exc:
+        return str(exc.code), str(exc.reason)
+    except urllib.error.URLError as exc:
+        return "error", str(exc.reason)
+
+
+def check_landing_sources(
+    sources: list[LandingFeeSource],
+    pending: list[PendingLandingFeeSource] | None = None,
+    *,
+    verify_parse: bool = False,
+    band: FeeBand = FeeBand.SECOND,
+) -> list[SourceCheckResult]:
+    """Check PDF URLs and optionally verify EDEIS parsing."""
+    results: list[SourceCheckResult] = []
+    seen: set[str] = set()
+
+    def add_result(
+        icao: str,
+        pdf_url: str,
+        *,
+        parser: str = "edeis",
+        parser_arg: str = "",
+        effective_on: date | None = None,
+        payment: str = "other",
+        operator: str = "",
+    ) -> None:
+        if not pdf_url or pdf_url in seen:
+            return
+        seen.add(pdf_url)
+        http_status, message = probe_pdf_url(pdf_url)
+        parse_status = ""
+        if verify_parse and http_status in {"200", "local"}:
+            source = LandingFeeSource(
+                icao=icao,
+                url=pdf_url,
+                parser=parser,
+                parser_arg=parser_arg,
+                effective_on=effective_on,
+                payment=payment,
+                operator=operator,
+            )
+            outcome = collect_from_source(source, band=band)
+            if isinstance(outcome, CollectFailure):
+                parse_status = "fail"
+                message = outcome.message
+            else:
+                parse_status = "ok"
+                message = f"{outcome.fee_eur:.2f} € ({outcome.band_label})"
+        results.append(
+            SourceCheckResult(
+                icao=icao,
+                pdf_url=pdf_url,
+                http_status=http_status,
+                parse_status=parse_status,
+                message=message,
+            )
+        )
+
+    for source in sources:
+        add_result(
+            source.icao,
+            source.url,
+            parser=source.parser,
+            parser_arg=source.parser_arg,
+            effective_on=source.effective_on,
+            payment=source.payment,
+            operator=source.operator,
+        )
+    for row in pending or []:
+        add_result(
+            row.icao,
+            row.pdf_url,
+            parser=row.parser,
+            parser_arg=row.parser_arg,
+            effective_on=row.effective_on,
+            operator=row.operator,
+        )
+    results.sort(key=lambda row: row.icao)
+    return results
 
 
 def download_pdf(url: str, destination: Path) -> None:

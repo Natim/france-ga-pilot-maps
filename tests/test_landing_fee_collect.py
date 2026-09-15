@@ -43,6 +43,26 @@ class TestParseEdeisLandingFee:
         assert label.startswith("min (")
 
 
+class TestReadPendingSources:
+    def test_reads_pending_rows(self, tmp_path):
+        path = tmp_path / "pending.csv"
+        path.write_text(
+            "icao,name,operator,pilot_page,pdf_url,parser,parser_arg,effective_on,status,notes\n"
+            "LFRC,Cherbourg,EDEIS,https://example.test/pilot,,edeis,,,needs_url,Phase 1\n",
+            encoding="utf-8",
+        )
+        rows = landing_fee_collect.read_pending_sources(path)
+        assert rows[0].icao == "LFRC"
+        assert rows[0].status == "needs_url"
+
+
+class TestProbePdfUrl:
+    def test_detects_missing_url(self):
+        status, message = landing_fee_collect.probe_pdf_url("")
+        assert status == "missing"
+        assert message
+
+
 class TestReadSources:
     def test_reads_curated_sources(self, tmp_path):
         path = tmp_path / "sources.csv"

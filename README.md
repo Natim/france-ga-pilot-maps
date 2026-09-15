@@ -167,9 +167,17 @@ fuelmap collect-landing-fees \
 
 - [`data/landing_fee_sources.csv`](./data/landing_fee_sources.csv) : liste manuelle
   `icao`, URL du PDF, parser (`edeis`, `adp_aag`), date d'application.
+- [`data/landing_fee_sources.pending.csv`](./data/landing_fee_sources.pending.csv) :
+  backlog Phase 1 (EDEIS) et Phase 2 (ADP AAG) avec page pilote, statut et notes.
 - Par défaut, la tranche **1–2 t MMD** (&lt; 6 t) est extraite en **TTC** ; `--band 0-1`
   ou `--band min` pour une autre convention.
 - Nécessite `pdftotext` (paquet `poppler-utils`).
+
+Vérifier que les URLs PDF répondent encore :
+
+```bash
+fuelmap check-landing-sources --parse
+```
 
 La CI lance `fuelmap validate-landing-fees`. Une fois mergée sur `main`, GitHub
 Pages sert le CSV mis à jour sans regénération Python.
@@ -187,6 +195,7 @@ Pages sert le CSV mis à jour sans regénération Python.
 | [`docs/prices.csv`](./docs/prices.csv) | Prix communautaires datés. **Source éditée à la main.** |
 | [`docs/landing_fees.csv`](./docs/landing_fees.csv) | Redevances avion léger datées. **Source éditée à la main.** |
 | [`data/landing_fee_sources.csv`](./data/landing_fee_sources.csv) | PDF publics pour `fuelmap collect-landing-fees`. **Curaté à la main.** |
+| [`data/landing_fee_sources.pending.csv`](./data/landing_fee_sources.pending.csv) | Backlog EDEIS/ADP : URLs à valider, parsers à étendre. |
 | [`AERODROMES.md`](./AERODROMES.md) | Liste Markdown lisible. **Généré.** |
 | [`data/aerodromes-unleaded.csv`](./data/aerodromes-unleaded.csv) | Terrains avec essence sans plomb. **Généré.** |
 | [`data/aerodromes-all.csv`](./data/aerodromes-all.csv) | Les 420 terrains français et leur section avitaillement brute. **Généré.** |
