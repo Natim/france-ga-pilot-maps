@@ -100,10 +100,14 @@ class TestRebuild:
     def test_writes_price_map_locations(self, project):
         rebuild(project)
         payload = json.loads((project / "docs" / "locations.json").read_text())
-        # LFDA (UL91), LFAT (100LL), plus the off-AIP addition LF4724 (UL91).
+        # LFDA (UL91), LFAT (100LL), plus the off-AIP addition LF4724 (SP98).
         assert payload["aerodromeCount"] == 3
         families = {marker["family"] for marker in payload["markers"]}
-        assert families == {model.FAMILY_UL91, model.FAMILY_100LL}
+        assert families == {
+            model.FAMILY_UL91,
+            model.FAMILY_100LL,
+            model.FAMILY_MOGAS,
+        }
 
 
 class TestValidatePrices:

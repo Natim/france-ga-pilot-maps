@@ -33,16 +33,16 @@
       "name": "MONTPEZAT D'AGENAIS",
       "lat": 44.364167,
       "lon": 0.491389,
-      "family": "ul91",
-      "familyLabel": "UL91 (AVGAS sans plomb)",
+      "family": "mogas",
+      "familyLabel": "SP95 / SP98 (dont UL AERO SUPER+, AKI93)",
       "fuels": [
-        "UL91"
+        "SUPER_PLUS"
       ],
-      "fuelsLabel": "UL91",
+      "fuelsLabel": "Super Plus",
       "availability": "restricted",
       "availabilityLabel": "HX, PPR, sur demande",
-      "allFuelsLabel": "UL91",
-      "section": "BASULM LF4724 — Montpezat d'Agenais. LAT : N 44 21 51 - LONG : E 000 29 29 - ALT : 120 ft. Radio : 123.50. Carburants : Avgas UL 91. Pistes : 15-33 herbe 800x40, 10-28 herbe 250x40, préférentielle 33. TDP à l'Est à 500 ft. Activité écolage importante. Gestionnaire : Philippe Boucherat, +33 5 53 95 08 81, info@ulmstex.com, http://www.ulmstex.com",
+      "allFuelsLabel": "Super Plus",
+      "section": "BASULM LF4724 — Montpezat d'Agenais. LAT : N 44 21 51 - LONG : E 000 29 29 - ALT : 120 ft. Radio : 123.50. Carburants : SP 98. Pistes : 15-33 herbe 800x40, 10-28 herbe 250x40, préférentielle 33. TDP à l'Est à 500 ft. Activité écolage importante. Gestionnaire : Philippe Boucherat, +33 5 53 95 08 81, info@ulmstex.com, http://www.ulmstex.com",
       "note": "Aérodrome privé ouvert aux ULM : accord préalable du gestionnaire obligatoire (Philippe Boucherat, +33 5 53 95 08 81). Terrain absent de l'AIP, données non vérifiables sur une carte VAC.",
       "source": "Fiche BASULM LF4724 (FFPLUM), mise à jour du 24/10/2024"
     },

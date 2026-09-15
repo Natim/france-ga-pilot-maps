@@ -178,7 +178,7 @@ ADDITIONS: tuple[CuratedAerodrome, ...] = (
         # N 44 21 51 / E 000 29 29, reproduced in `details` for checking.
         latitude=44.364167,
         longitude=0.491389,
-        availability={UL91: AVAILABILITY_RESTRICTED},
+        availability={SUPER_PLUS: AVAILABILITY_RESTRICTED},
         source="Fiche BASULM LF4724 (FFPLUM), mise à jour du 24/10/2024",
         note=(
             "Aérodrome privé ouvert aux ULM : accord préalable du gestionnaire "
@@ -188,7 +188,7 @@ ADDITIONS: tuple[CuratedAerodrome, ...] = (
         details=(
             "BASULM LF4724 — Montpezat d'Agenais. LAT : N 44 21 51 - "
             "LONG : E 000 29 29 - ALT : 120 ft. Radio : 123.50. "
-            "Carburants : Avgas UL 91. Pistes : 15-33 herbe 800x40, "
+            "Carburants : SP 98. Pistes : 15-33 herbe 800x40, "
             "10-28 herbe 250x40, préférentielle 33. TDP à l'Est à 500 ft. "
             "Activité écolage importante. Gestionnaire : Philippe Boucherat, "
             "+33 5 53 95 08 81, info@ulmstex.com, http://www.ulmstex.com"

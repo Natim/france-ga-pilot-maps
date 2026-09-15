@@ -2,7 +2,7 @@
   "schema": 1,
   "airac": "2026-08-06",
   "generated": "2026-08-12",
-  "aerodromeCount": 291,
+  "aerodromeCount": 299,
   "families": [
     {
       "key": "ul91",
@@ -37,16 +37,16 @@
       "name": "MONTPEZAT D'AGENAIS",
       "lat": 44.364167,
       "lon": 0.491389,
-      "family": "ul91",
-      "familyLabel": "UL91 (AVGAS sans plomb)",
+      "family": "mogas",
+      "familyLabel": "SP95 / SP98 (dont UL AERO SUPER+, AKI93)",
       "fuels": [
-        "UL91"
+        "SUPER_PLUS"
       ],
-      "fuelsLabel": "UL91",
+      "fuelsLabel": "Super Plus",
       "availability": "restricted",
       "availabilityLabel": "HX, PPR, sur demande",
-      "allFuelsLabel": "UL91",
-      "section": "BASULM LF4724 — Montpezat d'Agenais. LAT : N 44 21 51 - LONG : E 000 29 29 - ALT : 120 ft. Radio : 123.50. Carburants : Avgas UL 91. Pistes : 15-33 herbe 800x40, 10-28 herbe 250x40, préférentielle 33. TDP à l'Est à 500 ft. Activité écolage importante. Gestionnaire : Philippe Boucherat, +33 5 53 95 08 81, info@ulmstex.com, http://www.ulmstex.com",
+      "allFuelsLabel": "Super Plus",
+      "section": "BASULM LF4724 — Montpezat d'Agenais. LAT : N 44 21 51 - LONG : E 000 29 29 - ALT : 120 ft. Radio : 123.50. Carburants : SP 98. Pistes : 15-33 herbe 800x40, 10-28 herbe 250x40, préférentielle 33. TDP à l'Est à 500 ft. Activité écolage importante. Gestionnaire : Philippe Boucherat, +33 5 53 95 08 81, info@ulmstex.com, http://www.ulmstex.com",
       "note": "Aérodrome privé ouvert aux ULM : accord préalable du gestionnaire obligatoire (Philippe Boucherat, +33 5 53 95 08 81). Terrain absent de l'AIP, données non vérifiables sur une carte VAC.",
       "source": "Fiche BASULM LF4724 (FFPLUM), mise à jour du 24/10/2024"
     },
@@ -407,6 +407,24 @@
       "availabilityLabel": "HX, PPR, sur demande",
       "allFuelsLabel": "100LL, Jet A1",
       "section": "10 - AVT : Carburants / Fuel : 100LL, JET A1. ETE : LUN-VEN : 0500-1000, 1200-1730 - SAM, DIM, JF : 0700-1000, 1200-1730. SUM : MON-FRI : 0500-1000, 1200-1730 - SAT, SUN, public HOL : 0700-1000, 1200-1730. HIV / WIN : 0800-1100, 1300-1730. Sans interruption pour les vols commerciaux programmés / Non stop for scheduled commercial flights. AVT 100LL non assuré pour les hélicoptères à moteur piston / Not provided for helicoters with piston engine. TEL : 05 46 42 86 69 ou / or 06 30 24 30 87 E-mail : avitailleur@larochelle.aeroport.fr",
+      "note": "",
+      "source": ""
+    },
+    {
+      "icao": "LFBI",
+      "name": "POITIERS BIARD",
+      "lat": 46.5875,
+      "lon": 0.306667,
+      "family": "100ll",
+      "familyLabel": "100LL (AVGAS plombée)",
+      "fuels": [
+        "100LL"
+      ],
+      "fuelsLabel": "100LL",
+      "availability": "self_service",
+      "availabilityLabel": "Automate / H24",
+      "allFuelsLabel": "100LL, Jet A1",
+      "section": "← 10 - AVT : Carburant / Fuel : SEALAPB / Air BP. JET A1 (CIV-MIL) : HOR voir NOTAM. En dehors de ces HOR et pour vols commerciaux assistés uniquement, sur PPR 24 HR. - AVGAS : idem JET A1 sauf carte Air BP avec code pour le distributeur automatique. JET A1 (CIV - MIL) : SKED see NOTAM. Outside these SKED and for commercial flights with handling only, PPR 24 HR. - AVGAS : the same as for JET A1 except Air BP payment card for the automatic dispenser. TEL : 05 49 30 04 46 / 06 29 80 04 56 - FAX : 05 49 88 58 70. Paiement : carte AIR BP, CB VISA, Mastercard. Autres cartes sur autorisation AIR BP. Payment : AIR BP card, VISA card, Mastercard. Other cards on AIR BP authorization.",
       "note": "",
       "source": ""
     },
@@ -1649,6 +1667,24 @@
       "availabilityLabel": "Automate / H24",
       "allFuelsLabel": "100LL",
       "section": "10 - AVT : Carburant / Fuel 100 LL. Paiement uniquement sur automate par carte de crédit ou carte TOTAL / Payment only on the automatic dispenser by credit card or TOTAL card.",
+      "note": "",
+      "source": ""
+    },
+    {
+      "icao": "LFED",
+      "name": "PONTIVY",
+      "lat": 48.056944,
+      "lon": -2.923333,
+      "family": "100ll",
+      "familyLabel": "100LL (AVGAS plombée)",
+      "fuels": [
+        "100LL"
+      ],
+      "fuelsLabel": "100LL",
+      "availability": "unknown",
+      "availabilityLabel": "Non précisé",
+      "allFuelsLabel": "100LL",
+      "section": "← 10 - AVT : AVGAS paiement par CB / payement with CB.",
       "note": "",
       "source": ""
     },
@@ -3201,6 +3237,24 @@
       "source": ""
     },
     {
+      "icao": "LFKO",
+      "name": "PROPRIANO",
+      "lat": 41.660278,
+      "lon": 8.893889,
+      "family": "100ll",
+      "familyLabel": "100LL (AVGAS plombée)",
+      "fuels": [
+        "100LL"
+      ],
+      "fuelsLabel": "100LL",
+      "availability": "self_service",
+      "availabilityLabel": "Automate / H24",
+      "allFuelsLabel": "100LL, Jet A1",
+      "section": "10 - AVT : Jet A1 - AVGAS - Automat (Carte bleue VISA, Master card).",
+      "note": "",
+      "source": ""
+    },
+    {
       "icao": "LFKR",
       "name": "SAINT REMY DE MAURIENNE",
       "lat": 45.375,
@@ -3755,6 +3809,24 @@
       "availabilityLabel": "Non précisé",
       "allFuelsLabel": "100LL",
       "section": "← 10 - AVT : Carburants / Fuel : 100LL, Lubrifiants / Lubricants : NIL. SR-SS Gestion / Manager : SPL-AGATE Paiement : Carte Bleue",
+      "note": "",
+      "source": ""
+    },
+    {
+      "icao": "LFMH",
+      "name": "SAINT ETIENNE LOIRE",
+      "lat": 45.534167,
+      "lon": 4.297222,
+      "family": "100ll",
+      "familyLabel": "100LL (AVGAS plombée)",
+      "fuels": [
+        "100LL"
+      ],
+      "fuelsLabel": "100LL",
+      "availability": "restricted",
+      "availabilityLabel": "HX, PPR, sur demande",
+      "allFuelsLabel": "100LL, Jet A1",
+      "section": "← 10 - AVT : HOR : LUN-VEN 0815-1730 ; SAM-DIM et JF : avitaillement non assuré. - Avitaillement JET A1 : en dehors de ces horaires, avitaillement possible sur PPR (LUN-VEN : PPR PN 24HR ; SAM-DIM et JF : PPR PN 48HR). Par E-mail : operations@saint-etienne.aeroport.fr - Avitaillement AVGAS : Durant les heures d'ouverture, règlement carte bancaire et carte AIR TOTAL. En dehors de ces horaires : règlement uniquement en carte AIR TOTAL. SKED : MON-FRI 0815-1730 ; SAT-SUN and public HOL : fuelling not provided. - JET A1 fuelling : outside this SKED, fuelling possible with PPR (MON-FRI : PPR PN 24HR ; SAT- SUN and public HOL : PPR PN 48HR). By E-mail : operations@saint-etienne.aeroport.fr - AVGAS fuelling : during opening SKED, payment with bank card or AIR TOTAL card. Outside this SKED payment only with AIR TOTAL card. Lubrifiant / Lubricant : NIL.",
       "note": "",
       "source": ""
     },
@@ -4821,6 +4893,24 @@
       "source": ""
     },
     {
+      "icao": "LFPM",
+      "name": "MELUN VILLAROCHE",
+      "lat": 48.605278,
+      "lon": 2.670833,
+      "family": "100ll",
+      "familyLabel": "100LL (AVGAS plombée)",
+      "fuels": [
+        "100LL"
+      ],
+      "fuelsLabel": "100LL",
+      "availability": "restricted",
+      "availabilityLabel": "HX, PPR, sur demande",
+      "allFuelsLabel": "100LL, Jet A1",
+      "section": "10 - AVT : Station TOTAL : JET A1 et AVGAS disponibles 24/7. / JET A1 and AVGAS available 24/7. Paiement : carte AIR TOTAL France uniquement. / Payment : AIR TOTAL France Card only . Station Elyxan : camion ravitailleur JET A1 / JET A1 refueling truck - HOR / SKED : 0800-1900. - O/R 24/7. - Paiement carte crédit seulement. / Payment only by credit card. - TEL : 06 58 83 66 25 - E-mail : ops@elyxan-aviation.fr",
+      "note": "",
+      "source": ""
+    },
+    {
       "icao": "LFPN",
       "name": "PARIS SACLAY VERSAILLES",
       "lat": 48.749722,
@@ -5069,6 +5159,24 @@
       "availabilityLabel": "HX, PPR, sur demande",
       "allFuelsLabel": "100LL",
       "section": "10 - AVT : Carburant / Fuel : 100 LL Lubrifiants / Lubricants : 80-100-W80 (CIV-MIL) HX. Paiement comptant / Cash payment.",
+      "note": "",
+      "source": ""
+    },
+    {
+      "icao": "LFQG",
+      "name": "NEVERS FOURCHAMBAULT",
+      "lat": 47.003611,
+      "lon": 3.110833,
+      "family": "100ll",
+      "familyLabel": "100LL (AVGAS plombée)",
+      "fuels": [
+        "100LL"
+      ],
+      "fuelsLabel": "100LL",
+      "availability": "self_service",
+      "availabilityLabel": "Automate / H24",
+      "allFuelsLabel": "100LL, Jet A1",
+      "section": "10 - AVT : Automate H24 avec carte BP. Jet A1 & AVGAS Paiement CB : HOR RFFS Automatic station H24 with BP card. JET A1 & AVGAS Credit card payment : RFFS SKED",
       "note": "",
       "source": ""
     },
@@ -5649,6 +5757,24 @@
       "source": ""
     },
     {
+      "icao": "LFSB",
+      "name": "BALE MULHOUSE",
+      "lat": 47.59,
+      "lon": 7.529167,
+      "family": "100ll",
+      "familyLabel": "100LL (AVGAS plombée)",
+      "fuels": [
+        "100LL"
+      ],
+      "fuelsLabel": "100LL",
+      "availability": "restricted",
+      "availabilityLabel": "HX, PPR, sur demande",
+      "allFuelsLabel": "100LL, Jet A1",
+      "section": "← 10 - AVT : Carburants / Fuel : JET A1 AVGAS - (CIV-MIL). SASCA et / and KLINZING Aviation : 0400-2200. Pas d'avitaillement possible en dehors de ces HOR, sauf préavis avant 2000 auprès des avitailleurs. No refuelling available outside these SKED except PN before 2000 to the refuellers. Contacts : Mois impairs / Odd months SASCA TEL : 00 33 (0)3 89 90 29 10 - FAX : 00 33 (0)3 89 90 49 75. Mois pairs / Even months KLINZING Aviation TEL : 00 33 (0)3 89 90 48 10 - FAX : 00 33 (0)3 89 90 48 12.",
+      "note": "",
+      "source": ""
+    },
+    {
       "icao": "LFSD",
       "name": "DIJON LONGVIC",
       "lat": 47.265833,
@@ -5897,6 +6023,24 @@
       "availabilityLabel": "HX, PPR, sur demande",
       "allFuelsLabel": "100LL",
       "section": "10 - AVT : Carburant : AVGAS - 100 LL, réservé aux ACFT basés. Fuel : AVGAS - 100 LL, reserved for home-based ACFT.",
+      "note": "",
+      "source": ""
+    },
+    {
+      "icao": "LFTW",
+      "name": "NIMES GARONS",
+      "lat": 43.7575,
+      "lon": 4.416389,
+      "family": "100ll",
+      "familyLabel": "100LL (AVGAS plombée)",
+      "fuels": [
+        "100LL"
+      ],
+      "fuelsLabel": "100LL",
+      "availability": "restricted",
+      "availabilityLabel": "HX, PPR, sur demande",
+      "allFuelsLabel": "100LL, Jet A1",
+      "section": "← 10 - AVT : Carburant / Fuel : JET A1 - AVGAS Lubrifiants / Oil : NIL. HOR / SKED : voir / see NOTAM. Hors HOR / Outside SKED : O/R avant / before 1700 - SAM, DIM et JF / SAT, SUN and public HOL : PPR avant / before 1700 le dernier jour ouvrable / on the last working day. Paiement en espèces, carte WFS, AEG ou carte de crédit. Cash payment, WFS, AEG or credit card.",
       "note": "",
       "source": ""
     },

@@ -10,10 +10,10 @@
 
 | Carburant | Nb terrains |
 |-----------|-------------|
-| UL91 | 31 |
+| UL91 | 30 |
 | UL AERO SUPER+ | 7 |
 | AKI93 | 3 |
-| Super Plus | 16 |
+| Super Plus | 17 |
 | 100LL | 39 |
 | Jet A1 | 16 |
 
@@ -33,7 +33,7 @@
 
 | Code | Nom | Carburants | Accès |
 |------|-----|-----------|-------|
-| LF4724 ‡ | MONTPEZAT D'AGENAIS | UL91 | HX, PPR, sur demande |
+| LF4724 ‡ | MONTPEZAT D'AGENAIS | Super Plus | HX, PPR, sur demande |
 | LFAE | EU MERS LE TREPORT | UL91 | HX, PPR, sur demande |
 | LFBY | DAX SEYRESSE | UL91, 100LL | HX, PPR, sur demande |
 | LFCF | FIGEAC LIVERNON | Super Plus, 100LL | Automate / H24 † |

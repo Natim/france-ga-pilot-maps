@@ -43,9 +43,9 @@ def _off_aip():
     """A hand-entered field with no VAC chart, like a private ULM strip."""
     return aerodrome(
         "LF4724",
-        {model.UL91},
+        {model.SUPER_PLUS},
         name="MONTPEZAT D'AGENAIS",
-        availability={model.UL91: RESTRICTED},
+        availability={model.SUPER_PLUS: RESTRICTED},
         availability_note="Accord préalable obligatoire.",
         curated_source="Fiche BASULM LF4724 (FFPLUM)",
     )

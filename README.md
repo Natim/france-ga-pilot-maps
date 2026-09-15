@@ -276,7 +276,7 @@ CuratedAerodrome(
     name="MONTPEZAT D'AGENAIS",
     latitude=44.364167,
     longitude=0.491389,
-    availability={UL91: AVAILABILITY_RESTRICTED},
+    availability={SUPER_PLUS: AVAILABILITY_RESTRICTED},
     source="Fiche BASULM LF4724 (FFPLUM), mise à jour du 24/10/2024",
     note="Aérodrome privé ouvert aux ULM : accord préalable du gestionnaire…",
     details="BASULM LF4724 — LAT : N 44 21 51 - LONG : E 000 29 29…",

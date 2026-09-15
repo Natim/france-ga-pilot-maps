@@ -41,7 +41,12 @@ FUEL_PATTERNS: dict[str, re.Pattern[str]] = {
         re.IGNORECASE,
     ),
     model.MOGAS: re.compile(r"\bMOGAS\b", re.IGNORECASE),
-    model.AVGAS_100LL: re.compile(r"\b100\s*LL\b", re.IGNORECASE),
+    # ``100 LL`` is spelled out on most charts; a bare ``AVGAS`` (Melun,
+    # Propriano, Poitiers…) means 100LL unless the grade is named UL91.
+    model.AVGAS_100LL: re.compile(
+        r"\b100\s*LL\b|\bAVGAS\b(?!\s*(?:UL\s*91|UL91|100|\d|\())",
+        re.IGNORECASE,
+    ),
     model.JET_A1: re.compile(r"\bJET\s*A[-\s]?1\b", re.IGNORECASE),
 }
 

@@ -72,6 +72,13 @@ class TestDetectFuels:
             ("Carburant : MOGAS", {model.MOGAS}),
             ("Carburant : AVGAS 100LL", {model.AVGAS_100LL}),
             ("Carburant : 100 LL", {model.AVGAS_100LL}),
+            ("Jet A1 - AVGAS - Automat", {model.AVGAS_100LL, model.JET_A1}),
+            (
+                "JET A1 et AVGAS disponibles 24/7",
+                {model.AVGAS_100LL, model.JET_A1},
+            ),
+            ("AVGAS UL91 réservé aux basés", {model.UL91}),
+            ("AVGAS UL 91 sur RDV", {model.UL91}),
             ("Carburant : JET A-1", {model.JET_A1}),
             ("Carburant : JET A1", {model.JET_A1}),
             ("AERO SUPER+ uniquement", {model.UL_AERO}),
