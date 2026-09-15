@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Redevances d'atterrissage — avions légers en France</title>
+<meta name="description" content="Carte communautaire des redevances d'atterrissage pour avions légers (&lt; 6 t) sur les aérodromes français." />
+<link rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+  crossorigin="" />
+<style>
+  :root {
+    --fresh: #2c7bb6;
+    --stale: #c0392b;
+    --no-fee: #9aa0a6;
+    --fee-free: #27ae60;
+    --fee-lt8: #52be80;
+    --fee-lt10: #f1c40f;
+    --fee-lt15: #e67e22;
+    --fee-lt20: #e74c3c;
+    --fee-more: #7b241c;
+    --ink: #202124;
+    --muted: #5f6368;
+  }
+  html, body { margin: 0; padding: 0; height: 100%; font-family: system-ui, sans-serif; color: var(--ink); }
+  #map { position: absolute; inset: 0; }
+
+  .panel {
+    position: absolute; top: 12px; right: 12px; z-index: 1000;
+    background: rgba(255, 255, 255, 0.97); padding: 14px 16px;
+    border-radius: 10px; box-shadow: 0 2px 12px rgba(0, 0, 0, 0.22);
+    font-size: 13px; width: 310px; max-height: calc(100% - 24px);
+    overflow-y: auto;
+  }
+  .panel h1 { margin: 0 0 6px; font-size: 15px; }
+  .panel h2 {
+    margin: 14px 0 6px; font-size: 11px; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--muted);
+  }
+  .meta { color: var(--muted); font-size: 11px; line-height: 1.5; }
+  a { color: #2c7bb6; }
+
+  .search {
+    width: 100%; box-sizing: border-box; margin-top: 10px; padding: 7px 9px;
+    border: 1px solid #ccc; border-radius: 6px; font-size: 13px;
+  }
+
+  .filters label {
+    display: flex; align-items: center; gap: 8px;
+    cursor: pointer; user-select: none; line-height: 1.9;
+  }
+  .filters .count { color: var(--muted); font-size: 11px; margin-left: auto; }
+
+  .key {
+    display: inline-block; width: 15px; height: 15px; flex: none;
+    border: 2px solid white; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
+    border-radius: 50%;
+  }
+  .key-freshness-fresh { background: var(--fresh); }
+  .key-freshness-stale { background: var(--stale); }
+  .key-freshness-unknown { background: var(--no-fee); }
+
+  .key-fee-free { background: var(--fee-free); }
+  .key-fee-lt8 { background: var(--fee-lt8); }
+  .key-fee-lt10 { background: var(--fee-lt10); }
+  .key-fee-lt15 { background: var(--fee-lt15); }
+  .key-fee-lt20 { background: var(--fee-lt20); }
+  .key-fee-more { background: var(--fee-more); }
+  .key-fee-unknown { background: var(--no-fee); }
+
+  .marker-pin {
+    display: flex; flex-direction: column; align-items: center; gap: 2px;
+    pointer-events: none;
+  }
+  .marker {
+    width: 14px; height: 14px; border-radius: 50%;
+    border: 2px solid white; box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
+    background: var(--no-fee);
+  }
+  .marker-fee-free { background: var(--fee-free); }
+  .marker-fee-lt8 { background: var(--fee-lt8); }
+  .marker-fee-lt10 { background: var(--fee-lt10); }
+  .marker-fee-lt15 { background: var(--fee-lt15); }
+  .marker-fee-lt20 { background: var(--fee-lt20); }
+  .marker-fee-more { background: var(--fee-more); }
+  .marker-fee {
+    font-size: 10px; font-weight: 700; line-height: 1.1;
+    padding: 2px 5px; border-radius: 4px;
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.28);
+    white-space: nowrap; pointer-events: none;
+  }
+  .marker-fee-fresh { color: var(--ink); }
+  .marker-fee-stale { color: var(--stale); }
+
+  .note { margin-top: 12px; font-size: 11px; color: var(--muted); line-height: 1.45; }
+  .status { margin-top: 10px; font-size: 12px; color: #c0392b; }
+  .status:empty { display: none; }
+
+  .popup-icao { font-weight: 700; font-size: 14px; }
+  .popup-name { margin: 2px 0 8px; }
+  .popup-fee { margin-top: 8px; font-size: 12px; line-height: 1.5; }
+  .popup-fee-fresh { font-weight: 600; }
+  .popup-fee-stale { color: var(--stale); }
+  .popup-no-fee { color: var(--muted); font-style: italic; }
+  .popup-note {
+    margin-top: 7px; padding: 5px 7px; font-size: 11px; line-height: 1.45;
+    background: #fdf5e3; border-left: 3px solid #f39c12; color: #7a5c1e;
+  }
+  .popup-source { margin-top: 6px; font-size: 10px; color: var(--muted); }
+  .badge {
+    display: inline-block; vertical-align: 2px; margin-left: 4px;
+    padding: 1px 5px; border-radius: 8px; font-size: 10px; font-weight: 600;
+    background: #fdf5e3; color: #7a5c1e; border: 1px solid #e8d9b0;
+  }
+  .leaflet-popup-content { margin: 12px 14px; min-width: 250px; }
+
+  .panel-toggle {
+    display: none;
+    position: absolute; top: 12px; right: 12px; z-index: 1001;
+    padding: 8px 12px; border: none; border-radius: 8px;
+    background: rgba(255, 255, 255, 0.97);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.22);
+    font: inherit; font-size: 13px; color: var(--ink); cursor: pointer;
+  }
+
+  @media (max-width: 640px) {
+    .panel-toggle { display: block; }
+    .panel {
+      display: none;
+      top: 52px; left: 12px; right: 12px; width: auto;
+      max-height: calc(100% - 64px);
+    }
+    .panel.is-open { display: block; }
+  }
+</style>
+</head>
+<body>
+<div id="map"></div>
+
+<button type="button" class="panel-toggle" id="panel-toggle"
+        aria-expanded="false" aria-controls="panel">
+  Filtres
+</button>
+
+<div class="panel" id="panel">
+  <h1>Redevances d'atterrissage</h1>
+  <div class="meta" id="meta">Chargement…</div>
+
+  <input type="search" class="search" id="search"
+         placeholder="Filtrer par code OACI ou nom…" autocomplete="off" />
+
+  <h2>Tranche tarifaire</h2>
+  <div class="filters" id="category-filters"></div>
+
+  <h2>Actualité du tarif</h2>
+  <div class="filters" id="freshness-filters"></div>
+
+  <div class="note">
+    Forfait ou redevance d'atterrissage pour <strong>avion léger (&lt; 6 t)</strong>.
+    Les barèmes au poids ne sont pas modélisés : un seul montant signalé par terrain.
+    <a href="index.html">Carte carburant</a> ·
+    <a href="prix.html">Carte des prix</a>
+  </div>
+  <div class="note" id="note"></div>
+  <div class="status" id="status"></div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
+  crossorigin=""></script>
+<script>
+const LOCATIONS_URL = "landing_locations.json";
+const FEES_URL = "landing_fees.csv";
+const SUPPORTED_SCHEMA = 1;
+const STALE_DAYS = 90;
+const REPO_URL = "https://github.com/Natim/france-ul91-mogas-map";
+
+const PAYMENT_LABELS = {
+  cash: "espèces",
+  total: "carte Total",
+  bp: "carte BP",
+  other: "autre",
+};
+
+const FRESHNESS_OPTIONS = [
+  { key: "fresh", label: "À jour (≤ 90 jours)" },
+  { key: "stale", label: "Périmé (> 90 jours)" },
+  { key: "unknown", label: "Tarif inconnu" },
+];
+
+const FEE_CATEGORY_OPTIONS = [
+  { key: "free", label: "Gratuit (0 €)" },
+  { key: "lt8", label: "Moins de 8 €" },
+  { key: "lt10", label: "8 € à moins de 10 €" },
+  { key: "lt15", label: "10 € à moins de 15 €" },
+  { key: "lt20", label: "15 € à moins de 20 €" },
+  { key: "more", label: "20 € et plus" },
+  { key: "unknown", label: "Tarif inconnu" },
+];
+
+function feeCategory(feeEur) {
+  if (feeEur === 0) return "free";
+  if (feeEur < 8) return "lt8";
+  if (feeEur < 10) return "lt10";
+  if (feeEur < 15) return "lt15";
+  if (feeEur < 20) return "lt20";
+  return "more";
+}
+
+function feeCategoryLabel(key) {
+  const option = FEE_CATEGORY_OPTIONS.find((entry) => entry.key === key);
+  return option ? option.label : key;
+}
+
+const FRANCE_CENTER = [46.7, 2.3];
+const FRANCE_ZOOM = 6;
+
+const map = L.map("map").setView(FRANCE_CENTER, FRANCE_ZOOM);
+L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
+  maxZoom: 18,
+  attribution:
+    '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+}).addTo(map);
+
+const entries = [];
+let feeByIcao = {};
+let feeToday = "";
+
+function escapeHtml(value) {
+  const div = document.createElement("div");
+  div.textContent = value;
+  return div.innerHTML;
+}
+
+function parseCsv(text) {
+  const rows = [];
+  let row = [];
+  let field = "";
+  let inQuotes = false;
+
+  for (let index = 0; index < text.length; index += 1) {
+    const char = text[index];
+    const next = text[index + 1];
+    if (inQuotes) {
+      if (char === '"' && next === '"') {
+        field += '"';
+        index += 1;
+      } else if (char === '"') {
+        inQuotes = false;
+      } else {
+        field += char;
+      }
+      continue;
+    }
+    if (char === '"') {
+      inQuotes = true;
+    } else if (char === ",") {
+      row.push(field);
+      field = "";
+    } else if (char === "\n") {
+      row.push(field);
+      field = "";
+      if (row.some((cell) => cell.trim() !== "")) rows.push(row);
+      row = [];
+    } else if (char !== "\r") {
+      field += char;
+    }
+  }
+  if (field.length || row.length) {
+    row.push(field);
+    if (row.some((cell) => cell.trim() !== "")) rows.push(row);
+  }
+  return rows;
+}
+
+function loadFees(text) {
+  const rows = parseCsv(text.trim());
+  if (!rows.length) return [];
+  const header = rows[0];
+  const fees = [];
+  for (const cells of rows.slice(1)) {
+    if (cells.every((cell) => cell.trim() === "")) continue;
+    const record = Object.fromEntries(header.map((key, index) => [key, cells[index] || ""]));
+    fees.push({
+      icao: record.icao.trim().toUpperCase(),
+      feeEur: Number(record.fee_eur.replace(",", ".")),
+      observedOn: record.observed_on.trim(),
+      payment: record.payment.trim().toLowerCase(),
+      note: record.note.trim(),
+    });
+  }
+  return fees;
+}
+
+function indexFees(fees) {
+  const byIcao = {};
+  for (const fee of fees) {
+    const existing = byIcao[fee.icao];
+    if (!existing || fee.observedOn > existing.observedOn) {
+      byIcao[fee.icao] = fee;
+    }
+  }
+  return byIcao;
+}
+
+function daysSince(isoDate, today) {
+  const observed = new Date(`${isoDate}T00:00:00Z`);
+  const now = new Date(`${today}T00:00:00Z`);
+  return Math.floor((now - observed) / 86400000);
+}
+
+function freshnessForMarker(marker) {
+  const fee = feeByIcao[marker.icao];
+  if (!fee) return "unknown";
+  return daysSince(fee.observedOn, feeToday) <= STALE_DAYS ? "fresh" : "stale";
+}
+
+function formatFeeShort(feeEur) {
+  return (
+    feeEur.toLocaleString("fr-FR", {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 2,
+    }) + " €"
+  );
+}
+
+function markerIconHtml(marker, fee, showFee) {
+  const category = fee ? feeCategory(fee.feeEur) : "unknown";
+  const feeHtml =
+    showFee && fee
+      ? `<div class="marker-fee marker-fee-${daysSince(fee.observedOn, feeToday) > STALE_DAYS ? "stale" : "fresh"}">` +
+        `${formatFeeShort(fee.feeEur)}</div>`
+      : "";
+  const height = 14 + (feeHtml ? 18 : 0);
+  return {
+    html:
+      `<div class="marker-pin">` +
+      `<div class="marker marker-fee-${category}"></div>` +
+      feeHtml +
+      `</div>`,
+    width: Math.max(14, 44),
+    height,
+    anchorY: 7,
+  };
+}
+
+function setMarkerIcon(entry, showFee) {
+  const { html, width, height, anchorY } = markerIconHtml(
+    entry.data, entry.fee, showFee
+  );
+  entry.marker.setIcon(L.divIcon({
+    className: "",
+    html,
+    iconSize: [width, height],
+    iconAnchor: [width / 2, anchorY],
+  }));
+}
+
+function popupHtml(marker) {
+  const name = marker.name || marker.icao;
+  const fee = feeByIcao[marker.icao];
+  const note = marker.note
+    ? `<div class="popup-note">${escapeHtml(marker.note)}</div>`
+    : "";
+  const source = marker.source
+    ? `<div class="popup-source">Source : ${escapeHtml(marker.source)}</div>`
+    : "";
+  let feeHtml;
+  if (fee) {
+    const age = daysSince(fee.observedOn, feeToday);
+    const stale = age > STALE_DAYS;
+    const payment = PAYMENT_LABELS[fee.payment] || fee.payment;
+    const extra = fee.note ? ` — ${escapeHtml(fee.note)}` : "";
+    const staleHint = stale ? ` · périmé (${age} j)` : "";
+    const category = feeCategoryLabel(feeCategory(fee.feeEur));
+    feeHtml =
+      `<div class="popup-fee popup-fee-${stale ? "stale" : "fresh"}">` +
+      `Avion léger (&lt; 6 t) : ${fee.feeEur.toFixed(2)} € TTC` +
+      ` (${escapeHtml(category)})` +
+      ` (${escapeHtml(fee.observedOn)}, ${escapeHtml(payment)})${staleHint}${extra}` +
+      `</div>`;
+  } else {
+    feeHtml = `<div class="popup-fee popup-no-fee">Aucune redevance signalée.</div>`;
+  }
+
+  return (
+    `<div class="popup-icao">${marker.icao}` +
+    (marker.source ? ` <span class="badge">hors AIP</span>` : "") +
+    `</div>` +
+    `<div class="popup-name">${escapeHtml(name)}</div>` +
+    feeHtml +
+    note +
+    source
+  );
+}
+
+function renderFilters(container, options, counts, group, keyClassPrefix) {
+  container.innerHTML = "";
+  for (const option of options) {
+    const label = document.createElement("label");
+    label.innerHTML =
+      `<input type="checkbox" data-group="${group}" data-key="${option.key}" checked>` +
+      `<span class="key key-${keyClassPrefix}-${option.key}"></span>` +
+      option.label +
+      `<span class="count">${counts[option.key] || 0}</span>`;
+    container.appendChild(label);
+  }
+  container.addEventListener("change", applyFilters);
+}
+
+function checkedKeys(group) {
+  return new Set(
+    Array.from(
+      document.querySelectorAll(`input[data-group="${group}"]:checked`)
+    ).map((input) => input.dataset.key)
+  );
+}
+
+function applyFilters() {
+  const freshness = checkedKeys("freshness");
+  const category = checkedKeys("category");
+  const query = document.getElementById("search").value.trim().toLowerCase();
+  let shown = 0;
+
+  for (const entry of entries) {
+    const visible =
+      freshness.has(entry.freshness) &&
+      category.has(entry.feeCategory) &&
+      (!query || entry.haystack.includes(query));
+    setMarkerIcon(entry, visible && entry.fee);
+    if (visible) {
+      shown += 1;
+      if (!map.hasLayer(entry.marker)) entry.marker.addTo(map);
+    } else if (map.hasLayer(entry.marker)) {
+      map.removeLayer(entry.marker);
+    }
+  }
+
+  document.getElementById("note").textContent =
+    `${shown} marqueur${shown > 1 ? "s" : ""} affiché${shown > 1 ? "s" : ""}. ` +
+    "Tarifs communautaires indicatifs : vérifiez auprès de l'exploitant.";
+}
+
+function fail(message) {
+  document.getElementById("meta").textContent = "";
+  document.getElementById("status").textContent = message;
+}
+
+async function load() {
+  let locations;
+  let feeText;
+  try {
+    const [locationsResponse, feesResponse] = await Promise.all([
+      fetch(LOCATIONS_URL, { cache: "no-cache" }),
+      fetch(FEES_URL, { cache: "no-cache" }),
+    ]);
+    if (!locationsResponse.ok) throw new Error(`locations HTTP ${locationsResponse.status}`);
+    if (!feesResponse.ok) throw new Error(`fees HTTP ${feesResponse.status}`);
+    locations = await locationsResponse.json();
+    feeText = await feesResponse.text();
+  } catch (error) {
+    fail(
+      `Impossible de charger les données (${error.message}). ` +
+      "En local, servir le dossier via un serveur HTTP."
+    );
+    return;
+  }
+
+  if (locations.schema !== SUPPORTED_SCHEMA) {
+    fail(`Format de localisation inattendu (schéma ${locations.schema}).`);
+    return;
+  }
+
+  const fees = loadFees(feeText);
+  feeByIcao = indexFees(fees);
+  feeToday = locations.generated;
+
+  const freshnessCounts = { fresh: 0, stale: 0, unknown: 0 };
+  const categoryCounts = Object.fromEntries(
+    FEE_CATEGORY_OPTIONS.map((option) => [option.key, 0])
+  );
+
+  for (const marker of locations.markers) {
+    const freshness = freshnessForMarker(marker);
+    freshnessCounts[freshness] += 1;
+    const fee = feeByIcao[marker.icao];
+    const feeCategoryKey = fee ? feeCategory(fee.feeEur) : "unknown";
+    categoryCounts[feeCategoryKey] += 1;
+    const { html, width, height, anchorY } = markerIconHtml(marker, fee, false);
+    const leafletMarker = L.marker([marker.lat, marker.lon], {
+      icon: L.divIcon({
+        className: "",
+        html,
+        iconSize: [width, height],
+        iconAnchor: [width / 2, anchorY],
+      }),
+    });
+    leafletMarker.bindPopup(() => popupHtml(marker));
+    leafletMarker.bindTooltip(
+      `${marker.icao} — ${marker.name || ""}`,
+      { direction: "top" }
+    );
+    entries.push({
+      marker: leafletMarker,
+      data: marker,
+      fee,
+      freshness,
+      feeCategory: feeCategoryKey,
+      haystack: `${marker.icao} ${marker.name}`.toLowerCase(),
+    });
+  }
+
+  document.getElementById("meta").innerHTML =
+    `${locations.aerodromeCount} terrains · AIRAC ${locations.airac} · ` +
+    `localisations ${locations.generated}<br>` +
+    `${fees.length} redevance${fees.length > 1 ? "s" : ""} signalée${fees.length > 1 ? "s" : ""} · ` +
+    `<a href="${REPO_URL}" target="_blank" rel="noopener">Proposer un tarif</a>`;
+
+  renderFilters(
+    document.getElementById("category-filters"),
+    FEE_CATEGORY_OPTIONS,
+    categoryCounts,
+    "category",
+    "fee"
+  );
+  renderFilters(
+    document.getElementById("freshness-filters"),
+    FRESHNESS_OPTIONS,
+    freshnessCounts,
+    "freshness",
+    "freshness"
+  );
+  document.getElementById("search").addEventListener("input", applyFilters);
+  applyFilters();
+}
+
+load();
+
+(function initMobilePanel() {
+  const panel = document.getElementById("panel");
+  const toggle = document.getElementById("panel-toggle");
+  const mobile = window.matchMedia("(max-width: 640px)");
+
+  function sync() {
+    if (!mobile.matches) {
+      panel.classList.remove("is-open");
+      toggle.setAttribute("aria-expanded", "true");
+      toggle.textContent = "Filtres";
+    } else {
+      const open = panel.classList.contains("is-open");
+      toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      toggle.textContent = open ? "Fermer" : "Filtres";
+    }
+  }
+
+  toggle.addEventListener("click", () => {
+    panel.classList.toggle("is-open");
+    sync();
+  });
+  mobile.addEventListener("change", sync);
+  sync();
+})();
+</script>
+</body>
+</html>

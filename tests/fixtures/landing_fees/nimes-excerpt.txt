@@ -1,0 +1,25 @@
+Applicable au 1er janvier 2025 Became effective on 2025, January 1st
+
+Tarif de base HT pour aéronefs de moins de 6 tonnes
+Landing Fees for aircrafts less than 6 tons
+Masse Maximum
+Décollage en tonnes
+MTOW per tons
+de / from 0 à 1t
+de / from > 1t à / to 2t
+de / from > 2t à/ to 3t
+de / from > 3t à / to 4t
+de / from > 4t à / to 5t
+de / from > 5t à / to 6t
+
+TOUTES ZONES
+€ H.T.
+€ EX VAT
+16,84
+19,09
+21,32
+33,00
+38,50
+44,00
+
+Tarif de base HT pour aéronefs de plus de 6 tonnes

@@ -36,11 +36,12 @@ jobs:
       - run: pip install -e .
       - run: fuelmap rebuild
       - run: fuelmap validate-prices
+      - run: fuelmap validate-landing-fees
       - name: Fail if the derived files are stale
         run: |
-          if ! git diff --quiet -- AERODROMES.md docs/aerodromes.json docs/locations.json data/; then
+          if ! git diff --quiet -- AERODROMES.md docs/aerodromes.json docs/locations.json docs/landing_locations.json data/; then
             echo "::error::Les fichiers dérivés ne correspondent plus au CSV. Lancez 'fuelmap rebuild'."
-            git diff --stat -- AERODROMES.md docs/aerodromes.json docs/locations.json data/
+            git diff --stat -- AERODROMES.md docs/aerodromes.json docs/locations.json docs/landing_locations.json data/
             exit 1
           fi
 

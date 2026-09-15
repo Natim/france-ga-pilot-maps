@@ -1005,17 +1005,17 @@
       "name": "HAGUENAU",
       "lat": 48.796944,
       "lon": 7.819167,
-      "family": "ul91",
-      "familyLabel": "UL91 (AVGAS sans plomb)",
+      "family": "mogas",
+      "familyLabel": "SP95 / SP98 (dont UL AERO SUPER+, AKI93)",
       "fuels": [
-        "UL91"
+        "AKI93"
       ],
-      "fuelsLabel": "UL91",
+      "fuelsLabel": "AKI93",
       "availability": "restricted",
       "availabilityLabel": "HX, PPR, sur demande",
-      "allFuelsLabel": "UL91, 100LL",
+      "allFuelsLabel": "AKI93, 100LL",
       "section": "10 - AVT : Carburant / Fuel : 100 LL, UL91 O/R TEL : ACB. Lubrifiants / Lubricants : qualité aviation (CIV) HOR ACB paiement comptant / aviation quality (CIV) ACB SKED cash payment.",
-      "note": "",
+      "note": "La VAC indique UL91 ; la pompe distribue en réalité de l'AKI93 Warter.",
       "source": ""
     },
     {

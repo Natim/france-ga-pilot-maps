@@ -27,6 +27,7 @@ from __future__ import annotations
 from dataclasses import dataclass, field, replace
 
 from .model import (
+    AKI93,
     AVAILABILITY_RESTRICTED,
     AVAILABILITY_SELF_SERVICE,
     AVGAS_100LL,
@@ -49,6 +50,9 @@ class Override:
 
     reason: str = ""
     """Shown next to the marker, so the reader knows it is not from the chart."""
+
+    remove_fuels: frozenset[str] = frozenset()
+    """Chart fuels to drop when the VAC misnames the product actually sold."""
 
 
 #: Keyed by ICAO code. Fuels left out of an entry keep whatever the chart
@@ -125,6 +129,13 @@ OVERRIDES: dict[str, Override] = {
         reason=(
             "100LL et SP95 en automate H24 (carte Total ou CB). "
             "La VAC cite un téléphone AVIA sans préciser les horaires des pompes."
+        ),
+    ),
+    "LFSH": Override(
+        availability={AKI93: AVAILABILITY_RESTRICTED},
+        remove_fuels=frozenset({UL91}),
+        reason=(
+            "La VAC indique UL91 ; la pompe distribue en réalité de l'AKI93 Warter."
         ),
     ),
 }
@@ -213,7 +224,12 @@ def apply(aerodrome: Aerodrome) -> Aerodrome:
     if override is None:
         return aerodrome
 
-    availability = dict(aerodrome.availability) | override.availability
+    fuels = (aerodrome.fuels | frozenset(override.availability)) - override.remove_fuels
+    availability = {
+        fuel: level
+        for fuel, level in (dict(aerodrome.availability) | override.availability).items()
+        if fuel in fuels
+    }
     # Keep any earlier marking: after the first pass the fuel is present, so
     # recomputing the difference alone would forget that we added it.
     added = (frozenset(override.availability) - aerodrome.fuels) | frozenset(
@@ -221,7 +237,7 @@ def apply(aerodrome: Aerodrome) -> Aerodrome:
     )
     return replace(
         aerodrome,
-        fuels=aerodrome.fuels | frozenset(override.availability),
+        fuels=fuels,
         availability=tuple(sorted(availability.items())),
         availability_note=override.reason,
         curated_fuels=tuple(sorted(added)),

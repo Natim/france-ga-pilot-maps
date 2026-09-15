@@ -8,6 +8,7 @@ Atlas-VAC).
 
 **➡️ [Carte sans plomb](https://natim.github.io/france-ul91-mogas-map/)** ·
 **[Carte des prix 100LL / sans plomb](https://natim.github.io/france-ul91-mogas-map/prix.html)** ·
+**[Redevances d'atterrissage](https://natim.github.io/france-ul91-mogas-map/landing.html)** ·
 **[Liste complète](./AERODROMES.md)**
 
 ## Pourquoi
@@ -127,15 +128,65 @@ Les prix de plus de 90 jours restent visibles mais sont signalés comme
 > **Indicatif.** Vérifiez à la pompe ou par téléphone avant de compter sur un
 > tarif affiché ici.
 
+## Carte des redevances d'atterrissage
+
+**➡️ [Redevances d'atterrissage](https://natim.github.io/france-ul91-mogas-map/landing.html)**
+
+Troisième carte, même principe que les prix carburant : **un tarif communautaire
+par terrain**, pour **avion léger (&lt; 6 t)** — forfait ou redevance d'atterrissage
+tel que pratiqué sur le terrain. Pas de barème au poids : un seul montant signalé.
+
+- **Localisations** : tous les aérodromes géolocalisés de l'eAIP
+  ([`docs/landing_locations.json`](./docs/landing_locations.json), **généré**).
+- **Tarifs** : [`docs/landing_fees.csv`](./docs/landing_fees.csv), **édité à la main**
+  via pull request.
+
+L'eAIP (GEN 4.1) renvoie à l'exploitant de chaque aérodrome pour les tarifs ;
+il n'y a pas d'extraction depuis les VAC. Les montants viennent de signalements
+datés, comme pour les prix carburant.
+
+```csv
+icao,fee_eur,observed_on,payment,note
+LFRI,12,2026-09-06,cash,Forfait avion léger
+```
+
+La carte regroupe aussi les tarifs en **tranches** (gratuit, &lt; 8 €, &lt; 10 €,
+&lt; 15 €, &lt; 20 €, ≥ 20 €) pour filtrer visuellement.
+
+### Amorcer le CSV depuis des guides publics
+
+Pour les exploitants qui publient un PDF « guide des redevances » (EDEIS, ADP AAG…),
+un script produit un **brouillon** à relire avant merge dans `docs/landing_fees.csv` :
+
+```bash
+fuelmap collect-landing-fees \
+  --sources-csv data/landing_fee_sources.csv \
+  --output data/landing_fees.draft.csv \
+  --band 1-2
+```
+
+- [`data/landing_fee_sources.csv`](./data/landing_fee_sources.csv) : liste manuelle
+  `icao`, URL du PDF, parser (`edeis`, `adp_aag`), date d'application.
+- Par défaut, la tranche **1–2 t MMD** (&lt; 6 t) est extraite en **TTC** ; `--band 0-1`
+  ou `--band min` pour une autre convention.
+- Nécessite `pdftotext` (paquet `poppler-utils`).
+
+La CI lance `fuelmap validate-landing-fees`. Une fois mergée sur `main`, GitHub
+Pages sert le CSV mis à jour sans regénération Python.
+
 ## Fichiers produits
 
 | Fichier | Contenu |
 |---|---|
 | [Carte disponibilité sans plomb](https://natim.github.io/france-ul91-mogas-map/) | Page statique (`docs/index.html`). |
 | [Carte des prix 100LL / sans plomb](https://natim.github.io/france-ul91-mogas-map/prix.html) | Page statique (`docs/prix.html`). |
+| [Redevances d'atterrissage](https://natim.github.io/france-ul91-mogas-map/landing.html) | Page statique (`docs/landing.html`). |
 | [`docs/aerodromes.json`](./docs/aerodromes.json) | Données de la carte sans plomb. **Généré.** |
 | [`docs/locations.json`](./docs/locations.json) | Terrains 100LL / sans plomb pour la carte prix. **Généré.** |
+| [`docs/landing_locations.json`](./docs/landing_locations.json) | Tous les terrains pour la carte redevances. **Généré.** |
 | [`docs/prices.csv`](./docs/prices.csv) | Prix communautaires datés. **Source éditée à la main.** |
+| [`docs/landing_fees.csv`](./docs/landing_fees.csv) | Redevances avion léger datées. **Source éditée à la main.** |
+| [`data/landing_fee_sources.csv`](./data/landing_fee_sources.csv) | PDF publics pour `fuelmap collect-landing-fees`. **Curaté à la main.** |
 | [`AERODROMES.md`](./AERODROMES.md) | Liste Markdown lisible. **Généré.** |
 | [`data/aerodromes-unleaded.csv`](./data/aerodromes-unleaded.csv) | Terrains avec essence sans plomb. **Généré.** |
 | [`data/aerodromes-all.csv`](./data/aerodromes-all.csv) | Les 420 terrains français et leur section avitaillement brute. **Généré.** |

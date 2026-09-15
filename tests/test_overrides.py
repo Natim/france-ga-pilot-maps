@@ -145,3 +145,19 @@ class TestApply:
             original = _aerodrome(icao, {model.UL91}, {model.UL91: UNKNOWN})
             once = overrides.apply(original)
             assert overrides.apply(once) == once
+
+    def test_can_replace_a_misidentified_chart_fuel(self):
+        """Haguenau: the VAC says UL91 but the pump sells AKI93."""
+        haguenau = _aerodrome(
+            "LFSH",
+            {model.AVGAS_100LL, model.UL91},
+            {model.AVGAS_100LL: RESTRICTED, model.UL91: RESTRICTED},
+        )
+        curated = overrides.apply(haguenau)
+        assert curated.fuels == {model.AVGAS_100LL, model.AKI93}
+        assert model.UL91 not in curated.fuels
+        assert curated.families() == [model.FAMILY_MOGAS]
+        assert set(curated.price_map_families()) == {
+            model.FAMILY_100LL,
+            model.FAMILY_MOGAS,
+        }

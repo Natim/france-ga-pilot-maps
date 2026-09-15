@@ -1,6 +1,6 @@
 # Aérodromes français — UL91 / Mogas
 
-**49 aérodromes** publient une pompe d'essence sans plomb (UL91, SP95/SP98, Super Plus, UL AERO SUPER+ ou AKI93) dans leur carte VAC officielle. S'y ajoutent **6 terrains renseignés à la main** : 5 dont le sans plomb vient d'une source hors VAC (†), 1 absent de l'AIP (‡).
+**48 aérodromes** publient une pompe d'essence sans plomb (UL91, SP95/SP98, Super Plus, UL AERO SUPER+ ou AKI93) dans leur carte VAC officielle. S'y ajoutent **7 terrains renseignés à la main** : 6 dont le sans plomb vient d'une source hors VAC (†), 1 absent de l'AIP (‡).
 
 - **Cycle AIRAC** : 2026-08-06
 - **Date d'extraction** : 2026-08-12
@@ -10,9 +10,9 @@
 
 | Carburant | Nb terrains |
 |-----------|-------------|
-| UL91 | 30 |
+| UL91 | 29 |
 | UL AERO SUPER+ | 7 |
-| AKI93 | 3 |
+| AKI93 | 4 |
 | Super Plus | 17 |
 | 100LL | 39 |
 | Jet A1 | 16 |
@@ -85,7 +85,7 @@
 | LFRM | LE MANS ARNAGE | Super Plus, 100LL, Jet A1 | Automate / H24 † |
 | LFRS | NANTES ATLANTIQUE | UL91, Jet A1 | Automate / H24 † |
 | LFSA | BESANCON THISE | Super Plus | HX, PPR, sur demande |
-| LFSH | HAGUENAU | UL91, 100LL | HX, PPR, sur demande |
+| LFSH | HAGUENAU | AKI93, 100LL | HX, PPR, sur demande † |
 | LFTF | CUERS PIERREFEU | AKI93, 100LL, Jet A1 | Automate / H24 |
 | LFXU | LES MUREAUX | UL91, 100LL | HX, PPR, sur demande |
 
@@ -101,6 +101,7 @@
 - **LFOF** ALENCON VALFRAMBERT — Pompe UL91 en HX. SP98 H24 à la station Total en face, nécessite un bidon.
 - **LFRM** LE MANS ARNAGE — Pas de sans plomb sur le terrain : SP98 H24 à la station-service voisine, accès côté ULM, à emporter en bidon.
 - **LFRS** NANTES ATLANTIQUE — Automate accessible H24. La VAC ne donne aucune condition.
+- **LFSH** HAGUENAU — La VAC indique UL91 ; la pompe distribue en réalité de l'AKI93 Warter.
 
 ‡ Terrain **absent de l'AIP**, donc absent des CSV et invérifiable sur une carte VAC. Position, carburant et conditions sont renseignés à la main :
 

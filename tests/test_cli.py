@@ -41,6 +41,9 @@ def project(tmp_path):
     (tmp_path / "docs" / "prices.csv").write_text(
         "icao,fuel,price_eur,observed_on,payment,note\n", encoding="utf-8"
     )
+    (tmp_path / "docs" / "landing_fees.csv").write_text(
+        "icao,fee_eur,observed_on,payment,note\n", encoding="utf-8"
+    )
     return tmp_path
 
 
@@ -53,6 +56,8 @@ def rebuild(project, *extra):
             "--markdown", str(project / "AERODROMES.md"),
             "--map-data", str(project / "docs" / "aerodromes.json"),
             "--locations-data", str(project / "docs" / "locations.json"),
+            "--landing-locations-data",
+            str(project / "docs" / "landing_locations.json"),
             *extra,
         ]
     )
@@ -109,6 +114,16 @@ class TestRebuild:
             model.FAMILY_MOGAS,
         }
 
+    def test_writes_landing_map_locations(self, project):
+        rebuild(project)
+        payload = json.loads((project / "docs" / "landing_locations.json").read_text())
+        assert payload["aerodromeCount"] == 3
+        assert {marker["icao"] for marker in payload["markers"]} == {
+            "LF4724",
+            "LFAT",
+            "LFDA",
+        }
+
 
 class TestValidatePrices:
     def test_accepts_an_empty_price_file(self, project):
@@ -116,6 +131,18 @@ class TestValidatePrices:
             [
                 "validate-prices",
                 "--prices-csv", str(project / "docs" / "prices.csv"),
+                "--all-csv", str(project / "data" / "aerodromes-all.csv"),
+            ]
+        )
+        assert exit_code == 0
+
+
+class TestValidateLandingFees:
+    def test_accepts_an_empty_fee_file(self, project):
+        exit_code = cli.main(
+            [
+                "validate-landing-fees",
+                "--landing-fees-csv", str(project / "docs" / "landing_fees.csv"),
                 "--all-csv", str(project / "data" / "aerodromes-all.csv"),
             ]
         )

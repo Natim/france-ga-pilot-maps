@@ -1,0 +1,6 @@
+icao,url,parser,parser_arg,effective_on,payment,operator
+LFJR,https://angers.aeroport.fr/wp-content/uploads/2026/02/Guide-des-redevances-2026.pdf,edeis,,2026-01-01,other,EDEIS
+LFSD,https://dijon.aeroport.fr/wp-content/uploads/sites/13/2025/02/Guide-tarifaire-Redevances-SPA-Dijon-2025-2.pdf,edeis,,2025-04-10,other,EDEIS
+LFTW,https://nimes.aeroport.fr/wp-content/uploads/sites/18/2025/03/20241218-Edeis-Aeroport-de-Nimes-Tarifs-2025-des-redevances-reglementees.pdf,edeis,,2025-01-01,other,EDEIS
+LFOT,https://tours.aeroport.fr/wp-content/uploads/sites/21/2025/02/123405tours_guide_des_redevances_2024_applicable_au_01_janvier_2024.pdf,edeis,,2024-01-01,other,EDEIS
+LFGC,https://chalon.aeroport.fr/wp-content/uploads/sites/11/2025/02/Chalon-Guide-Tarifs-2025.pdf,edeis,,2025-04-11,other,EDEIS

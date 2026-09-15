@@ -21,16 +21,19 @@ import sys
 from datetime import date
 from pathlib import Path
 
-from . import overrides, pipeline, prices, vac
+from . import landing_fee_collect, landing_fees, overrides, pipeline, prices, vac
 from .model import Aerodrome
-from .render import csv_export, locations, markdown, web
+from .render import csv_export, landing_locations, locations, markdown, web
 
 DEFAULT_ALL_CSV = Path("data/aerodromes-all.csv")
 DEFAULT_UNLEADED_CSV = Path("data/aerodromes-unleaded.csv")
 DEFAULT_MARKDOWN = Path("AERODROMES.md")
 DEFAULT_MAP_DATA = Path("docs/aerodromes.json")
 DEFAULT_LOCATIONS_DATA = Path("docs/locations.json")
+DEFAULT_LANDING_LOCATIONS_DATA = Path("docs/landing_locations.json")
 DEFAULT_PRICES_CSV = Path("docs/prices.csv")
+DEFAULT_LANDING_FEES_CSV = Path("docs/landing_fees.csv")
+DEFAULT_LANDING_FEE_SOURCES = landing_fee_collect.DEFAULT_SOURCES
 
 PREVIEW_ROWS = 10
 
@@ -65,6 +68,12 @@ def _add_output_arguments(parser: argparse.ArgumentParser) -> None:
         type=Path,
         default=DEFAULT_LOCATIONS_DATA,
         help="Données JSON des terrains pour la carte prix (défaut : %(default)s).",
+    )
+    parser.add_argument(
+        "--landing-locations-data",
+        type=Path,
+        default=DEFAULT_LANDING_LOCATIONS_DATA,
+        help="Données JSON pour la carte redevances (défaut : %(default)s).",
     )
     parser.add_argument(
         "--airac",
@@ -119,6 +128,56 @@ def build_parser() -> argparse.ArgumentParser:
         help="CSV de tous les aérodromes (défaut : %(default)s).",
     )
 
+    validate_landing_fees_cmd = subcommands.add_parser(
+        "validate-landing-fees",
+        help="Vérifier docs/landing_fees.csv contre les terrains connus.",
+    )
+    validate_landing_fees_cmd.add_argument(
+        "--landing-fees-csv",
+        type=Path,
+        default=DEFAULT_LANDING_FEES_CSV,
+        help="CSV des redevances (défaut : %(default)s).",
+    )
+    validate_landing_fees_cmd.add_argument(
+        "--all-csv",
+        type=Path,
+        default=DEFAULT_ALL_CSV,
+        help="CSV de tous les aérodromes (défaut : %(default)s).",
+    )
+
+    collect_landing_fees_cmd = subcommands.add_parser(
+        "collect-landing-fees",
+        help="Extraire un brouillon CSV depuis les guides PDF publics.",
+    )
+    collect_landing_fees_cmd.add_argument(
+        "--sources-csv",
+        type=Path,
+        default=DEFAULT_LANDING_FEE_SOURCES,
+        help="Liste des PDF sources (défaut : %(default)s).",
+    )
+    collect_landing_fees_cmd.add_argument(
+        "--output",
+        type=Path,
+        default=Path("data/landing_fees.draft.csv"),
+        help="CSV brouillon produit (défaut : %(default)s).",
+    )
+    collect_landing_fees_cmd.add_argument(
+        "--band",
+        default=landing_fee_collect.DEFAULT_BAND,
+        help="Tranche MMD : 0-1, 1-2 ou min (défaut : %(default)s).",
+    )
+    collect_landing_fees_cmd.add_argument(
+        "--cache-dir",
+        type=Path,
+        default=None,
+        help="Cache local des PDF téléchargés.",
+    )
+    collect_landing_fees_cmd.add_argument(
+        "--append",
+        action="store_true",
+        help="Ajouter au CSV de sortie au lieu de l'écraser.",
+    )
+
     return parser
 
 
@@ -162,12 +221,18 @@ def _write_outputs(
     price_plotted = locations.write_locations_data(
         args.locations_data, price_plottable, airac, today=extracted_on
     )
+    landing_plotted = landing_locations.write_landing_locations_data(
+        args.landing_locations_data, curated_all, airac, today=extracted_on
+    )
 
     print(f"\nTous les terrains  : {args.all_csv} ({len(aerodromes)})")
     print(f"Sans plomb (VAC)   : {args.unleaded_csv} ({len(unleaded)})")
     print(f"Markdown           : {args.markdown} ({len(curated)} terrains)")
     print(f"Données carte      : {args.map_data} ({plotted} points)")
     print(f"Terrains prix      : {args.locations_data} ({price_plotted} terrains)")
+    print(
+        f"Terrains redevances : {args.landing_locations_data} ({landing_plotted} terrains)"
+    )
 
     unplottable = [a.icao for a in curated if not a.has_position]
     if unplottable:
@@ -202,11 +267,75 @@ def _run_validate_prices(args: argparse.Namespace) -> int:
     return 0
 
 
+def _run_collect_landing_fees(args: argparse.Namespace) -> int:
+    if not args.sources_csv.exists():
+        print(f"Erreur : {args.sources_csv} introuvable.", file=sys.stderr)
+        return 1
+    try:
+        sources = landing_fee_collect.read_sources(args.sources_csv)
+        band = landing_fee_collect.parse_fee_band(args.band)
+    except ValueError as exc:
+        print(f"Erreur : {exc}", file=sys.stderr)
+        return 1
+
+    collected, failures = landing_fee_collect.collect_landing_fees(
+        sources,
+        band=band,
+        cache_dir=args.cache_dir,
+    )
+    landing_fee_collect.write_draft_csv(
+        args.output,
+        collected,
+        append=args.append,
+    )
+
+    print(f"Brouillon : {args.output} ({len(collected)} redevance(s))")
+    for row in collected:
+        print(f"  {row.icao}  {row.fee_eur:.2f} €  ({row.band_label})")
+    for failure in failures:
+        print(f"  ⚠ {failure.icao} : {failure.message}", file=sys.stderr)
+    if failures and not collected:
+        return 1
+    return 0
+
+
+def _run_validate_landing_fees(args: argparse.Namespace) -> int:
+    if not args.landing_fees_csv.exists():
+        print(f"Erreur : {args.landing_fees_csv} introuvable.", file=sys.stderr)
+        return 1
+    if not args.all_csv.exists():
+        print(f"Erreur : {args.all_csv} introuvable.", file=sys.stderr)
+        return 1
+    try:
+        records = landing_fees.read_landing_fees(args.landing_fees_csv)
+    except ValueError as exc:
+        print(f"Erreur : {exc}", file=sys.stderr)
+        return 1
+    aerodromes = csv_export.read_csv(args.all_csv)
+    extra_icaos = frozenset(overrides.addition_icaos())
+    messages = landing_fees.validate_landing_fees(
+        records, aerodromes, extra_icaos
+    )
+    errors = [m for m in messages if m.level == "error"]
+    for message in errors:
+        print(f"Erreur : {message.message}", file=sys.stderr)
+    if errors:
+        return 1
+    print(f"{len(records)} redevance(s) valide(s).")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     args = build_parser().parse_args(argv)
 
     if args.command == "validate-prices":
         return _run_validate_prices(args)
+
+    if args.command == "validate-landing-fees":
+        return _run_validate_landing_fees(args)
+
+    if args.command == "collect-landing-fees":
+        return _run_collect_landing_fees(args)
 
     if args.command == "extract":
         try:
