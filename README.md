@@ -7,7 +7,7 @@ l'[eAIP du SIA](https://www.sia.aviation-civile.gouv.fr/) (cartes VAC,
 Atlas-VAC).
 
 **➡️ [Carte sans plomb](https://natim.github.io/france-ul91-mogas-map/)** ·
-**[Carte des prix 100LL / sans plomb](./docs/prix.html)** ·
+**[Carte des prix 100LL / sans plomb](https://natim.github.io/france-ul91-mogas-map/prix.html)** ·
 **[Liste complète](./AERODROMES.md)**
 
 ## Pourquoi
@@ -89,7 +89,7 @@ Montceau-les-Mines publie le 100LL sur automate H24 mais l'UL91 seulement de
 Une **deuxième carte** recense les terrains qui vendent du **100LL** et/ou de
 l'essence sans plomb, avec les **prix communautaires** signalés par les pilotes.
 
-**➡️ [Carte des prix](./docs/prix.html)**
+**➡️ [Carte des prix](https://natim.github.io/france-ul91-mogas-map/prix.html)**
 
 - **Localisations** : extraites de l'eAIP comme la carte sans plomb
   ([`docs/locations.json`](./docs/locations.json), **généré**).
@@ -131,8 +131,8 @@ Les prix de plus de 90 jours restent visibles mais sont signalés comme
 
 | Fichier | Contenu |
 |---|---|
-| [`docs/index.html`](./docs/index.html) | Carte disponibilité sans plomb. Page statique. |
-| [`docs/prix.html`](./docs/prix.html) | Carte des prix 100LL / sans plomb. Page statique. |
+| [Carte disponibilité sans plomb](https://natim.github.io/france-ul91-mogas-map/) | Page statique (`docs/index.html`). |
+| [Carte des prix 100LL / sans plomb](https://natim.github.io/france-ul91-mogas-map/prix.html) | Page statique (`docs/prix.html`). |
 | [`docs/aerodromes.json`](./docs/aerodromes.json) | Données de la carte sans plomb. **Généré.** |
 | [`docs/locations.json`](./docs/locations.json) | Terrains 100LL / sans plomb pour la carte prix. **Généré.** |
 | [`docs/prices.csv`](./docs/prices.csv) | Prix communautaires datés. **Source éditée à la main.** |
