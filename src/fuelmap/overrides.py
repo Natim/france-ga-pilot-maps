@@ -29,6 +29,7 @@ from dataclasses import dataclass, field, replace
 from .model import (
     AVAILABILITY_RESTRICTED,
     AVAILABILITY_SELF_SERVICE,
+    AVGAS_100LL,
     SUPER_PLUS,
     UL91,
     Aerodrome,
@@ -114,6 +115,16 @@ OVERRIDES: dict[str, Override] = {
         reason=(
             "Pompe UL91 en HX. SP98 H24 à la station Total en face, "
             "nécessite un bidon."
+        ),
+    ),
+    "LFGI": Override(
+        availability={
+            AVGAS_100LL: AVAILABILITY_SELF_SERVICE,
+            SUPER_PLUS: AVAILABILITY_SELF_SERVICE,
+        },
+        reason=(
+            "100LL et SP95 en automate H24 (carte Total ou CB). "
+            "La VAC cite un téléphone AVIA sans préciser les horaires des pompes."
         ),
     ),
 }

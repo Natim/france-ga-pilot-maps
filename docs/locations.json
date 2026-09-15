@@ -2257,11 +2257,11 @@
         "SUPER_PLUS"
       ],
       "fuelsLabel": "Super Plus",
-      "availability": "restricted",
-      "availabilityLabel": "HX, PPR, sur demande",
+      "availability": "self_service",
+      "availabilityLabel": "Automate / H24",
       "allFuelsLabel": "Super Plus, 100LL, Jet A1",
       "section": "10 - AVT : Carburant / Fuel : 100LL : AIR TOTAL : carte de crédit TOTAL ou paiement comptant à l'ACB / TOTAL credit card or cash payment to the ACB. JET A1, 100LL, SP95 : AVIA TEL : 06 49 75 14 88. Règlement possible par carte bancaire / possible payment by credit card.",
-      "note": "",
+      "note": "100LL et SP95 en automate H24 (carte Total ou CB). La VAC cite un téléphone AVIA sans préciser les horaires des pompes.",
       "source": ""
     },
     {
@@ -2275,11 +2275,11 @@
         "100LL"
       ],
       "fuelsLabel": "100LL",
-      "availability": "restricted",
-      "availabilityLabel": "HX, PPR, sur demande",
+      "availability": "self_service",
+      "availabilityLabel": "Automate / H24",
       "allFuelsLabel": "Super Plus, 100LL, Jet A1",
       "section": "10 - AVT : Carburant / Fuel : 100LL : AIR TOTAL : carte de crédit TOTAL ou paiement comptant à l'ACB / TOTAL credit card or cash payment to the ACB. JET A1, 100LL, SP95 : AVIA TEL : 06 49 75 14 88. Règlement possible par carte bancaire / possible payment by credit card.",
-      "note": "",
+      "note": "100LL et SP95 en automate H24 (carte Total ou CB). La VAC cite un téléphone AVIA sans préciser les horaires des pompes.",
       "source": ""
     },
     {

@@ -23,8 +23,8 @@
 
 | Accès | Nb terrains |
 |-------|-------------|
-| Automate / H24 | 23 |
-| HX, PPR, sur demande | 31 |
+| Automate / H24 | 24 |
+| HX, PPR, sur demande | 30 |
 | Non précisé | 1 |
 
 > Déduit automatiquement du texte de la section « 10 - AVT », sauf mention †. `Automate / H24` signifie qu'une pompe en libre-service est annoncée ; les autres terrains demandent un PPR, un appel, ou ne servent que pendant certaines plages. **En cas de doute, la carte VAC fait foi.**
@@ -51,7 +51,7 @@
 | LFFL | BAILLEAU ARMENONVILLE | UL91, 100LL | HX, PPR, sur demande |
 | LFFY | ETREPAGNY | Super Plus, 100LL | Automate / H24 † |
 | LFFZ | SEZANNE SAINT REMY | UL91, 100LL | HX, PPR, sur demande |
-| LFGI | DIJON DAROIS | Super Plus, 100LL, Jet A1 | HX, PPR, sur demande |
+| LFGI | DIJON DAROIS | Super Plus, 100LL, Jet A1 | Automate / H24 † |
 | LFGM | MONTCEAU LES MINES POUILLOUX | UL91, 100LL | HX, PPR, sur demande |
 | LFHC | PEROUGES MEXIMIEUX | UL91 | HX, PPR, sur demande |
 | LFHN | BELLEGARDE VOUVRAY | AKI93, 100LL | HX, PPR, sur demande |
@@ -94,6 +94,7 @@
 - **LFCF** FIGEAC LIVERNON — Pas de sans plomb sur le terrain : SP98 H24 à la station-service voisine, à emporter en bidon.
 - **LFCY** ROYAN MEDIS — Pas de sans plomb sur le terrain : SP98 H24 à la station-service voisine, à emporter en bidon.
 - **LFFY** ETREPAGNY — Le 100LL du terrain est réservé aux avions basés. SP98 H24 à la station-service à 500 m, à emporter en bidon.
+- **LFGI** DIJON DAROIS — 100LL et SP95 en automate H24 (carte Total ou CB). La VAC cite un téléphone AVIA sans préciser les horaires des pompes.
 - **LFHY** MOULINS MONTBEUGNY — SP98 non publié à la VAC : disponible auprès du club ULM, sur demande.
 - **LFJY** CHAMBLEY — Automate UL91 accessible H24 par CB, malgré le O/R publié à la VAC.
 - **LFNH** CARPENTRAS — Automate accessible H24 par CB. La VAC ne donne aucune condition.
