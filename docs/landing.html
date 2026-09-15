@@ -328,19 +328,19 @@ function formatFeeShort(feeEur) {
 
 function markerIconHtml(marker, fee, showFee) {
   const category = fee ? feeCategory(fee.feeEur) : "unknown";
-  const feeHtml =
-    showFee && fee
-      ? `<div class="marker-fee marker-fee-${daysSince(fee.observedOn, feeToday) > STALE_DAYS ? "stale" : "fresh"}">` +
-        `${formatFeeShort(fee.feeEur)}</div>`
-      : "";
-  const height = 14 + (feeHtml ? 18 : 0);
+  const showPrice = showFee && fee && fee.feeEur > 0;
+  const feeHtml = showPrice
+    ? `<div class="marker-fee marker-fee-${daysSince(fee.observedOn, feeToday) > STALE_DAYS ? "stale" : "fresh"}">` +
+      `${formatFeeShort(fee.feeEur)}</div>`
+    : "";
+  const height = 14 + (showPrice ? 18 : 0);
   return {
     html:
       `<div class="marker-pin">` +
       `<div class="marker marker-fee-${category}"></div>` +
       feeHtml +
       `</div>`,
-    width: Math.max(14, 44),
+    width: showPrice ? 44 : 14,
     height,
     anchorY: 7,
   };
