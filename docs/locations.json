@@ -649,6 +649,24 @@
       "name": "CHATELLERAULT TARGE",
       "lat": 46.780278,
       "lon": 0.550556,
+      "family": "mogas",
+      "familyLabel": "SP95 / SP98 (dont UL AERO SUPER+, AKI93)",
+      "fuels": [
+        "SUPER_PLUS"
+      ],
+      "fuelsLabel": "Super Plus",
+      "availability": "restricted",
+      "availabilityLabel": "HX, PPR, sur demande",
+      "allFuelsLabel": "Super Plus, 100LL",
+      "section": "10 - AVT : Carburant / Fuel 100 LL HX - TEL : 05 49 21 00 82 Chèques français / French cheques, Cartes Bancaires / Credit Card.",
+      "note": "NOTAM LFFA-D1694/26 (01/04–31/12/2026) : station AVGAS indisponible pour avions extérieurs ; 100LL et SP98 réservés aux basés.",
+      "source": ""
+    },
+    {
+      "icao": "LFCA",
+      "name": "CHATELLERAULT TARGE",
+      "lat": 46.780278,
+      "lon": 0.550556,
       "family": "100ll",
       "familyLabel": "100LL (AVGAS plombée)",
       "fuels": [
@@ -657,9 +675,9 @@
       "fuelsLabel": "100LL",
       "availability": "restricted",
       "availabilityLabel": "HX, PPR, sur demande",
-      "allFuelsLabel": "100LL",
+      "allFuelsLabel": "Super Plus, 100LL",
       "section": "10 - AVT : Carburant / Fuel 100 LL HX - TEL : 05 49 21 00 82 Chèques français / French cheques, Cartes Bancaires / Credit Card.",
-      "note": "",
+      "note": "NOTAM LFFA-D1694/26 (01/04–31/12/2026) : station AVGAS indisponible pour avions extérieurs ; 100LL et SP98 réservés aux basés.",
       "source": ""
     },
     {

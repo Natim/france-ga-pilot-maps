@@ -1,6 +1,6 @@
 # Aérodromes français — UL91 / Mogas
 
-**48 aérodromes** publient une pompe d'essence sans plomb (UL91, SP95/SP98, Super Plus, UL AERO SUPER+ ou AKI93) dans leur carte VAC officielle. S'y ajoutent **7 terrains renseignés à la main** : 6 dont le sans plomb vient d'une source hors VAC (†), 1 absent de l'AIP (‡).
+**48 aérodromes** publient une pompe d'essence sans plomb (UL91, SP95/SP98, Super Plus, UL AERO SUPER+ ou AKI93) dans leur carte VAC officielle. S'y ajoutent **8 terrains renseignés à la main** : 7 dont le sans plomb vient d'une source hors VAC (†), 1 absent de l'AIP (‡).
 
 - **Cycle AIRAC** : 2026-08-06
 - **Date d'extraction** : 2026-08-12
@@ -13,8 +13,8 @@
 | UL91 | 29 |
 | UL AERO SUPER+ | 7 |
 | AKI93 | 4 |
-| Super Plus | 17 |
-| 100LL | 39 |
+| Super Plus | 18 |
+| 100LL | 40 |
 | Jet A1 | 16 |
 
 > Deux carburants se lisent comme du `UL91` sans en être. `UL AERO SUPER+` est un SP98 sans éthanol de qualité aviation distribué par TotalEnergies ; `AKI93` en est l'équivalent chez Warter Aviation, dont le nom désigne l'indice antidétonation (RON 98 + MON 88) / 2. Tous deux répondent à la norme automobile EN 228 et sont donc rangés avec `Super Plus` / `SP95` / `SP98`. Le `UL91`, lui, est une essence aviation à la norme ASTM D7547 : un avion homologué pour l'un ne l'est pas d'office pour l'autre.
@@ -24,7 +24,7 @@
 | Accès | Nb terrains |
 |-------|-------------|
 | Automate / H24 | 24 |
-| HX, PPR, sur demande | 30 |
+| HX, PPR, sur demande | 31 |
 | Non précisé | 1 |
 
 > Déduit automatiquement du texte de la section « 10 - AVT », sauf mention †. `Automate / H24` signifie qu'une pompe en libre-service est annoncée ; les autres terrains demandent un PPR, un appel, ou ne servent que pendant certaines plages. **En cas de doute, la carte VAC fait foi.**
@@ -36,6 +36,7 @@
 | LF4724 ‡ | MONTPEZAT D'AGENAIS | Super Plus | HX, PPR, sur demande |
 | LFAE | EU MERS LE TREPORT | UL91 | HX, PPR, sur demande |
 | LFBY | DAX SEYRESSE | UL91, 100LL | HX, PPR, sur demande |
+| LFCA | CHATELLERAULT TARGE | Super Plus, 100LL | HX, PPR, sur demande † |
 | LFCF | FIGEAC LIVERNON | Super Plus, 100LL | Automate / H24 † |
 | LFCH | ARCACHON LA TESTE DE BUCH | UL AERO SUPER+, 100LL, Jet A1 | Automate / H24 |
 | LFCL | TOULOUSE LASBORDES | UL91, 100LL | Automate / H24 |
@@ -91,6 +92,7 @@
 
 † Condition d'accès **non publiée par la VAC**, renseignée manuellement :
 
+- **LFCA** CHATELLERAULT TARGE — NOTAM LFFA-D1694/26 (01/04–31/12/2026) : station AVGAS indisponible pour avions extérieurs ; 100LL et SP98 réservés aux basés.
 - **LFCF** FIGEAC LIVERNON — Pas de sans plomb sur le terrain : SP98 H24 à la station-service voisine, à emporter en bidon.
 - **LFCY** ROYAN MEDIS — Pas de sans plomb sur le terrain : SP98 H24 à la station-service voisine, à emporter en bidon.
 - **LFFY** ETREPAGNY — Le 100LL du terrain est réservé aux avions basés. SP98 H24 à la station-service à 500 m, à emporter en bidon.

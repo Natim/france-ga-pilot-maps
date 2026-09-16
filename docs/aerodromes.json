@@ -2,7 +2,7 @@
   "schema": 5,
   "airac": "2026-08-06",
   "generated": "2026-08-12",
-  "aerodromeCount": 55,
+  "aerodromeCount": 56,
   "families": [
     {
       "key": "ul91",
@@ -80,6 +80,24 @@
       "allFuelsLabel": "UL91, 100LL",
       "section": "10 - AVT : \u0007Carburants sur demande / Fuel on request : MIL : F34 - CIV : 100 LL - UL 91 Paiement / Payment : - MIL : Carte SCALP / SCALP Card  05 58 35 93 34 - CIV : Espèces ou chèque bancaire / Cash or cheque  05 58 74 14 20",
       "note": "",
+      "source": ""
+    },
+    {
+      "icao": "LFCA",
+      "name": "CHATELLERAULT TARGE",
+      "lat": 46.780278,
+      "lon": 0.550556,
+      "family": "mogas",
+      "familyLabel": "SP95 / SP98 (dont UL AERO SUPER+, AKI93)",
+      "fuels": [
+        "SUPER_PLUS"
+      ],
+      "fuelsLabel": "Super Plus",
+      "availability": "restricted",
+      "availabilityLabel": "HX, PPR, sur demande",
+      "allFuelsLabel": "Super Plus, 100LL",
+      "section": "10 - AVT : Carburant / Fuel 100 LL HX - TEL : 05 49 21 00 82 Chèques français / French cheques, Cartes Bancaires / Credit Card.",
+      "note": "NOTAM LFFA-D1694/26 (01/04–31/12/2026) : station AVGAS indisponible pour avions extérieurs ; 100LL et SP98 réservés aux basés.",
       "source": ""
     },
     {

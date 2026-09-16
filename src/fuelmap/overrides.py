@@ -108,6 +108,16 @@ OVERRIDES: dict[str, Override] = {
             "station-service à 500 m, à emporter en bidon."
         ),
     ),
+    "LFCA": Override(
+        availability={
+            AVGAS_100LL: AVAILABILITY_RESTRICTED,
+            SUPER_PLUS: AVAILABILITY_RESTRICTED,
+        },
+        reason=(
+            "NOTAM LFFA-D1694/26 (01/04–31/12/2026) : station AVGAS indisponible "
+            "pour avions extérieurs ; 100LL et SP98 réservés aux basés."
+        ),
+    ),
     "LFOF": Override(
         availability={
             UL91: AVAILABILITY_RESTRICTED,
