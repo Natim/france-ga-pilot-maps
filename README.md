@@ -1,4 +1,4 @@
-# Carte des aérodromes UL91 / mogas en France
+# Cartes pilote GA en France — sans plomb, prix et redevances
 
 Où faire le plein d'essence **sans plomb** en France : liste et carte des
 aérodromes distribuant de l'**AVGAS UL91** ou de l'essence **SP95 / SP98**
@@ -6,9 +6,9 @@ aérodromes distribuant de l'**AVGAS UL91** ou de l'essence **SP95 / SP98**
 l'[eAIP du SIA](https://www.sia.aviation-civile.gouv.fr/) (cartes VAC,
 Atlas-VAC).
 
-**➡️ [Carte sans plomb](https://natim.github.io/france-ul91-mogas-map/)** ·
-**[Carte des prix 100LL / sans plomb](https://natim.github.io/france-ul91-mogas-map/prix.html)** ·
-**[Redevances d'atterrissage](https://natim.github.io/france-ul91-mogas-map/landing.html)** ·
+**➡️ [Carte sans plomb](https://natim.github.io/france-ga-pilot-maps/)** ·
+**[Carte des prix 100LL / sans plomb](https://natim.github.io/france-ga-pilot-maps/prix.html)** ·
+**[Redevances d'atterrissage](https://natim.github.io/france-ga-pilot-maps/landing.html)** ·
 **[Liste complète](./AERODROMES.md)**
 
 ## Pourquoi
@@ -90,7 +90,7 @@ Montceau-les-Mines publie le 100LL sur automate H24 mais l'UL91 seulement de
 Une **deuxième carte** recense les terrains qui vendent du **100LL** et/ou de
 l'essence sans plomb, avec les **prix communautaires** signalés par les pilotes.
 
-**➡️ [Carte des prix](https://natim.github.io/france-ul91-mogas-map/prix.html)**
+**➡️ [Carte des prix](https://natim.github.io/france-ga-pilot-maps/prix.html)**
 
 - **Localisations** : extraites de l'eAIP comme la carte sans plomb
   ([`docs/locations.json`](./docs/locations.json), **généré**).
@@ -130,7 +130,7 @@ Les prix de plus de 90 jours restent visibles mais sont signalés comme
 
 ## Carte des redevances d'atterrissage
 
-**➡️ [Redevances d'atterrissage](https://natim.github.io/france-ul91-mogas-map/landing.html)**
+**➡️ [Redevances d'atterrissage](https://natim.github.io/france-ga-pilot-maps/landing.html)**
 
 Troisième carte, même principe que les prix carburant : **un tarif communautaire
 par terrain**, pour **avion léger (&lt; 6 t)** — forfait ou redevance d'atterrissage
@@ -194,9 +194,9 @@ Pages sert le CSV mis à jour sans regénération Python.
 
 | Fichier | Contenu |
 |---|---|
-| [Carte disponibilité sans plomb](https://natim.github.io/france-ul91-mogas-map/) | Page statique (`docs/index.html`). |
-| [Carte des prix 100LL / sans plomb](https://natim.github.io/france-ul91-mogas-map/prix.html) | Page statique (`docs/prix.html`). |
-| [Redevances d'atterrissage](https://natim.github.io/france-ul91-mogas-map/landing.html) | Page statique (`docs/landing.html`). |
+| [Carte disponibilité sans plomb](https://natim.github.io/france-ga-pilot-maps/) | Page statique (`docs/index.html`). |
+| [Carte des prix 100LL / sans plomb](https://natim.github.io/france-ga-pilot-maps/prix.html) | Page statique (`docs/prix.html`). |
+| [Redevances d'atterrissage](https://natim.github.io/france-ga-pilot-maps/landing.html) | Page statique (`docs/landing.html`). |
 | [`docs/aerodromes.json`](./docs/aerodromes.json) | Données de la carte sans plomb. **Généré.** |
 | [`docs/locations.json`](./docs/locations.json) | Terrains 100LL / sans plomb pour la carte prix. **Généré.** |
 | [`docs/landing_locations.json`](./docs/landing_locations.json) | Tous les terrains pour la carte redevances. **Généré.** |

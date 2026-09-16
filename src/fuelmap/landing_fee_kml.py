@@ -18,7 +18,7 @@ DEFAULT_KML_URL = (
 )
 DEFAULT_MAP_OBSERVED_ON = date(2024, 6, 2)
 MAP_SOURCE_NOTE = "carte taxes d'atterrissage (C. Rousseau), snapshot 2024-06-02"
-USER_AGENT = "fuelmap/1.0 (+https://github.com/Natim/france-ul91-mogas-map)"
+USER_AGENT = "fuelmap/1.0 (+https://github.com/Natim/france-ga-pilot-maps)"
 
 ICAO_PATTERN = re.compile(r"^LF[A-Z0-9]{2,3}$")
 SKIP_DESCRIPTION = re.compile(

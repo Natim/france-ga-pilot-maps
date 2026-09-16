@@ -14,8 +14,8 @@ keywords = ["aviation", "general-aviation", "ul91", "mogas", "avgas", "france", 
 dependencies = []
 
 [project.urls]
-Homepage = "https://natim.github.io/france-ul91-mogas-map/"
-Source = "https://github.com/Natim/france-ul91-mogas-map"
+Homepage = "https://natim.github.io/france-ga-pilot-maps/"
+Source = "https://github.com/Natim/france-ga-pilot-maps"
 
 [project.scripts]
 fuelmap = "fuelmap.cli:main"

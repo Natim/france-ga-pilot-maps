@@ -42,7 +42,7 @@ PENDING_COLUMNS = (
     "notes",
 )
 DEFAULT_VAT_RATE = 0.20
-USER_AGENT = "fuelmap/1.0 (+https://github.com/Natim/france-ul91-mogas-map)"
+USER_AGENT = "fuelmap/1.0 (+https://github.com/Natim/france-ga-pilot-maps)"
 
 SECTION_START = re.compile(
     r"moins de [36] tonn|jusqu['']?\s*à 6 tonn|0 tonne.*?à \d+\s*t",
