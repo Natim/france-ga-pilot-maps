@@ -2,7 +2,7 @@ icao,fuel,price_eur,observed_on,payment,note
 LFHN,AKI93,2.5,2026-09-15,cash,ACB Bellegarde — cash ou chèque
 LFHN,100LL,2.8,2026-09-15,cash,ACB Bellegarde — cash ou chèque
 LFHQ,AKI93,2.7,2026-09-15,other,Automate CB H24 — carte Total non acceptée
-LFOQ,100LL,2.699,2026-09-15,bp,
+LFOQ,100LL,2.699,2026-09-15,other,
 LFJY,UL91,2.973,2026-09-12,other,
 LFEQ,100LL,3.13,2026-07-25,total,
 LFES,100LL,3,2026-04-08,total,
