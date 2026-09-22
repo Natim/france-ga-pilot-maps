@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "airac": "2026-08-06",
-  "generated": "2026-08-12",
+  "airac": "2026-09-03",
+  "generated": "2026-09-22",
   "aerodromeCount": 299,
   "families": [
     {
@@ -298,7 +298,7 @@
       "availability": "self_service",
       "availabilityLabel": "Automate / H24",
       "allFuelsLabel": "100LL, Jet A1",
-      "section": "10 - AVT : Carburants / Fuel : 100LL- JET A1 / TRO, Lubrifiants / Lubricants : tous indices / all grades (CIV-MIL) HOR ATS. Oxygène sur demande. Vente de produits de dégivrage / Oxygen on request. Sale of deicing products. JET A1 Carte TOTAL/AEG/WFS ou paiement comptant au comptoir / TOTAL/AEG/WFS credit card or cash payment. AVGAS 100LL paiement comptant au comptoir ou automate / cash payment or TOTAL credit card. AVGAS (100LL) H24 : Est parking, pompe automatique, paiement uniquement par carte TOTAL / East apron, automatic fuel pump, payment only with TOTAL credit card.",
+      "section": "← 10 - AVT : Carburants / Fuel : 100LL- JET A1 / TRO. Vente de produits de dégivrage / Sale of deicing products. JET A1 : 0800-1800, carte TOTAL/AEG/WORLDFUEL/AVCARD ou comptant par CB ou espèces / JET A1 : 0800-1800, TOTAL/AEG/WORLDFUEL/AVCARD or cash payment. . AVGAS (100LL) H24 : Est PRKG, pompe automatique, paiement par carte TOTAL ou CB / Eastern part of apron, automatic fuel pump, payment with TOTAL credit card or CB .",
       "note": "",
       "source": ""
     },
@@ -550,7 +550,7 @@
       "availability": "self_service",
       "availabilityLabel": "Automate / H24",
       "allFuelsLabel": "100LL, Jet A1",
-      "section": "← 10 - AVT : Carburants / Fuel : 100LL - Jet A1. HOR ouvrables / working SKED : - du / from 01/04 au / to 31/10 : 0300-1900 (selon trafic / depending on traffic). - du / from 01/11 au / to 31/03 : 0400-1800 (selon trafic / depending on traffic). En dehors de ces HOR : O/R PN 1 HR pour avions non programmés. Outside these SKED : O/R PN 1HR for non scheduled ACFT. Station auto-service H24 (Aviation Générale) / H24 self-service station (General Aviation). TEL : +33 5 62 92 53 08 (Dépôt / Depot ) +33 6 30 68 81 37 (portable Dépôt / Depot mobil phone ) +33 6 72 14 35 21 (Responsable / Manager ) +33 7 88 45 60 82 (Astreinte en HOR non ouvrables / On-call during non working SKED ). E-mail : lde.gpo-a@wfscorp.com Information sur / on FREQ : 131.465 MHz. Paiement : carte bancaire, carte WFS Fuel Contract, AVCARD, UVAIR, espèces (max 750 €). Payment : credit card, WFS Fuel Contract card, AVCARD, UVAIR, cash (max 750 €). Autres / Other : faire demande d'avitaillement à / request refuelling from f",
+      "section": "10 - AVT : Carburants / Fuel : 100LL - Jet A1 - SAF (Sustainable Aviation Fuel). HOR ouvrables / working SKED : - du / from 01/04 au / to 31/10 : 0300-1900 (selon trafic / depending on traffic). - du / from 01/11 au / to 31/03 : 0400-1800 (selon trafic / depending on traffic). ← En dehors de ces HOR : O/R PN 1 HR pour avions non programmés. Outside these SKED : O/R PN 1HR for non scheduled ACFT. Station auto-service H24 (Aviation Générale) / H24 self-service station (General Aviation). TEL : +33 5 62 92 53 08 (Dépôt / Depot ) +33 6 30 68 81 37 (Portable avitailleur dépôt / Depot fuel attendant mobile) +33 6 72 14 35 21 (Responsable / Manager ) +33 7 88 45 60 82 (Astreinte en HOR non ouvrables / On-call during non working SKED ). E-mail dépôt / Depot e-mail : lde.gpo-a@wfscorp.com E-mail responsable / Manager E-mail : ncabarrou@wfscorp.com Information sur / on FREQ : 131.465 MHz. Paiement : carte bancaire, carte WFS Fuel Contract, AVCARD, UVAIR, espèces (max 1500 €). Payment : credit ca",
       "note": "",
       "source": ""
     },
@@ -640,7 +640,7 @@
       "availability": "self_service",
       "availabilityLabel": "Automate / H24",
       "allFuelsLabel": "100LL, Jet A1",
-      "section": "← 10 - AVT : Carburants / Fuel : 100 LL* - JET A1. ACFT sous contrat / ACFT under contract. Cartes de crédit / Credit cards : VISA, MASTERCARD, AMEX, BP, SIGNATURE. (1500 euros MAX, au-delà avec PPR / beyond this with PPR au / on 06 21 00 90 39). Paiement espèces / Cash payment : (1000 euros MAX). HOR : 0500-2100 - HN : O/R avant / before 2000 - TEL : 05 59 23 62 49 - FAX : 05 59 23 62 88. *AVT 100 LL : Automate uniquement avec carte de crédit BP. Pour HEL, accès à l'installation uniquement par roulage. Peut ne pas être assuré aux ACFT de plus de 13 m d'envergure. Autre moyen de paiement O/R au 05 59 23 62 49 ou à partir du téléphone disponible à la pompe. *AVT 100 LL : Automatic dispenser only with BP credit card. For HEL, installation access only by taxiing. May not be provided to ACFT whose wingspan is greater than 13 m. Other means of payment O/R to 05 59 23 62 49 or from phone available at fuel pump.",
+      "section": "10 - AVT : Carburants / Fuel : 100 LL* - JET A1. ACFT sous contrat / ACFT under contract. Cartes de crédit / Credit cards : VISA, MASTERCARD, AMEX, BP, SIGNATURE. (1500 euros MAX, au-delà avec PPR / beyond this with PPR au / on 06 21 00 90 39). Paiement espèces / Cash payment : (1000 euros MAX). HOR : 0500-2100 - HN : O/R avant / before 2000 - TEL : 05 59 23 62 49 - FAX : 05 59 23 62 88. *AVT 100 LL : Automate uniquement avec carte de crédit BP. Pour HEL, accès à l'installation uniquement par roulage. Peut ne pas être assuré aux ACFT de plus de 13 m d'envergure. Autre moyen de paiement O/R au 05 59 23 62 49 ou à partir du téléphone disponible à la pompe. *AVT 100 LL : Automatic dispenser only with BP credit card. For HEL, installation access only by taxiing. May not be provided to ACFT whose wingspan is greater than 13 m. Other means of payment O/R to 05 59 23 62 49 or from phone available at fuel pump.",
       "note": "",
       "source": ""
     },
@@ -4132,7 +4132,7 @@
       "availability": "restricted",
       "availabilityLabel": "HX, PPR, sur demande",
       "allFuelsLabel": "100LL, Jet A1",
-      "section": "10 - AVT : \u0007Carburant / Fuel : F18/100 LL - F34 (MIL) - JET A 1 (CIV) Lubrifiants / Oil : NIL LUN-JEU / MON-THU : 0645-1545 VEN / FRI : 0645-1345 SAM, DIM, JF / SAT, SUN, HOL : délai / notice 1 HR CIV ACFT : \u0007Demande d'avitaillement J -1 / Ask for fuel D -1 :  04 90 17 81 99 Paiement par chèque ou carte de crédit / Cheques or credit card payment",
+      "section": "10 - AVT : \u0007Carburant / Fuel : F18/100 LL - F34 (MIL) - JET A 1 (CIV) Lubrifiants / Oil : NIL LUN-JEU / MON-THU : 0645-1545 VEN / FRI : 0645-1345 SAM, DIM, JF / SAT, SUN, HOL : délai / notice 1 HR CIV ACFT : \u0007Demande d'avitaillement J -1 / Ask for fuel D -1 :  04 13 93 80 28 Paiement par chèque ou carte de crédit / Cheques or credit card payment",
       "note": "",
       "source": ""
     },
@@ -4618,7 +4618,7 @@
       "availability": "self_service",
       "availabilityLabel": "Automate / H24",
       "allFuelsLabel": "100LL, Jet A1",
-      "section": "10 - AVT : Carburant / Fuel : 100 LL - JET A1 H24 : station automatique carte BP. HOR RFFS : CB. WE et JF : possibilité d'avitaillement par ACB. En dehors de ces HOR, PPR AFIS avant 1530 la veille ou le dernier jour ouvré. H24 : automatic dispenser with BP card. RFFS SKED : credit card. WE and public HOL : refuelling possible with ACB. Outside these SKED, PPR AFIS before 1530 on the previous day or on the last working day.",
+      "section": "← 10 - AVT : Carburant / Fuel : 100 LL - JET A1 H24 : station automatique CB. HOR RFFS : carte \"AEG aerodrome\". En dehors de ces HOR, PPR AFIS avant 1530 la veille ou le dernier jour ouvré. H24 : automatic dispenser with credit card. RFFS SKED : \"AEG aerodrome\" card. Outside these SKED, PPR AFIS before 1530 on the previous day or on the last working day. © Service de l'Information Aéronautique, France AMDT 10/26 AD 2 LFOQ TXT 03 AIP FRANCE 03 SEP 2026 BLOIS LE BREUIL",
       "note": "",
       "source": ""
     },
