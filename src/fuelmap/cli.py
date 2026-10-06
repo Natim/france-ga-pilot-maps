@@ -286,17 +286,19 @@ def _write_outputs(
     # Overrides run before the unleaded filter, not after: an entry may add a
     # fuel, which is the whole reason a field selling only 100LL can qualify.
     curated_all = overrides.apply_all(aerodromes)
+    nearby = overrides.landing_addition_aerodromes()
     curated = pipeline.unleaded_only(curated_all)
     args.markdown.write_text(
         markdown.render_markdown(curated, airac, today=extracted_on), encoding="utf-8"
     )
     plotted = web.write_map_data(args.map_data, curated, airac, today=extracted_on)
-    price_plottable = pipeline.plottable_for_prices(curated_all)
+    price_plottable = pipeline.plottable_for_prices(curated_all + nearby)
     price_plotted = locations.write_locations_data(
         args.locations_data, price_plottable, airac, today=extracted_on
     )
+    landing_aerodromes = curated_all + nearby
     landing_plotted = landing_locations.write_landing_locations_data(
-        args.landing_locations_data, curated_all, airac, today=extracted_on
+        args.landing_locations_data, landing_aerodromes, airac, today=extracted_on
     )
 
     print(f"\nTous les terrains  : {args.all_csv} ({len(aerodromes)})")
@@ -326,7 +328,9 @@ def _run_validate_prices(args: argparse.Namespace) -> int:
         print(f"Erreur : {exc}", file=sys.stderr)
         return 1
     aerodromes = csv_export.read_csv(args.all_csv)
-    extra_icaos = frozenset(overrides.addition_icaos())
+    extra_icaos = frozenset(overrides.addition_icaos()) | frozenset(
+        overrides.landing_addition_icaos()
+    )
     messages = prices.validate_prices(records, aerodromes, extra_icaos)
     errors = [m for m in messages if m.level == "error"]
     warnings = [m for m in messages if m.level == "warning"]
@@ -471,7 +475,9 @@ def _run_validate_landing_fees(args: argparse.Namespace) -> int:
         print(f"Erreur : {exc}", file=sys.stderr)
         return 1
     aerodromes = csv_export.read_csv(args.all_csv)
-    extra_icaos = frozenset(overrides.addition_icaos())
+    extra_icaos = frozenset(overrides.addition_icaos()) | frozenset(
+        overrides.landing_addition_icaos()
+    )
     messages = landing_fees.validate_landing_fees(
         records, aerodromes, extra_icaos
     )

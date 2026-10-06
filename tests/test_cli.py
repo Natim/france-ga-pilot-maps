@@ -105,8 +105,9 @@ class TestRebuild:
     def test_writes_price_map_locations(self, project):
         rebuild(project)
         payload = json.loads((project / "docs" / "locations.json").read_text())
-        # LFDA (UL91), LFAT (100LL), plus the off-AIP addition LF4724 (SP98).
-        assert payload["aerodromeCount"] == 3
+        # LFDA (UL91), LFAT (100LL), LF4724 (SP98), EGJB/EGJJ (100LL).
+        icaos = {marker["icao"] for marker in payload["markers"]}
+        assert icaos == {"EGJB", "EGJJ", "LF4724", "LFAT", "LFDA"}
         families = {marker["family"] for marker in payload["markers"]}
         assert families == {
             model.FAMILY_UL91,
@@ -117,8 +118,11 @@ class TestRebuild:
     def test_writes_landing_map_locations(self, project):
         rebuild(project)
         payload = json.loads((project / "docs" / "landing_locations.json").read_text())
-        assert payload["aerodromeCount"] == 3
+        assert payload["aerodromeCount"] == 6
         assert {marker["icao"] for marker in payload["markers"]} == {
+            "EGJA",
+            "EGJB",
+            "EGJJ",
             "LF4724",
             "LFAT",
             "LFDA",

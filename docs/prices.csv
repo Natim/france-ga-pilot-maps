@@ -1,4 +1,6 @@
 icao,fuel,price_eur,observed_on,payment,note
+EGJB,100LL,1.69,2026-07-12,other,"1,44 £/L"
+EGJJ,100LL,1.98,2026-09-01,other,"1,69 £/L"
 LFHN,AKI93,2.5,2026-09-15,cash,ACB Bellegarde — cash ou chèque
 LFHN,100LL,2.8,2026-09-15,cash,ACB Bellegarde — cash ou chèque
 LFHQ,AKI93,2.7,2026-09-15,other,Automate CB H24 — carte Total non acceptée

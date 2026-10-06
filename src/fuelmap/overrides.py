@@ -1,6 +1,6 @@
 """Everything the eAIP does not tell us, in one auditable place.
 
-Two mechanisms, for two different gaps:
+Three mechanisms, for three different gaps:
 
 ``OVERRIDES``
     Corrections to a field the AIP *does* describe. Section 10 of a VAC is free
@@ -11,12 +11,18 @@ Two mechanisms, for two different gaps:
 ``ADDITIONS``
     Whole records for fields the AIP does not describe at all, typically
     private ULM strips with no VAC chart.
+``LANDING_ADDITIONS``
+    Nearby airports absent from the French eAIP. They always appear on the
+    landing-fee map; those that declare 100LL also appear on the price map.
+    They never claim unleaded fuel.
 
-Both are applied to the Markdown listing and the map, never to the CSVs: those
-stay a faithful record of the charts, so anything here is undone by deleting
-its entry and rebuilding, and no curated value is ever baked into the
-extraction output. Consequently the listing carries more fields than
-``aerodromes-unleaded.csv``, and every curated element is flagged to the reader.
+``OVERRIDES`` and ``ADDITIONS`` are applied to the Markdown listing and the
+fuel maps, never to the CSVs: those stay a faithful record of the charts, so
+anything here is undone by deleting its entry and rebuilding, and no curated
+value is ever baked into the extraction output. Consequently the listing
+carries more fields than ``aerodromes-unleaded.csv``, and every curated
+element is flagged to the reader. ``LANDING_ADDITIONS`` reach the
+landing-fee map, and the price map when they sell 100LL.
 
 Nothing here has an upstream to refresh it, so entries should be re-checked at
 each AIRAC cycle and kept few.
@@ -30,6 +36,7 @@ from .model import (
     AKI93,
     AVAILABILITY_RESTRICTED,
     AVAILABILITY_SELF_SERVICE,
+    AVAILABILITY_UNKNOWN,
     AVGAS_100LL,
     SUPER_PLUS,
     UL91,
@@ -226,6 +233,78 @@ def curated_aerodromes() -> list[Aerodrome]:
 def addition_icaos() -> tuple[str, ...]:
     """ICAO codes of hand-entered fields absent from the eAIP."""
     return tuple(addition.code for addition in ADDITIONS)
+
+
+@dataclass(frozen=True)
+class ExtraLandingAerodrome:
+    """A nearby field absent from the French eAIP, for landing fees and maybe 100LL."""
+
+    code: str
+    name: str
+    latitude: float
+    longitude: float
+    source: str
+    note: str = ""
+    fuels: frozenset[str] = frozenset()
+
+    def to_aerodrome(self) -> Aerodrome:
+        return Aerodrome(
+            icao=self.code,
+            name=self.name,
+            fuels=self.fuels,
+            latitude=self.latitude,
+            longitude=self.longitude,
+            fuel_section="",
+            availability=tuple(
+                (fuel, AVAILABILITY_UNKNOWN) for fuel in sorted(self.fuels)
+            ),
+            availability_note=self.note,
+            curated_source=self.source,
+        )
+
+
+#: Nearby airports that have no French VAC.
+LANDING_ADDITIONS: tuple[ExtraLandingAerodrome, ...] = (
+    ExtraLandingAerodrome(
+        code="EGJA",
+        name="AURIGNY",
+        # N 49 42 25 / W 002 12 53
+        latitude=49.706944,
+        longitude=-2.214722,
+        source="Hors eAIP France — îles Anglo-Normandes",
+        note="Alderney. Hors eAIP du SIA.",
+    ),
+    ExtraLandingAerodrome(
+        code="EGJB",
+        name="GUERNESEY",
+        # N 49 26 05 / W 002 36 07
+        latitude=49.434722,
+        longitude=-2.601944,
+        source="Hors eAIP France — îles Anglo-Normandes",
+        note="Guernsey. Hors eAIP du SIA.",
+        fuels=frozenset({AVGAS_100LL}),
+    ),
+    ExtraLandingAerodrome(
+        code="EGJJ",
+        name="JERSEY",
+        # N 49 12 28 / W 002 11 44
+        latitude=49.207778,
+        longitude=-2.195556,
+        source="Hors eAIP France — îles Anglo-Normandes",
+        note="Hors eAIP du SIA.",
+        fuels=frozenset({AVGAS_100LL}),
+    ),
+)
+
+
+def landing_addition_aerodromes() -> list[Aerodrome]:
+    """Channel-Island (and similar) fields for the landing-fee map only."""
+    return [addition.to_aerodrome() for addition in LANDING_ADDITIONS]
+
+
+def landing_addition_icaos() -> tuple[str, ...]:
+    """ICAO codes of landing-map-only fields absent from the French eAIP."""
+    return tuple(addition.code for addition in LANDING_ADDITIONS)
 
 
 def apply(aerodrome: Aerodrome) -> Aerodrome:

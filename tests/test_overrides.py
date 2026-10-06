@@ -81,6 +81,44 @@ class TestAdditions:
         assert not _aerodrome("LFZZ", {model.UL91}).is_off_aip
 
 
+class TestLandingAdditions:
+    @pytest.mark.parametrize(
+        "addition", overrides.LANDING_ADDITIONS, ids=lambda a: a.code
+    )
+    def test_entry_is_plottable_without_claiming_fuel(self, addition):
+        record = addition.to_aerodrome()
+        assert record.has_position
+        assert not record.has_unleaded
+        assert record.is_off_aip
+        assert record.curated_source.strip()
+
+    @pytest.mark.parametrize(
+        "addition", overrides.LANDING_ADDITIONS, ids=lambda a: a.code
+    )
+    def test_entry_is_a_channel_island_code(self, addition):
+        assert addition.code.startswith("EGJ")
+        assert 49.1 < addition.latitude < 49.8
+        assert -2.7 < addition.longitude < -2.1
+
+    def test_codes_do_not_collide_with_fuel_additions(self):
+        fuel = set(overrides.addition_icaos())
+        landing = set(overrides.landing_addition_icaos())
+        assert not fuel & landing
+
+    def test_not_merged_into_the_fuel_layer(self):
+        aip = [_aerodrome("LFAA", {model.UL91})]
+        merged = overrides.apply_all(aip)
+        assert {a.icao for a in merged} == {"LFAA", "LF4724"}
+
+    def test_guernsey_and_jersey_are_plottable_for_100ll_prices(self):
+        by_code = {a.code: a.to_aerodrome() for a in overrides.LANDING_ADDITIONS}
+        assert by_code["EGJA"].is_plottable_for_prices is False
+        assert by_code["EGJB"].is_plottable_for_prices
+        assert by_code["EGJJ"].is_plottable_for_prices
+        assert model.FAMILY_100LL in by_code["EGJB"].price_map_families()
+        assert model.FAMILY_100LL in by_code["EGJJ"].price_map_families()
+
+
 class TestApply:
     def test_untouched_aerodrome_is_returned_as_is(self):
         original = _aerodrome("LFZZ", {model.UL91}, {model.UL91: UNKNOWN})

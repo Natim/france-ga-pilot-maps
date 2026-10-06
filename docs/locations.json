@@ -2,7 +2,7 @@
   "schema": 1,
   "airac": "2026-09-03",
   "generated": "2026-09-22",
-  "aerodromeCount": 299,
+  "aerodromeCount": 301,
   "families": [
     {
       "key": "ul91",
@@ -32,6 +32,42 @@
     }
   ],
   "markers": [
+    {
+      "icao": "EGJB",
+      "name": "GUERNESEY",
+      "lat": 49.434722,
+      "lon": -2.601944,
+      "family": "100ll",
+      "familyLabel": "100LL (AVGAS plombée)",
+      "fuels": [
+        "100LL"
+      ],
+      "fuelsLabel": "100LL",
+      "availability": "unknown",
+      "availabilityLabel": "Non précisé",
+      "allFuelsLabel": "100LL",
+      "section": "",
+      "note": "Guernsey. Hors eAIP du SIA.",
+      "source": "Hors eAIP France — îles Anglo-Normandes"
+    },
+    {
+      "icao": "EGJJ",
+      "name": "JERSEY",
+      "lat": 49.207778,
+      "lon": -2.195556,
+      "family": "100ll",
+      "familyLabel": "100LL (AVGAS plombée)",
+      "fuels": [
+        "100LL"
+      ],
+      "fuelsLabel": "100LL",
+      "availability": "unknown",
+      "availabilityLabel": "Non précisé",
+      "allFuelsLabel": "100LL",
+      "section": "",
+      "note": "Hors eAIP du SIA.",
+      "source": "Hors eAIP France — îles Anglo-Normandes"
+    },
     {
       "icao": "LF4724",
       "name": "MONTPEZAT D'AGENAIS",
