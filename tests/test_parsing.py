@@ -39,6 +39,13 @@ class TestFuelSection:
     def test_returns_empty_when_absent(self, vac_text):
         assert parsing.extract_fuel_section(vac_text("LFOJ")) == ""
 
+    def test_accepts_section_9_avt(self, vac_text):
+        section = parsing.extract_fuel_section(vac_text("LFOH"))
+        assert "9 - AVT" in section
+        assert "AVGAS 100LL" in section
+        assert "Automate H24" in section
+        assert "10 - RFFS" not in section
+
 
 class TestDetectFuels:
     def test_reads_plain_listing(self, vac_text):

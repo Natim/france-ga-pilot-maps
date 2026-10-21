@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "airac": "2026-09-03",
-  "generated": "2026-09-22",
+  "airac": "2026-10-01",
+  "generated": "2026-10-21",
   "aerodromeCount": 301,
   "families": [
     {
@@ -550,7 +550,7 @@
       "availability": "self_service",
       "availabilityLabel": "Automate / H24",
       "allFuelsLabel": "100LL",
-      "section": "10 - AVT : 100 LL. Lubrifiant / Lubricant 80 : (CIV-MIL) ETE / SUM : 0800-1100, 1400-1800. HIV / WIN : 0800-1200, 1400-1900. Paiement : comptant, chèque, CB, espèces, automate carte TOTAL - (Assuré par ACB Clément ADER). Payment : cash,cheque, credit card, TOTAL card - (provided by ACB Clément ADER).",
+      "section": "← 10 - AVT : 100 LL. Lubrifiant / Lubricant 80 : (CIV-MIL) 0730-18:00 Paiement : comptant, chèque, CB, espèces, automate carte TOTAL - (Assuré par ACB Clément ADER). Payment : cash,cheque, credit card, TOTAL card - (provided by ACB Clément ADER).",
       "note": "",
       "source": ""
     },
@@ -748,7 +748,7 @@
       "availability": "self_service",
       "availabilityLabel": "Automate / H24",
       "allFuelsLabel": "100LL, Jet A1",
-      "section": "10 - AVT : HOR ATS / ATS SKED - Carburant / Fuel : Station Total 100 LL (pistolet). Automate H24 pour les détenteurs de la carte TOTAL, autres paiements acceptés uniquement pendant les HOR AVT. / 100 LL (nozzle). Automatic dispenser for TOTAL card holders, other payments only during AVT SKED. JET A1 (pistolet ou coupling) uniquement pendant les heures AVT (CIV-MIL). / JET A1 (nozzle or connector) only during AVT SKED (CIV-MIL). Paiement : espèces, carte crédit, carte TOTAL, chèques, carte SEA AEG FUEL (MIL). / Payment : cash, credit card, TOTAL card, cheques, SEA AEG FUEL card (MIL). - Lubrifiant / Lubricant : NIL.",
+      "section": "← 10 - AVT : HOR ATS / ATS SKED Carburant / Fuel : Station Total 100 LL (pistolet). Automate H24 pour les détenteurs de la carte TOTAL, autres paiements acceptés uniquement pendant les HOR AVT. / 100 LL (nozzle). Automatic dispenser for TOTAL card holders, other payments only during fuelling SKED. JET A1 (pistolet ou coupling) uniquement pendant les heures AVT (CIV-MIL). / JET A1 (nozzle or connector) only during fuelling SKED (CIV-MIL).",
       "note": "",
       "source": ""
     },
@@ -1072,7 +1072,7 @@
       "availability": "self_service",
       "availabilityLabel": "Automate / H24",
       "allFuelsLabel": "100LL, Jet A1",
-      "section": "← 10 - AVT : Horaires d'ouverture : voir NOTAM / Opening hours : see NOTAM. JET A1 disponible durant les horaires d'ouverture du service avitaillement. En dehors de ces heures l'avitaillement peut être fourni sur PPR 48HR par e-mail : handling@aeroport-rodez.fr / JET A1 available during refueling service SKED. Outside of these SKED refueling may be provided on PPR 48HR by e- mail : handling@aeroport-rodez.fr AVGAS automate disponible avec carte TOTAL seulement / AVGAS automate available with TOTAL card only. Durant les heures d'ouverture du service avitaillement : paiement en carte de crédit disponible / During refueling service SKED : credit card payment available. En dehors des heures d'ouverture du service avitaillement : automate carte TOTAL seulement / Outside refueling service SKED : TOTAL card ATM only. Carburants / Fuel : JET A1 (CIV-MIL), AVGASS 100LL. Lubrifiants / Lubricants : NIL. Paiement : espèces, carte AIR-TOTAL, CB VISA, MASTERCARD, AMEX. Payment : cash, AIR-TOTAL card",
+      "section": "10 - AVT : Horaires d'ouverture : voir NOTAM / Opening hours : see NOTAM. JET A1 disponible durant les horaires d'ouverture du service avitaillement. En dehors de ces heures l'avitaillement peut être fourni sur PPR 48HR par e-mail : handling@aeroport-rodez.fr / JET A1 available during refueling service SKED. Outside of these SKED refueling may be provided on PPR 48HR by e- mail : handling@aeroport-rodez.fr AVGAS automate disponible avec carte TOTAL seulement / AVGAS automate available with TOTAL card only. Durant les heures d'ouverture du service avitaillement : paiement en carte de crédit disponible / During refueling service SKED : credit card payment available. En dehors des heures d'ouverture du service avitaillement : automate carte TOTAL seulement / Outside refueling service SKED : TOTAL card ATM only. Carburants / Fuel : JET A1 (CIV-MIL), AVGASS 100LL. Lubrifiants / Lubricants : NIL. Paiement : espèces, carte AIR-TOTAL, CB VISA, MASTERCARD, AMEX. Payment : cash, AIR-TOTAL card, ",
       "note": "",
       "source": ""
     },
@@ -3106,7 +3106,7 @@
       "availability": "self_service",
       "availabilityLabel": "Automate / H24",
       "allFuelsLabel": "100LL, Jet A1",
-      "section": "10 - AVT : Carburants / Fuel : 100LL, JET A1. Lubrifiant / Lubricant : NIL. Automate H24 par carte bancaire ou badge EDEIS uniquement. Camion 13 m3 : LUN-VEN : 0730-1645 SAM-DIM : Sur demande Paiement comptant pendant les horaires d'ouverture, cartes acceptées : AEG, AVCARD, COLT Intl, WFS. Avitaillement à crédit avec World Fuel Service et AEG. Automatic fuel dispenser H24 with credit card or EDEIS badge only. 13 m3 Fuel Truck : MON-FRI : 0730-1645 SAT-SUN : O/R Cash payment during opening hours, cards accepted : AEG, AVCARD, COLT Intl, WFS. Fuel release via World Fuel Service and AEG. © Service de l'Information Aéronautique, France AMDT 06/25 AD 2 LFJR TXT 04 AIP FRANCE 15 MAY 2025 ANGERS MARCE",
+      "section": "← 10 - AVT : Carburants / Fuel : AVGAS 100LL, JET A1. Lubrifiant / Lubricant : NIL. Automate H24 par carte bancaire ou badge EDEIS uniquement. Paiement comptant pendant les horaires d'ouverture, cartes acceptées : AEG, AVCARD, COLT Intl, WFS. Avitaillement à crédit avec World Fuel Service et AEG. Automatic fuel dispenser H24 with credit card or EDEIS badge only. Cash payment during opening hours, cards accepted : AEG, AVCARD, COLT Intl, WFS. Fuel release via World Fuel Service and AEG. © Service de l'Information Aéronautique, France AMDT 11/26 AD 2 LFJR TXT 04 AIP FRANCE 01 OCT 2026 ANGERS MARCE",
       "note": "",
       "source": ""
     },
@@ -4546,7 +4546,7 @@
       "availability": "self_service",
       "availabilityLabel": "Automate / H24",
       "allFuelsLabel": "100LL, Jet A1",
-      "section": "10 - AVT : JET A1 : HOR ATS uniquement ou sur demande auprès de l'exploitant / ATS SKED or upon request to AD operator. AVGAS 100LL : Automate H24. Paiement carte TOTAL ou carte de crédit / Payment TOTAL card or credit card. AMDT 09/25 © Service de l'Information Aéronautique, France AIP FRANCE AD 2 LFOH TXT 04 07 AUG 2025 LE HAVRE OCTEVILLE",
+      "section": "← 9 - AVT : JET A1 : HOR RFFS niveau 2 ou supérieur uniquement ou sur demande auprès de l'exploitant / Level 2 or higher RFFS SKED or upon request from AD operator. AVGAS 100LL : Automate H24. Paiement carte TOTAL ou carte de crédit / Payment TOTAL card or credit card.",
       "note": "",
       "source": ""
     },
@@ -5695,10 +5695,10 @@
         "100LL"
       ],
       "fuelsLabel": "100LL",
-      "availability": "restricted",
-      "availabilityLabel": "HX, PPR, sur demande",
+      "availability": "self_service",
+      "availabilityLabel": "Automate / H24",
       "allFuelsLabel": "100LL, Jet A1",
-      "section": "← 10 - AVT : Carburants / Fuel : 100 LL - JET A1, Lubrifiant / Lubricant : NIL. Paiement : carte bancaire en HOR AVT ou carte AIR BP / Payment : credit card during AVT SKED or AIR BP card. HOR AVT JET A1 assuré par AIR BP : LUN, MAR, JEU,VEN : 0700-1500. En dehors de ces horaires, HOR RFFS ou NOTAM. Distributeur AVGAS disponible. SKED AVT JET A1 provided by AIR BP : MON, TUE, THU, FRI : 0700-1500. Outside these SKED, RFFS SKED or NOTAM. AVGAS dispenser available. © Service de l'Information Aéronautique, France AMDT 09/25 AD 2 LFRQ TXT 04 AIP FRANCE 07 AUG 2025 QUIMPER PLUGUFFAN",
+      "section": "← 10 - AVT : Carburants / Fuel : 100 LL - JET A1, Lubrifiant / Lubricant : NIL. Paiement : carte bancaire en HOR AVT ou carte AIR BP / Payment : credit card during AVT SKED or AIR BP card. HOR AVT JET A1 assuré par AIR BP / SKED AVT JET A1 provided by AIR BP : LUN-VEN / MON-FRI : 0700-1630 SAM, DIM et JF / SAT, SUN and public HOL : 0800-1645 Distributeur AVGAS 100LL disponible. / AVGAS 100LL automatic dispenser available. © Service de l'Information Aéronautique, France AMDT 11/26 AD 2 LFRQ TXT 04 AIP FRANCE 01 OCT 2026 QUIMPER PLUGUFFAN",
       "note": "",
       "source": ""
     },
@@ -5788,7 +5788,7 @@
       "availability": "self_service",
       "availabilityLabel": "Automate / H24",
       "allFuelsLabel": "100LL, Jet A1",
-      "section": "← 10 - AVT : Carburants / Fuel : JET A1 : CIV-MIL. LUN-VEN / MON-FRI : 0700-2100, SAM / SAT : 0700-1630, DIM et JF du 01/04 au 31/10 / SUN and public HOL from 01/04 to 31/10 : 0800-1630 En dehors de ces HOR, avitaillement possible seulement pour les vols avec PPR avant 1100 le dernier jour ouvrable. / Outside these SKED, possible AVT only for flights with PPR before 1100 the last working day. Moyens de paiement : cartes bancaires (sauf AMEX), espèces (max 757 euros), carte TOTAL, autres cartes BROKER via FUEL RELEASE AIR TOTAL. / Payment : credit cards (except AMEX), cash (757 euros max), TOTAL card, others BROKER cards via FUEL RELEASE AIR TOTAL. TEL : 02 40 90 02 13 / 06 16 92 09 66 pendant les horaires d'ouverture du RFFS / during RFFS opening SKED. E-mail : nteleaderssliasnr@nantes.aeroport.fr AVGAS / 100LL : CIV-MIL. Automate / Automatic fuel dispenser : 24/24. Moyen de paiement / Payment : cartes TOTAL uniquement / TOTAL cards only . Lubrifiants / Lubricants : NIL.",
+      "section": "10 - AVT : Carburants / Fuel : JET A1 : CIV-MIL. LUN-VEN / MON-FRI : 0700-2100, SAM / SAT : 0700-1630, DIM et JF du 01/04 au 31/10 / SUN and public HOL from 01/04 to 31/10 : 0800-1630 En dehors de ces HOR, avitaillement possible seulement pour les vols avec PPR avant 1100 le dernier jour ouvrable. / Outside these SKED, possible AVT only for flights with PPR before 1100 the last working day. Moyens de paiement : cartes bancaires (sauf AMEX), espèces (max 757 euros), carte TOTAL, autres cartes BROKER via FUEL RELEASE AIR TOTAL. / Payment : credit cards (except AMEX), cash (757 euros max), TOTAL card, others BROKER cards via FUEL RELEASE AIR TOTAL. TEL : 02 40 90 02 13 / 06 16 92 09 66 pendant les horaires d'ouverture du RFFS / during RFFS opening SKED. E-mail : nteleaderssliasnr@nantes.aeroport.fr AVGAS / 100LL : CIV-MIL. Automate / Automatic fuel dispenser : 24/24. Moyen de paiement / Payment : cartes TOTAL uniquement / TOTAL cards only . Lubrifiants / Lubricants : NIL.",
       "note": "",
       "source": ""
     },

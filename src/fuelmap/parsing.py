@@ -14,10 +14,12 @@ from .availability import detect_availability
 
 ICAO_FILENAME_RE = re.compile(r"AD-2\.(LF[A-Z0-9]{2,3})\.pdf$", re.IGNORECASE)
 
-# The fuel section opens with "10 - AVT" or "10. AVT" and runs until section
-# 11 (RFFS) or 12. A leading "←" marks an amended paragraph in SIA charts.
+# The fuel section opens with "10 - AVT" (or "9 - AVT" on a few charts, e.g.
+# Le Havre) and runs until the next numbered heading. A leading "←" marks an
+# amended paragraph in SIA charts.
 FUEL_SECTION_RE = re.compile(
-    r"(?:^|\n)\s*(?:←\s*)?10\s*[-.]\s*AVT.*?(?=\n\s*(?:←\s*)?1[12]\s*[-.])",
+    r"(?:^|\n)\s*(?:←\s*)?(?:9|10)\s*[-.]\s*AVT"
+    r".*?(?=\n\s*(?:←\s*)?\d{1,2}\s*[-.]\s*(?!AVT))",
     re.IGNORECASE | re.DOTALL,
 )
 
@@ -126,7 +128,7 @@ def icao_from_filename(filename: str) -> str | None:
 
 
 def extract_fuel_section(text: str) -> str:
-    """Isolate VAC section "10 - AVT", or return an empty string if absent."""
+    """Isolate the VAC AVT section, or return an empty string if absent."""
     match = FUEL_SECTION_RE.search(text)
     return match.group(0) if match else ""
 

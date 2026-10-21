@@ -1,0 +1,15 @@
+LE HAVRE OCTEVILLE
+AD 2 LFOH
+01 OCT 2026
+ALT AD : 312
+LFOH                    LAT : 49 32 02 N                VAR : 1°E
+                        LONG : 000 05 17 E
+
+← 9 - AVT : JET A1 : HOR RFFS niveau 2 ou supérieur uniquement ou sur demande auprès de l'exploitant / Level
+             2 or higher RFFS SKED or upon request from AD operator.
+             AVGAS 100LL : Automate H24. Paiement carte TOTAL ou carte de crédit / Payment TOTAL card or
+             credit card.
+← 10 - RFFS : HIV:
+                 Niveau 5 : LUN-VEN : 0830-1200 / 1300-1645
+
+11 - Péril animalier / Wildlife strike hazard : Occasionnel / Random - O/R.

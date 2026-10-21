@@ -13,6 +13,7 @@ several hundred megabytes and not redistributable.
 | `AD-2.LFJB.txt` | `AVT : NIL`, an aerodrome with no fuel at all |
 | `AD-2.LFOJ.txt` | Military chart with no fuel section, plus a two-column header |
 | `AD-2.LFDA.txt` | Section closed by 12 instead of 11; **coordinates altered to the southern hemisphere** to cover the sign handling |
+| `AD-2.LFOH.txt` | Fuel listed as `9 - AVT` and closed by `10 - RFFS` (AIRAC 2026-10-01) |
 
 Apart from the noted change to `AD-2.LFDA.txt`, the text is faithful to the
 2026-05-14 AIRAC cycle. The availability classifier is additionally checked
