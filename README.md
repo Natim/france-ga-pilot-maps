@@ -11,8 +11,8 @@ Atlas-VAC).
 **[Redevances d'atterrissage](https://natim.github.io/france-ga-pilot-maps/landing.html)** ·
 **[Liste complète](./AERODROMES.md)**
 
-Aussi : [Cloudy](https://cloudy.fr/) (carnet de vol) ·
-[Fly Green Aviation](https://www.fly-green-aviation.com/) (école et location à Rennes)
+Cartes proposées par [Fly Green Aviation](https://www.fly-green-aviation.com/)
+et [Cloudy](https://cloudy.fr/)
 
 ## Pourquoi
 
