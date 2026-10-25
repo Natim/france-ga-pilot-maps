@@ -11,6 +11,9 @@ Atlas-VAC).
 **[Redevances d'atterrissage](https://natim.github.io/france-ga-pilot-maps/landing.html)** ·
 **[Liste complète](./AERODROMES.md)**
 
+Aussi : [Cloudy](https://cloudy.fr/) (carnet de vol) ·
+[Fly Green Aviation](https://www.fly-green-aviation.com/) (école et location à Rennes)
+
 ## Pourquoi
 
 Les pilotes d'aéronefs certifiés pour l'essence sans plomb ont besoin de savoir
