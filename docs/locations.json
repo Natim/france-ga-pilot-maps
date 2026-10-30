@@ -1,7 +1,7 @@
 {
   "schema": 1,
-  "airac": "2026-10-01",
-  "generated": "2026-10-21",
+  "airac": "2026-10-29",
+  "generated": "2026-10-30",
   "aerodromeCount": 301,
   "families": [
     {
@@ -3718,7 +3718,7 @@
       "availability": "self_service",
       "availabilityLabel": "Automate / H24",
       "allFuelsLabel": "100LL, Jet A1",
-      "section": "10 - AVT : Carburant / Fuel : AVGAS 100 LL - JET A1, Lubrifiant / Lubricant : NIL. LUN-VEN / MON-FRI : 0700-1800, sauf JF / except public HOL. Camion avitailleur / Refueling truck : JET A1. LUN-VEN / MON-FRI : 0700-1800. Paiement : carte TOTAL, carte bancaire, espèce / Payment : TOTAL card, credit card, cash. En dehors de ces HOR : automate JET A1 et AVGAS 100LL avec carte TOTAL uniquement H24 / Outside these SKED : JET A1 and AVGAS 100LL dispenser with TOTAL card only, H24.",
+      "section": "← 10 - AVT : Carburant / Fuel : AVGAS 100 LL - JET A1, Lubrifiant / Lubricant : NIL. LUN-VEN / MON-FRI : 0700-1730 , sauf JF / except public HOL. Camion avitailleur / Refueling truck : JET A1. Paiement : carte TOTAL, carte bancaire, espèce / Payment : TOTAL card, credit card, cash. En dehors de ces HOR : automate JET A1 avec carte TOTAL uniquement H24 et AVGAS 100LL avec carte TOTAL et CB H24/J7. / Outside these SKED : JET A1 with TOTAL card only, H24 and AVGAS 100LL with TOTAL card and CB H24/J7. © Service de l'Information Aéronautique, France AMDT 12/26 AD 2 LFLU TXT 04 AIP FRANCE 29 OCT 2026 VALENCE CHABEUIL",
       "note": "",
       "source": ""
     },
@@ -3790,7 +3790,7 @@
       "availability": "restricted",
       "availabilityLabel": "HX, PPR, sur demande",
       "allFuelsLabel": "UL AERO SUPER+, 100LL, Jet A1",
-      "section": "← 10 - AVT : Carburants / Fuel : UL AERO SUPER+ - 100 LL - JET A1 (TOTAL Energies et / and Air BP). 0630-2230, carte crédit, Eurochèques ou paiement comptant. Société SCAL : Hors HOR ouverture, TEL : 06 34 53 30 58 Carte TOTAL à la station 100LL : H24. JET A1 : TOTAL ou BP (Carte TOTAL ou Carte Sterling). S'adresser au comptoir ADL dans le Terminal ou contacter FREQ OPS. 0630-2230, credit card, Eurocheques or cash payment. SCAL company : outside opening SKED, TEL : 06 34 53 30 58 TOTAL Card for 100LL : H24. JET A1 : TOTAL or BP (TOTAL card or Sterling card). Contact ADL desk counter inside terminal or contact OPS FREQ.",
+      "section": "← 10 - AVT : Carburants / Fuel : UL AERO SUPER+ - 100 LL - JET A1 (TOTAL Energies, Air BP et / and WFS). 0630-2230, carte crédit, Eurochèques ou paiement comptant. Société SCAL : Hors HOR ouverture, TEL : 04 78 26 60 58 Carte TOTAL à la station 100LL : H24. JET A1 : TOTAL, BP ou WFS (Carte TOTAL, Carte Sterling ou WFS). S'adresser au comptoir ADL dans le Terminal ou contacter FREQ OPS. 0630-2230, credit card, Eurocheques or cash payment. SCAL company : outside opening SKED, TEL : 04 78 26 60 58 TOTAL Card for 100LL : H24. JET A1 : TOTAL, BP or WFS (TOTAL card, Sterling card or WFS). Contact ADL desk counter inside terminal or contact OPS FREQ.",
       "note": "",
       "source": ""
     },
@@ -3808,7 +3808,7 @@
       "availability": "self_service",
       "availabilityLabel": "Automate / H24",
       "allFuelsLabel": "UL AERO SUPER+, 100LL, Jet A1",
-      "section": "← 10 - AVT : Carburants / Fuel : UL AERO SUPER+ - 100 LL - JET A1 (TOTAL Energies et / and Air BP). 0630-2230, carte crédit, Eurochèques ou paiement comptant. Société SCAL : Hors HOR ouverture, TEL : 06 34 53 30 58 Carte TOTAL à la station 100LL : H24. JET A1 : TOTAL ou BP (Carte TOTAL ou Carte Sterling). S'adresser au comptoir ADL dans le Terminal ou contacter FREQ OPS. 0630-2230, credit card, Eurocheques or cash payment. SCAL company : outside opening SKED, TEL : 06 34 53 30 58 TOTAL Card for 100LL : H24. JET A1 : TOTAL or BP (TOTAL card or Sterling card). Contact ADL desk counter inside terminal or contact OPS FREQ.",
+      "section": "← 10 - AVT : Carburants / Fuel : UL AERO SUPER+ - 100 LL - JET A1 (TOTAL Energies, Air BP et / and WFS). 0630-2230, carte crédit, Eurochèques ou paiement comptant. Société SCAL : Hors HOR ouverture, TEL : 04 78 26 60 58 Carte TOTAL à la station 100LL : H24. JET A1 : TOTAL, BP ou WFS (Carte TOTAL, Carte Sterling ou WFS). S'adresser au comptoir ADL dans le Terminal ou contacter FREQ OPS. 0630-2230, credit card, Eurocheques or cash payment. SCAL company : outside opening SKED, TEL : 04 78 26 60 58 TOTAL Card for 100LL : H24. JET A1 : TOTAL, BP or WFS (TOTAL card, Sterling card or WFS). Contact ADL desk counter inside terminal or contact OPS FREQ.",
       "note": "",
       "source": ""
     },
@@ -3844,7 +3844,7 @@
       "availability": "restricted",
       "availabilityLabel": "HX, PPR, sur demande",
       "allFuelsLabel": "100LL, Jet A1",
-      "section": "10 - AVT : Carburant / Fuel : 100 LL JET A1 HOR ATS ou PPR la veille / ATS SKED or PPR on previous day TEL : 04 93 90 42 02. Poste 7 (avitaillement AVGAS 100LL pompe fixe): poste 7.1 uniquement carte de crédit, poste 7.2 uniquement BP. Stand 7 (AVGAS 100LL stationary pump): stand 7.1 credit card only, stand 7.2 BP only. Lubrifiant / Lubricant : disponible / available .",
+      "section": "← 10 - AVT : Carburant / Fuel : 100 LL JET A1. Lubrifiants / Lubricants : NIL. HOT ATS / ATS SKED TEL : 04 93 90 42 02. Poste 7 (avitaillement AVGAS 100LL pompe fixe) : poste 7.1 uniquement carte de crédit, poste 7.2 uniquement BP. Stand 7 (AVGAS 100LL stationary pump) : stand 7.1 credit card only, stand 7.2 BP only. Lubrifiant / Lubricant : disponible / available .",
       "note": "",
       "source": ""
     },
@@ -3877,10 +3877,10 @@
         "100LL"
       ],
       "fuelsLabel": "100LL",
-      "availability": "restricted",
-      "availabilityLabel": "HX, PPR, sur demande",
+      "availability": "self_service",
+      "availabilityLabel": "Automate / H24",
       "allFuelsLabel": "100LL, Jet A1",
-      "section": "← 10 - AVT : HOR : LUN-VEN 0815-1730 ; SAM-DIM et JF : avitaillement non assuré. - Avitaillement JET A1 : en dehors de ces horaires, avitaillement possible sur PPR (LUN-VEN : PPR PN 24HR ; SAM-DIM et JF : PPR PN 48HR). Par E-mail : operations@saint-etienne.aeroport.fr - Avitaillement AVGAS : Durant les heures d'ouverture, règlement carte bancaire et carte AIR TOTAL. En dehors de ces horaires : règlement uniquement en carte AIR TOTAL. SKED : MON-FRI 0815-1730 ; SAT-SUN and public HOL : fuelling not provided. - JET A1 fuelling : outside this SKED, fuelling possible with PPR (MON-FRI : PPR PN 24HR ; SAT- SUN and public HOL : PPR PN 48HR). By E-mail : operations@saint-etienne.aeroport.fr - AVGAS fuelling : during opening SKED, payment with bank card or AIR TOTAL card. Outside this SKED payment only with AIR TOTAL card. Lubrifiant / Lubricant : NIL.",
+      "section": "← 10 - AVT : HOR : LUN-VEN 0815-1730 ; SAM-DIM et JF : avitaillement non assuré. - Avitaillement JET A1 : durant les horaires d'ouverture, règlement carte bancaire et carte AIR TOTAL. En dehors de ces horaires, avitaillement possible H24 sur automate (règlement par carte AIR TOTAL uniquement), envergure avion MAX 16 m/ diamètre rotor MAX 16 m. En dehors de ces gabarits sur PPR (LUN-VEN : PPR 24 HR ; SAM-DIM et JF : PPR 48 HR). Par E-mail : operations@saint-etienne.aeroport.fr - Avitaillement AVGAS 100LL : H24, règlement carte bancaire et carte AIR TOTAL. SKED : MON-FRI 0815-1730 ; SAT-SUN and public HOL : fuelling not provided. - JET A1 fuelling : during these SKED, payment with bank card or AIR TOTAL card. Outside these SKED, fuelling is possible H24 by dispenser (payment with AIR TOTAL card only), MAX plane wingspan 16 m / MAX rotor diameter 16 m. Outside these dimensions on PPR (MON-FRI : PPR 24 HR ; SAT- SUN and public HOL : PPR 48 HR). By E-mail : operations@saint-etienne.aeroport",
       "note": "",
       "source": ""
     },
@@ -4042,7 +4042,7 @@
       "availability": "self_service",
       "availabilityLabel": "Automate / H24",
       "allFuelsLabel": "100LL, Jet A1",
-      "section": "← 10 - AVT 0300-2200 - TEL : 04 67 65 10 10 - FREQ 131.575 PN 30 MIN : En dehors de ces HOR / Outside these SKED : astreinte de nuit au / night duty on 04 67 65 10 70 (délai d'intervention de nuit 1 HR après appel; facturation surcoût déplacement de nuit) / (Night response time 1 HR after call; billing of night shift surchages) . Carburants/ Fuel : 100LL, JET A1 (CIV-MIL) Lubrifiants / Lubricants : NIL. JET A1 : 7 cuves de 120 m³, 1 camion de 36 m³ / 7 tanks 120 m³, 1 truck 36 m³ AVGAS 100LL : cuve de 50 m³, camions de 5800 litres 1 camion de 32 m³, 1 camion de 11 m³, 1 camion de 40 m³ / 50 m³ tank, trucks of 5800 litres 1 truck 32 m³, 1truck 11 m³,1 truck 40 m³ Pas de / No DEFUELING à / in Montpellier. Carte de crédit / Credit card :TOTAL ENERGIES, UVAIR, WORLD FUEL SERVICE, AVCARD, WORLD FUEL CONTRACT, COLT CARD, AVIATION INTO PLANE, PHILLIPS66 WINGS, AIR CARD, AMERICAN EXPRESS, CB. Paiement comptant / Cash payment (750 euros MAX) AUTOMATE AVGAS 100LL interdit aux hélicoptères / Auto",
+      "section": "10 - AVT 0300-2200 - TEL : 04 67 65 10 10 - FREQ 131.575 PN 30 MIN : En dehors de ces HOR / Outside these SKED : astreinte de nuit au / night duty on 04 67 65 10 70 (délai d'intervention de nuit 1 HR après appel; facturation surcoût déplacement de nuit) / (Night response time 1 HR after call; billing of night shift surchages) . Carburants/ Fuel : 100LL, JET A1 (CIV-MIL) Lubrifiants / Lubricants : NIL. JET A1 : 7 cuves de 120 m³, 1 camion de 36 m³ / 7 tanks 120 m³, 1 truck 36 m³ AVGAS 100LL : cuve de 50 m³, camions de 5800 litres 1 camion de 32 m³, 1 camion de 11 m³, 1 camion de 40 m³ / 50 m³ tank, trucks of 5800 litres 1 truck 32 m³, 1truck 11 m³,1 truck 40 m³ Pas de / No DEFUELING à / in Montpellier. Carte de crédit / Credit card :TOTAL ENERGIES, UVAIR, WORLD FUEL SERVICE, AVCARD, WORLD FUEL CONTRACT, COLT CARD, AVIATION INTO PLANE, PHILLIPS66 WINGS, AIR CARD, AMERICAN EXPRESS, CB. Paiement comptant / Cash payment (750 euros MAX) AUTOMATE AVGAS 100LL, utilisable uniquement pour les av",
       "note": "",
       "source": ""
     },
@@ -4078,7 +4078,7 @@
       "availability": "restricted",
       "availabilityLabel": "HX, PPR, sur demande",
       "allFuelsLabel": "UL AERO SUPER+, 100LL, Jet A1",
-      "section": "10 - AVT : Carburants / Fuel : AVGAS 100 LL - UL AERO SUPER+ - JET A1 – Lubrifiants / Lubricants : NIL. LUN-VEN / MON-FRI : ETE / SUM : 0500-1900, HIV / WIN : 0600-1930. SAM / SAT : 0630-1730. DIM / SUN : 0730-1830. Automate / Dispenser AVGAS 100LL (envergure MAX / MAX span 15 m) - UL AERO SUPER+ (envergure MAX / MAX span 10 m) : HOR AVT uniquement, paiement espèces, carte TOTAL et carte bancaire / AVT SKED only, payment by cash, TOTAL card and credit card. Hors HOR / Outside these SKED : TEL gestionnaire d'AD / AD operator.",
+      "section": "← 10 - AVT : Carburants / Fuel : AVGAS 100 LL - UL AERO SUPER+ - JET A1 – Lubrifiants / Lubricants : NIL. LUN-VEN / MON-FRI : ETE / SUM : 0500-1900, HIV / WIN : 0600-1930. SAM / SAT : 0630-1730. DIM / SUN : 0730-1830. Automate / Dispenser AVGAS 100LL (envergure MAX / MAX span 15 m) - UL AERO SUPER+ (envergure MAX / MAX span 10 m) : HOR AVT uniquement, paiement espèces, carte TOTAL et carte bancaire / AVT SKED only, payment by cash, TOTAL card and credit card. Hors HOR / Outside these SKED : TEL exploitant d'AD / AD operator.",
       "note": "",
       "source": ""
     },
@@ -4096,7 +4096,7 @@
       "availability": "restricted",
       "availabilityLabel": "HX, PPR, sur demande",
       "allFuelsLabel": "UL AERO SUPER+, 100LL, Jet A1",
-      "section": "10 - AVT : Carburants / Fuel : AVGAS 100 LL - UL AERO SUPER+ - JET A1 – Lubrifiants / Lubricants : NIL. LUN-VEN / MON-FRI : ETE / SUM : 0500-1900, HIV / WIN : 0600-1930. SAM / SAT : 0630-1730. DIM / SUN : 0730-1830. Automate / Dispenser AVGAS 100LL (envergure MAX / MAX span 15 m) - UL AERO SUPER+ (envergure MAX / MAX span 10 m) : HOR AVT uniquement, paiement espèces, carte TOTAL et carte bancaire / AVT SKED only, payment by cash, TOTAL card and credit card. Hors HOR / Outside these SKED : TEL gestionnaire d'AD / AD operator.",
+      "section": "← 10 - AVT : Carburants / Fuel : AVGAS 100 LL - UL AERO SUPER+ - JET A1 – Lubrifiants / Lubricants : NIL. LUN-VEN / MON-FRI : ETE / SUM : 0500-1900, HIV / WIN : 0600-1930. SAM / SAT : 0630-1730. DIM / SUN : 0730-1830. Automate / Dispenser AVGAS 100LL (envergure MAX / MAX span 15 m) - UL AERO SUPER+ (envergure MAX / MAX span 10 m) : HOR AVT uniquement, paiement espèces, carte TOTAL et carte bancaire / AVT SKED only, payment by cash, TOTAL card and credit card. Hors HOR / Outside these SKED : TEL exploitant d'AD / AD operator.",
       "note": "",
       "source": ""
     },

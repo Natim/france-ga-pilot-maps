@@ -2,8 +2,8 @@
 
 **48 aérodromes** publient une pompe d'essence sans plomb (UL91, SP95/SP98, Super Plus, UL AERO SUPER+ ou AKI93) dans leur carte VAC officielle. S'y ajoutent **8 terrains renseignés à la main** : 7 dont le sans plomb vient d'une source hors VAC (†), 1 absent de l'AIP (‡).
 
-- **Cycle AIRAC** : 2026-10-01
-- **Date d'extraction** : 2026-10-21
+- **Cycle AIRAC** : 2026-10-29
+- **Date d'extraction** : 2026-10-30
 - **Source** : eAIP du SIA, Atlas-VAC
 
 ## Répartition par carburant
